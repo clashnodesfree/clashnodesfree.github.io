@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+Disallow: /bin/
+Sitemap: https://clashnodesfree.github.io/sitemap.xml
