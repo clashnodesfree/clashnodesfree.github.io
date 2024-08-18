@@ -1,0 +1,472 @@
+/*--------------------------------------------------------------------- File Name: responsive.css ---------------------------------------------------------------------*/
+
+
+/*------------------------------------------------------------------- 991px x 768px ---------------------------------------------------------------------*/
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .header-search {
+        padding: 15px 0px;
+    }
+}
+
+
+/*------------------------------------------------------------------- 767px x 599px ---------------------------------------------------------------------*/
+
+@media only screen and (min-width: 599px) and (max-width: 767px) {
+    .logo {
+        text-align: center;
+    }
+    .cart-content-right {
+        padding-bottom: 5px;
+    }
+    .mg {
+        margin: 0px 0px;
+    }
+    .menu-area-main {
+        height: 256px;
+        overflow-y: auto;
+    }
+    .megamenu>.row [class*="col-"] {
+        padding: 0px;
+    }
+    .menu-area-main .megamenu .men-cat {
+        padding: 0px 15px;
+    }
+    .menu-area-main .megamenu .women-cat {
+        padding: 0px 15px;
+    }
+    .menu-area-main .megamenu .el-cat {
+        padding: 0px 15px;
+    }
+    .mean-container .mean-nav ul li a.mean-expand {
+        height: 19px;
+    }
+    .category-box.women-box {
+        display: none;
+    }
+    .cart-box {
+        display: inline-block;
+        margin: 0px 30px;
+    }
+    .wish-box {
+        float: none;
+        margin: 0px 30px;
+        display: inline-block;
+    }
+    .menu-add {
+        display: none;
+    }
+    .category-box {
+        display: none;
+    }
+    .mean-container .mean-nav ul li ol {
+        padding: 0px;
+    }
+    .mean-container .mean-nav ul li a {
+        padding: 10px 20px;
+        width: 94.8%;
+    }
+    .mean-container .mean-nav ul li li a {
+        width: 92%;
+        padding: 1em 4%;
+    }
+    .mean-container .mean-nav ul li li li a {
+        width: 100%;
+    }
+    .header-search {
+        padding: 15px 0px;
+    }
+    #collapseFilter.d-md-block {
+        padding: 30px 0px;
+    }
+}
+
+
+/*------------------------------------------------------------------- 599px x 280px ---------------------------------------------------------------------*/
+
+@media only screen and (min-width: 280px) and (max-width: 599px) {
+    .cart-content-right {
+        padding-bottom: 5px;
+    }
+    .megamenu>.row [class*="col-"] {
+        padding: 0px;
+    }
+    .menu-area-main .megamenu .men-cat {
+        padding: 0px 15px;
+    }
+    .menu-area-main .megamenu .women-cat {
+        padding: 0px 15px;
+    }
+    .menu-area-main .megamenu .el-cat {
+        padding: 0px 15px;
+    }
+    .mean-container .mean-nav ul li a {
+        padding: 1em 4%;
+        width: 92%;
+    }
+    .mean-container .mean-nav ul li li a {
+        width: 90%;
+        padding: 1em 5%;
+    }
+    .mean-container .sub-full.megamenu-categories ol li a {
+        padding: 5px 0px;
+        text-transform: capitalize;
+        width: 100%;
+    }
+    .megamenu .sub-full.megamenu-categories .women-box .banner-up-text a {
+        width: auto;
+        border: none;
+        float: none;
+    }
+    .menu-area-main {
+        height: 45px;
+        overflow-y: auto;
+    }
+    .mean-container .mean-nav ul li a.mean-expand {
+        top: 0;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .ml-auto,
+    .mx-auto {
+        margin: 0 auto;
+    }
+    .navbar-expand-lg .navbar-nav .nav-link {
+        padding-right: 5px;
+        padding-left: 5px;
+        font-size: 14px;
+    }
+    .login_text li {
+        font-size: 14px;
+        padding: 0px 10px;
+    }
+    .quote_btn {
+        width: 140px;
+    }
+    .quote_btn a {
+        font-size: 14px;
+    }
+    #my_slider a.carousel-control-prev {
+        left: inherit;
+        top: 180px;
+        right: 30px;
+    }
+    #my_slider a.carousel-control-next {
+        right: 30px;
+        top: 120px;
+        left: initial;
+    }
+    .services_section_2 {
+        width: 98%;
+    }
+    .development_text {
+        font-size: 20px;
+    }
+    .service_img img {
+        min-height: 30px;
+    }
+    .about_taital {
+        padding-top: 40px;
+    }
+    #costum_slider a.carousel-control-next {
+        right: -60px;
+        left: 0px;
+        top: 550px;
+    }
+    #costum_slider a.carousel-control-prev {
+        left: -60px;
+        right: 0px;
+        top: 550px;
+    }
+    .mail_section_1 {
+        padding-left: 15px;
+        padding-top: 0px;
+    }
+    .location_text li {
+        padding: 0px 90px 30px 90px;
+    }
+    .useful_text {
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    #my_slider a.carousel-control-prev {
+        left: 30px;
+        top: 180px;
+        right: 0px;
+        display: none;
+    }
+    #my_slider a.carousel-control-next {
+        right: 0px;
+        top: 120px;
+        left: 30px;
+        display: none;
+    }
+    .header_top_section {
+        display: none;
+    }
+    .navbar-expand-lg .navbar-nav .nav-link {
+        text-align: center;
+        margin-top: 0px;
+    }
+    .navbar-toggler {
+        background-color: #fff;
+    }
+    .header_section {
+        background-size: cover;
+    }
+    .logo {
+        width: auto;
+    }
+    .banner_taital_main {
+        width: 80%;
+    }
+    .banner_taital {
+        font-size: 50px;
+        line-height: 55px;
+    }
+    .about_text {
+        font-size: 14px;
+        margin: 0px;
+    }
+    .about_taital {
+        padding-top: 0px;
+    }
+    .video_bt {
+        width: 100%;
+        padding: 120px 0px;
+    }
+    .projects_section ul .nav-link {
+        padding: 12px 9px;
+        margin: 0px 5px;
+        width: auto;
+    }
+    .image {
+        min-height: auto;
+        margin-top: 30px;
+    }
+    .testimonial_section_2 {
+        width: 100%;
+        padding-top: 30px;
+    }
+    #costum_slider a.carousel-control-next {
+        top: 560px;
+    }
+    #costum_slider a.carousel-control-prev {
+        top: 560px;
+    }
+    .textimonial_text {
+        padding: 40px 20px;
+    }
+    .testimonial_section {
+        padding: 90px 0px 150px 0px;
+    }
+    .contact_taital {
+        padding-left: 0px;
+    }
+    .mail_section_1 {
+        padding-left: 0px;
+        padding-top: 0px;
+    }
+    .contact_img {
+        margin-top: 30px;
+    }
+    .location_text li {
+        padding: 0px 50px 30px 50px;
+    }
+    .useful_text {
+        font-size: 14px;
+    }
+    .lorem_text {
+        font-size: 14px;
+    }
+    .footer_menu {
+        width: 100%;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    #my_slider a.carousel-control-prev {
+        left: 30px;
+        top: 180px;
+        right: 0px;
+        display: none;
+    }
+    #my_slider a.carousel-control-next {
+        right: 0px;
+        top: 120px;
+        left: 30px;
+        display: none;
+    }
+    .header_top_section {
+        display: none;
+    }
+    .navbar-expand-lg .navbar-nav .nav-link {
+        text-align: center;
+        margin-top: 0px;
+    }
+    .navbar-toggler {
+        background-color: #fff;
+    }
+    .header_section {
+        background-size: cover;
+    }
+    .logo {
+        width: auto;
+    }
+    .banner_taital_main {
+        width: 100%;
+    }
+    .banner_taital {
+        font-size: 50px;
+        line-height: 55px;
+    }
+    .about_text {
+        font-size: 14px;
+    }
+    .about_taital {
+        padding-top: 0px;
+    }
+    .video_bt {
+        width: 100%;
+        padding: 60px 0px;
+    }
+    .about_img {
+        margin-top: 30px;
+    }
+    .projects_section ul .nav-link {
+        padding: 12px 5px;
+    }
+    .image {
+        min-height: auto;
+        margin-top: 30px;
+    }
+    .testimonial_section_2 {
+        width: 100%;
+        padding-top: 30px;
+    }
+    #costum_slider a.carousel-control-next {
+        display: none;
+    }
+    #costum_slider a.carousel-control-prev {
+        display: none;
+    }
+    .textimonial_text {
+        padding: 40px 20px;
+    }
+    .testimonial_section {
+        padding: 90px 0px 90px 0px;
+    }
+    .contact_taital {
+        padding-left: 0px;
+    }
+    .mail_section_1 {
+        padding-left: 0px;
+        padding-top: 0px;
+    }
+    .contact_img {
+        margin-top: 30px;
+    }
+    .location_text li {
+        float: none;
+        padding: 0px 20px 30px 20px;
+    }
+    .useful_text {
+        padding-top: 20px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 575px) {
+    #my_slider a.carousel-control-prev {
+        left: 30px;
+        top: 180px;
+        right: 0px;
+        display: none;
+    }
+    #my_slider a.carousel-control-next {
+        right: 0px;
+        top: 120px;
+        left: 30px;
+        display: none;
+    }
+    .header_top_section {
+        display: none;
+    }
+    .navbar-expand-lg .navbar-nav .nav-link {
+        text-align: center;
+        margin-top: 0px;
+    }
+    .navbar-toggler {
+        background-color: #fff;
+    }
+    .header_section {
+        background-size: cover;
+    }
+    .logo {
+        width: auto;
+    }
+    .banner_taital_main {
+        width: 100%;
+    }
+    .banner_taital {
+        font-size: 30px;
+        line-height: 35px;
+    }
+    .about_text {
+        font-size: 14px;
+    }
+    .about_taital {
+        padding-top: 0px;
+    }
+    .video_bt {
+        width: 100%;
+        padding: 60px 0px;
+    }
+    .about_img {
+        margin-top: 30px;
+    }
+    .projects_section ul .nav-link {
+        padding: 12px 5px;
+    }
+    .image {
+        min-height: auto;
+        margin-top: 30px;
+    }
+    .testimonial_section_2 {
+        width: 100%;
+        padding-top: 30px;
+    }
+    #costum_slider a.carousel-control-next {
+        display: none;
+    }
+    #costum_slider a.carousel-control-prev {
+        display: none;
+    }
+    .textimonial_text {
+        padding: 40px 20px;
+    }
+    .testimonial_section {
+        padding: 90px 0px 90px 0px;
+    }
+    .contact_taital {
+        padding-left: 0px;
+    }
+    .mail_section_1 {
+        padding-left: 0px;
+        padding-top: 0px;
+    }
+    .contact_img {
+        margin-top: 30px;
+    }
+    .location_text li {
+        float: none;
+        padding: 0px 20px 30px 20px;
+    }
+    .useful_text {
+        padding-top: 20px;
+        font-size: 20px;
+    }
+}
