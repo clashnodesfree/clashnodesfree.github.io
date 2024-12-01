@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <link rel="canonical" href="https://clashnodesfree.github.io/news/article-19589.htm" />
+<!-- basic -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<!-- mobile metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<!-- site metas -->
+<title>Rust如何开发eBPF应用</title>
+<meta name="description" content="前言 eBPF是一项革命性的技术，可以在Linux内核中运行沙盒程序，而无需重新编译内核或加载内核模块。它能够在许多内核 hook 点安全地执行字节码，主要应用在云原生网络、安全、跟踪监控等方面。 e" />
+<!-- bootstrap css -->
+<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/bootstrap.min.css">
+<!-- style css -->
+<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/style.css">
+<!-- Responsive-->
+<link rel="stylesheet" href="/assets/website/css/clashnodesfree/responsive.css">
+<!-- favicon -->
+<link rel="icon" href="__ADDON__/img/clashnodesfree/favicon.ico" type="image/x-icon"/>
+<!-- Scrollbar Custom CSS -->
+<link rel="stylesheet" href="/assets/website/css/clashnodesfree/jquery.mCustomScrollbar.min.css">
+<!-- Tweaks for older IEs-->
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+<!-- fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z348FF31FW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z348FF31FW');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!-- header section start -->
+    <div class="header_section header_bg">
+        <div class="container-fluid">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Clash Nodes Free</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="breadcrumb">
+              <a href="/">首页</a> / 
+              <a href="/news/">新闻资讯</a> / 
+              <span>正文</span>
+            </div>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <h1 class="services_taital mb-5">Rust如何开发eBPF应用</h1>
+                                      				  				  				<p><span style="font-size: 24px">前言</span></p> <p><strong>eBPF是一项革命性的技术，可以在Linux内核中运行沙盒程序，而无需重新编译内核或加载内核模块。它能够在许多内核 hook 点安全地执行字节码，主要应用在云原生网络、安全、跟踪监控等方面。</strong></p> <p><strong>eBPF 基金会 (<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://ebpf.io"  target="_blank" rel="nofollow">https://ebpf.io</a>) 是一个为 eBPF 技术而创建的非盈利性组织，隶属于 Linux 基金会，其意在推动 eBPF 更好地发展，使其得到更加广泛的运用。</strong></p> <p>下面我将介绍如何在Rust中开发基于eBPF技术的应用示例。（该示例教程主要面向具备Rust开发基础的同学）</p> <p>(一)环境准备</p> <p>一台VM或Linux系统主机</p> <p>推荐系统：Ubuntu20.04</p> <p>内存：4G以上</p> <p>Rust开发工具链：v1.56~</p> <p>(二)安装llvm13（编译bpf字节码需要）</p> <pre class="language-bash"><code>apt-get update  apt-get -y install wget build-essential software-properties-common lsb-release libelf-dev linux-headers-generic pkg-config wget https://apt.llvm.org/llvm.sh chmod +x llvm.sh ./llvm.sh 13 rm -f ./llvm.sh</code></pre> <pre class="language-bash"><code>//检验是否安装成功，输出版本号表示安装成功 llvm-config-13 --version | grep 13</code></pre> <p>(三)安装 cargo-bpf脚手架</p> <pre class="language-bash"><code>cargo install cargo-bpf --no-default-features --features=llvm13</code></pre> <p>(四)应用示例</p> <pre class="language-bash"><code>#1、创建用户空间代码目录 cargo new bpfdemo cd bpfdemo #2、创建bpf代码目录 cargo bpf new probes ls &gt;&gt;Cargo.lock  Cargo.toml  probes  src #3、编写一个openmonitor bpf程序 输出系统打开的文件 cd probes cargo bpf add openmonitor cd src  ls &gt;&gt;lib.rs  openmonitor cd openmonitor nano main.rs</code></pre> <p>完整openmonitor/main.rs代码如下：</p> <pre class="language-bash"><code>#![no_std] #![no_main]  use probes::openmonitor::*; use redbpf_probes::kprobe::prelude::*;  program!(0xFFFFFFFE, "GPL");  #[map] static mut OPEN_PATHS: PerfMap&lt;OpenPath&gt; = PerfMap::with_max_entries(1024);  #[kprobe] fn do_sys_open(regs: Registers) {     let mut path = OpenPath::default();     unsafe {         let filename = regs.parm2() as *const u8;         if bpf_probe_read_user_str(             path.filename.as_mut_ptr() as *mut _,             path.filename.len() as u32,             filename as *const _,         ) &lt;= 0         {             bpf_trace_printk(b"error on bpf_probe_read_user_str\0");             return;         }         OPEN_PATHS.insert(regs.ctx, &amp;path);     } }</code></pre> <p>完整openmonitor/mod.rs代码如下</p> <pre class="language-bash"><code>pub const PATHLEN: usize = 256;  #[repr(C)] #[derive(Debug, Clone)] pub struct OpenPath {     pub filename: [u8; PATHLEN], }  impl Default for OpenPath {     fn default() -&gt; OpenPath {         OpenPath {             filename: [0; PATHLEN],         }     } }</code></pre> <pre class="language-bash"><code>#4.在probes目录下编译bpf程序,生成openmonitor.elf文件 cargo bpf build --target-dir=../target ls ../target/bpf/programs/openmonitor/openmonitor.elf  #5.在用户空间代码中使用bpf程序，获取系统打开文件 cd ../src nano main.rs</code></pre> <p>完整bpfdemo/src/main.rs代码如下</p> <pre class="language-bash"><code>use futures::stream::StreamExt; use std::{ffi::CStr, ptr}; use tracing::Level; use tracing_subscriber::FmtSubscriber;  use redbpf::load::Loader;  use probes::openmonitor::OpenPath;  fn probe_code() -&gt; &amp;'static [u8] {     include_bytes!(concat!(         env!("CARGO_MANIFEST_DIR"),         "/target/bpf/programs/openmonitor/openmonitor.elf"     )) }  #[tokio::main(flavor = "current_thread")] async fn main() {     let subscriber = FmtSubscriber::builder()         .with_max_level(Level::WARN)         .finish();     tracing::subscriber::set_global_default(subscriber).unwrap();      let mut loaded = Loader::load(probe_code()).expect("error on Loader::load");      let probe = loaded         .kprobe_mut("do_sys_open")         .expect("error on Loaded::kprobe_mut");     probe         .attach_kprobe("do_sys_open", 0)         .expect("error on KProbe::attach_kprobe");     probe         .attach_kprobe("do_sys_openat2", 0)         .expect("error on KProbe::attach_kprobe");      while let Some((map_name, events)) = loaded.events.next().await {         if map_name == "OPEN_PATHS" {             for event in events {                 let open_path = unsafe { ptr::read(event.as_ptr() as *const OpenPath) };                 unsafe {                     let cfilename = CStr::from_ptr(open_path.filename.as_ptr() as *const _);                     println!("{}", cfilename.to_string_lossy());                 };             }         }     } }</code></pre> <pre class="language-bash"><code>#6.在bpfdemo目录下编译运行 cargo build cargo run  #将会输出系统实时打开的文件 &gt;&gt; /proc/driver/nvidia/params /dev/nvidia0 /proc/driver/nvidia/params /dev/nvidia0 /proc/driver/nvidia/params /dev/nvidia0 /etc/localtime /lib/x86_64-linux-gnu/libcuda.so.1 /lib/x86_64-linux-gnu/libm.so.6 /etc/netconfig /sys/fs/cgroup/unified/system.slice/systemd-udevd.service/cgroup.procs /sys/fs/cgroup/unified/system.slice/systemd-udevd.service/cgroup.threads /proc/3084/cmdline /proc/3729/cmdline /proc/3994/cmdline /proc/8823/cmdline /proc/2231364/cmdline /proc/2431788/cmdline /proc/2560949/cmdline /sys/class/hwmon /sys/class/hwmon/hwmon6 /sys/class/hwmon/hwmon4 /sys/class/hwmon/hwmon2 /sys/class/hwmon/hwmon0 /sys/class/hwmon/hwmon7 /sys/class/hwmon/hwmon5</code></pre> <p>完毕！</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-19131.htm">一片片枫叶随风飘落好像什么造句（一片片枫叶随着秋风飘落改为拟人句）</a></p>
+                                        <p>下一个：<a href="/news/article-19590.htm">梦见抱个小男孩子,好不好（梦到抱个小男孩是什么意思）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-5-28-node-share-links.htm" title="5月28日|V2ray/SSR/Clash/Shadowrocket每天更新22.5M/S免费节点订阅链接">5月28日|V2ray/SSR/Clash/Shadowrocket每天更新22.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-4-13-clash-v2ray-ss-ssr.htm" title="4月13日|Shadowrocket/Clash/V2ray/SSR每天更新21.7M/S免费节点订阅链接">4月13日|Shadowrocket/Clash/V2ray/SSR每天更新21.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-22-free-node-subscribe.htm" title="9月22日|SSR/Clash/V2ray/Shadowrocket每天更新18M/S免费节点订阅链接">9月22日|SSR/Clash/V2ray/Shadowrocket每天更新18M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-19589.htm" title="Rust如何开发eBPF应用">Rust如何开发eBPF应用</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-5-3-free-v2ray-subscribe.htm" title="5月3日|V2ray/Shadowrocket/Clash/SSR每天更新20.5M/S免费节点订阅链接">5月3日|V2ray/Shadowrocket/Clash/SSR每天更新20.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-7-free-high-speed-nodes.htm" title="11月7日|Shadowrocket/V2ray/SSR/Clash每天更新21.8M/S免费节点订阅链接">11月7日|Shadowrocket/V2ray/SSR/Clash每天更新21.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-5-15-shadowrocket-node.htm" title="5月15日|Shadowrocket/Clash/V2ray/SSR每天更新22.5M/S免费节点订阅链接">5月15日|Shadowrocket/Clash/V2ray/SSR每天更新22.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-30-free-v2ray.htm" title="9月30日|Clash/V2ray/SSR/Shadowrocket每天更新21M/S免费节点订阅链接">9月30日|Clash/V2ray/SSR/Shadowrocket每天更新21M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-3-free-clash-subscribe.htm" title="10月3日|V2ray/SSR/Shadowrocket/Clash每天更新20.1M/S免费节点订阅链接">10月3日|V2ray/SSR/Shadowrocket/Clash每天更新20.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-3-27-free-node-subscribe-links.htm" title="3月27日|Shadowrocket/V2ray/Clash/SSR每天更新21.5M/S免费节点订阅链接">3月27日|Shadowrocket/V2ray/Clash/SSR每天更新21.5M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                            ClashNodesFree免费订阅站 版权所有
+                            <br />
+                            Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery-3.0.0.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/plugin.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
