@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <link rel="canonical" href="https://clashnodesfree.github.io/news/article-20504.htm" />
+<!-- basic -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<!-- mobile metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<!-- site metas -->
+<title>Hyperledger Fabric无系统通道启动及通道的创建和删除</title>
+<meta name="description" content="前言 在Hyperledger Fabric组织的动态添加和删除中，我们已经完成了在运行着的网络中动态添加和删除组织，但目前为止，我们启动 orderer 节点的方式都是通过系统通道的方式，这样自带系" />
+<!-- bootstrap css -->
+<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/bootstrap.min.css">
+<!-- style css -->
+<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/style.css">
+<!-- Responsive-->
+<link rel="stylesheet" href="/assets/website/css/clashnodesfree/responsive.css">
+<!-- favicon -->
+<link rel="icon" href="__ADDON__/img/clashnodesfree/favicon.ico" type="image/x-icon"/>
+<!-- Scrollbar Custom CSS -->
+<link rel="stylesheet" href="/assets/website/css/clashnodesfree/jquery.mCustomScrollbar.min.css">
+<!-- Tweaks for older IEs-->
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+<!-- fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z348FF31FW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z348FF31FW');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!-- header section start -->
+    <div class="header_section header_bg">
+        <div class="container-fluid">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Clash Nodes Free</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="breadcrumb">
+              <a href="/">首页</a> / 
+              <a href="/news/">新闻资讯</a> / 
+              <span>正文</span>
+            </div>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <h1 class="services_taital mb-5">Hyperledger Fabric无系统通道启动及通道的创建和删除</h1>
+                                      				  				  				<h2 id="前言">前言</h2> <p>在<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://ifantasy.net/2022/04/04/hyperledger_fabric_2_update_org/"  target="_blank" rel="nofollow">Hyperledger Fabric组织的动态添加和删除</a>中，我们已经完成了在运行着的网络中动态添加和删除组织，但目前为止，我们启动 orderer 节点的方式都是通过系统通道的方式，这样自带系统通道的网络很不简洁优雅。好在 Fabric 2.3 以上就开始支持无系统通道创建应用通道的功能，本文将对此功能进行详细解释和介绍，然后通过无系统通道的方式启动联盟链网络并在此基础上完成通道的添加和删除。本实验必要的准备工作和 DNS 配置请参考<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://ifantasy.net/2022/04/01/hyperledger_fabric_1_custom_our_network/#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"  target="_blank" rel="nofollow">准备工作</a>。</p> <h2 id="背景介绍">背景介绍</h2> <h3 id="实验准备">实验准备</h3> <p>本文网络结构直接将<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://ifantasy.net/2022/04/01/hyperledger_fabric_1_custom_our_network/"  target="_blank" rel="nofollow">Hyperledger Fabric定制联盟链网络工程实践</a> 中创建的<code>1_3Org2Peer1Orderer1TLS</code> 复制为<code>3_RunWithNoSystemChannel</code> （建议直接将本案例仓库<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/wefantasy/FabricLearn"  target="_blank" rel="nofollow">FabricLearn</a> 下的<code>3_RunWithNoSystemChannel</code> 目录拷贝到本地运行）。默认情况下，所有命令皆在<code>3_RunWithNoSystemChannel</code> 根目录下执行，在开始后面的实验前按照以下命令启动基础实验网络：</p> <ol> <li>设置环境变量<code>source envpeer1soft</code></li> <li>启动CA网络<code>./0_Restart.sh</code></li> <li>注册用户<code>./1_RegisterUser.sh</code></li> <li>构造证书<code>./2_EnrollUser.sh</code></li> </ol> <p>本实验初始 docker 网络为：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/0c57270956312fc73cc533feba999a4a.jpg" alt="Hyperledger Fabric无系统通道启动及通道的创建和删除"></p> <h3 id="本文工作">本文工作</h3> <p>以无系统通道的方式启动 Hyperledger Fabric 网络，然后先用<code>configtxgen</code> 工具创建新通道<code>mychannel</code> 和<code>testchannel</code> ，并使用<code>osnadmin</code> 工具通过<code>orderer</code> 的<code>admin</code> 服务使<code>orderer</code> 加入这两条通道（实验代码已上传至：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/wefantasy/FabricLearn"  target="_blank" rel="nofollow">https://github.com/wefantasy/FabricLearn</a> 的<code>3_RunWithNoSystemChannel</code> 下）<sup class="footnote-ref"><a href="#fn1" id="fnref1" rel="nofollow">[1]</a></sup>：</p> <table> <thead> <tr> <th style="text-align: center">项</th> <th style="text-align: center">运行端口</th> <th style="text-align: center">说明</th> </tr> </thead> <tbody> <tr> <td style="text-align: center"><code>council.ifantasy.net</code></td> <td style="text-align: center">7050</td> <td style="text-align: center">council 组织的 CA 服务， 为联盟链网络提供 TLS-CA 服务</td> </tr> <tr> <td style="text-align: center"><code>orderer.ifantasy.net</code></td> <td style="text-align: center">7150</td> <td style="text-align: center">orderer 组织的 CA 服务， 为联盟链网络提供排序服务</td> </tr> <tr> <td style="text-align: center"><code>orderer1.orderer.ifantasy.net</code></td> <td style="text-align: center">7151</td> <td style="text-align: center">orderer 组织的排序服务</td> </tr> <tr> <td style="text-align: center"><code>orderer1.orderer.ifantasy.net</code></td> <td style="text-align: center">7152</td> <td style="text-align: center">orderer 组织的 ADMIN 服务</td> </tr> <tr> <td style="text-align: center"><code>soft.ifantasy.net</code></td> <td style="text-align: center">7250</td> <td style="text-align: center">soft 组织的 CA 服务， 包含成员： peer1 、 admin1</td> </tr> <tr> <td style="text-align: center"><code>peer1.soft.ifantasy.net</code></td> <td style="text-align: center">7251</td> <td style="text-align: center">soft 组织的 peer1 成员节点</td> </tr> <tr> <td style="text-align: center"><code>web.ifantasy.net</code></td> <td style="text-align: center">7350</td> <td style="text-align: center">web 组织的 CA 服务， 包含成员： peer1 、 admin1</td> </tr> <tr> <td style="text-align: center"><code>peer1.web.ifantasy.net</code></td> <td style="text-align: center">7351</td> <td style="text-align: center">web 组织的 peer1 成员节点</td> </tr> </tbody> </table> <h2 id="无系统通道启动">无系统通道启动</h2> <ol> <li>修改<code>compose/docker-base.yaml</code> 中<code>orderer-base</code> 内容为：</li> </ol> <pre><code class="language-yaml">  orderer-base:     image: hyperledger/fabric-orderer:${FABRIC_BASE_VERSION}     environment:       - ORDERER_HOME=${DOCKER_CA_PATH}/orderer       - ORDERER_GENERAL_LISTENPORT=7777       - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0       - ORDERER_GENERAL_BOOTSTRAPMETHOD=none       - ORDERER_CHANNELPARTICIPATION_ENABLED=true       # - ORDERER_GENERAL_GENESISMETHOD=file       # - ORDERER_GENERAL_GENESISFILE=${DOCKER_CA_PATH}/orderer/genesis.block       - ORDERER_GENERAL_LOCALMSPDIR=${DOCKER_CA_PATH}/orderer/msp       - ORDERER_GENERAL_LOGLEVEL=debug       - ORDERER_GENERAL_TLS_ENABLED=true       - ORDERER_GENERAL_TLS_CERTIFICATE=${DOCKER_CA_PATH}/orderer/tls-msp/signcerts/cert.pem       - ORDERER_GENERAL_TLS_PRIVATEKEY=${DOCKER_CA_PATH}/orderer/tls-msp/keystore/key.pem       - ORDERER_GENERAL_TLS_ROOTCAS=[${DOCKER_CA_PATH}/orderer/tls-msp/tlscacerts/tls-council-ifantasy-net-7050.pem]       - ORDERER_ADMIN_TLS_ENABLED=true       - ORDERER_ADMIN_TLS_CERTIFICATE=${DOCKER_CA_PATH}/orderer/tls-msp/signcerts/cert.pem       - ORDERER_ADMIN_TLS_PRIVATEKEY=${DOCKER_CA_PATH}/orderer/tls-msp/keystore/key.pem       - ORDERER_ADMIN_TLS_ROOTCAS=[${DOCKER_CA_PATH}/orderer/tls-msp/tlscacerts/tls-council-ifantasy-net-7050.pem]       - ORDERER_ADMIN_TLS_CLIENTROOTCAS=[${DOCKER_CA_PATH}/orderer/tls-msp/tlscacerts/tls-council-ifantasy-net-7050.pem]       - ORDERER_ADMIN_LISTENADDRESS=0.0.0.0:8888       - ORDERER_METRICS_PROVIDER=prometheus       - ORDERER_OPERATIONS_LISTENADDRESS=0.0.0.0:9999       - ORDERER_DEBUG_BROADCASTTRACEDIR=data/logs     networks:       - ${DOCKER_NETWORKS}</code></pre> <p>相比源文件主要修改如下：</p> <ul> <li><code>ORDERER_GENERAL_GENESISMETHOD</code> ：将启动方式改为<code>none</code></li> <li><code>ORDERER_CHANNELPARTICIPATION_ENABLED</code> ：无系统通道启动，该字段必须设置为 true</li> <li>添加<code>ORDERER_ADMIN_TLS_*</code> 相关设置， 后续排序节点使用<code>osnadmin</code> 加入通道依赖于配置， 它的服务和证书与<code>ORDERER</code> 独立，可以选择其他的证书。</li> </ul> <ol start="2"> <li>修改<code>compose/docker-compose.yaml</code> 中<code>orderer-base</code> 内容为：</li> </ol> <pre><code class="language-yaml">  orderer1.orderer.ifantasy.net:     container_name: orderer1.orderer.ifantasy.net     extends:       file: docker-base.yaml       service: orderer-base     environment:       - ORDERER_HOST=orderer1.orderer.ifantasy.net       - ORDERER_GENERAL_LOCALMSPID=ordererMSP     volumes:       - ${LOCAL_CA_PATH}/orderer.ifantasy.net/registers/orderer1:${DOCKER_CA_PATH}/orderer       # - ${LOCAL_ROOT_PATH}/data/genesis.block:${DOCKER_CA_PATH}/orderer/genesis.block     ports:       - 7151:7777       - 7152:8888       - 7153:9999</code></pre> <p>相比源文件，主要添加了<code>ADMIN</code> 、<code>ORDERER_OPERATIONS_LISTENADDRESS</code> 的端口监听。</p> <ol start="3"> <li>在<code>envpeer1soft</code> 中添加<code>ORDERER ADMIN</code> 的环境变量：</li> </ol> <pre><code class="language-yaml">export ORDERER_CA=$LOCAL_CA_PATH/orderer.ifantasy.net/registers/orderer1/tls-msp/tlscacerts/tls-council-ifantasy-net-7050.pem export ORDERER_ADMIN_TLS_SIGN_CERT=$LOCAL_CA_PATH/orderer.ifantasy.net/registers/orderer1/tls-msp/signcerts/cert.pem export ORDERER_ADMIN_TLS_PRIVATE_KEY=$LOCAL_CA_PATH/orderer.ifantasy.net/registers/orderer1/tls-msp/keystore/key.pem</code></pre> <ol start="4"> <li>无系统通道启动<code>orderer</code> 和<code>peer</code> 节点：</li> </ol> <pre><code class="language-bash">docker-compose -f $LOCAL_ROOT_PATH/compose/docker-compose.yaml up -d peer1.soft.ifantasy.net peer1.web.ifantasy.net orderer1.orderer.ifantasy.net</code></pre> <p>无系统通道启动成功后的容器环境：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/14eaef6e1462ea6ed4365a26f7619985.jpg" alt="Hyperledger Fabric无系统通道启动及通道的创建和删除"></p> <h2 id="新建通道">新建通道</h2> <h3 id="新建通道文件">新建通道文件</h3> <p>接下来我们将创建两个通道，它们分别是<code>mychannel</code> 和<code>testchannel</code> ：</p> <pre><code class="language-bash">configtxgen -profile OrgsChannel -outputCreateChannelTx $LOCAL_ROOT_PATH/data/mychannel.tx -channelID mychannel configtxgen -profile OrgsChannel -outputBlock $LOCAL_ROOT_PATH/data/mychannel.block -channelID mychannel configtxgen -profile OrgsChannel -outputCreateChannelTx $LOCAL_ROOT_PATH/data/testchannel.tx -channelID testchannel configtxgen -profile OrgsChannel -outputBlock $LOCAL_ROOT_PATH/data/testchannel.block -channelID testchannel</code></pre> <p>在上面我们同时使用了<code>-outputCreateChannelTx</code> 和<code>-outputBlock</code> 参数创建了两个通道的<code>tx</code> 文件和<code>block</code> 文件，其中<code>block</code> 文件为加入通道时所使用的创世区块文件，可以由对应的<code>tx</code> 文件计算而来。</p> <h3 id="排序节点加入通道">排序节点加入通道</h3> <p>在排序节点加入通道前，我们可以使用以下命令查看当前的通道：</p> <pre><code class="language-bash">source envpeer1soft osnadmin channel list -o orderer1.orderer.ifantasy.net:7152 --ca-file $ORDERER_CA --client-cert $ORDERER_ADMIN_TLS_SIGN_CERT --client-key $ORDERER_ADMIN_TLS_PRIVATE_KEY</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/4d6a601910c53e38c387fefcaca01d6f.jpg" alt="Hyperledger Fabric无系统通道启动及通道的创建和删除"></p> <p>这里的参数<code>ORDERER_CA</code> 、<code>ORDERER_ADMIN_TLS_SIGN_CERT</code> 、<code>ORDERER_ADMIN_TLS_PRIVATE_KEY</code> 必须与上面<code>compose/docker-base.yaml</code> 中的<code>ORDERER_ADMIN_TLS_*</code> 相关证书文件一致。<strong>端口必须与<code>ORDERER_ADMIN_LISTENADDRESS</code> 一致</strong>，否则可能会出现以下错误：</p> <pre><code class="language-bash">error: Get "https://orderer1.orderer.ifantasy.net:7151/participation/v1/channels": net/http: HTTP/1.x transport connection broken: malformed HTTP response "\x00\x00\x06\x04\x00\x00\x00\x00\x00\x00\x05\x00\x00@\x00"</code></pre> <p>如果没有报错，可以使用<code>osnadmin channel join</code> 根据创世区块加入通道：</p> <pre><code class="language-bash">osnadmin channel join --channelID mychannel --config-block $LOCAL_ROOT_PATH/data/mychannel.block -o orderer1.orderer.ifantasy.net:7152 --ca-file "$ORDERER_CA" --client-cert "$ORDERER_ADMIN_TLS_SIGN_CERT" --client-key "$ORDERER_ADMIN_TLS_PRIVATE_KEY" osnadmin channel join --channelID testchannel --config-block $LOCAL_ROOT_PATH/data/testchannel.block -o orderer1.orderer.ifantasy.net:7152 --ca-file "$ORDERER_CA" --client-cert "$ORDERER_ADMIN_TLS_SIGN_CERT" --client-key "$ORDERER_ADMIN_TLS_PRIVATE_KEY"</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/131e6e6ebe74b1edd1ade39149c0d854.jpg" alt="Hyperledger Fabric无系统通道启动及通道的创建和删除"></p> <p>这里<code>--config-block</code> 指向的文件必须为<code>block</code> 文件，否则可能会出现错误：</p> <pre><code class="language-bash">osnadmin: error: parsing arguments: failed to retrieve channel id - block is empty. Try --help</code></pre> <p>所有工作完成后，可以再次使用<code>osnadmin channel list</code> 命令查看已加入的通道：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/fe27cd31b020cb4d039b1855ae541a67.jpg" alt="Hyperledger Fabric无系统通道启动及通道的创建和删除"></p> <h3 id="节点加入通道">节点加入通道</h3> <p>节点加入通道只需要能访问通道对应的<code>block</code> 创世区块文件即可，为了方便管理，我们先将创世区块复制到各组织的公共资产目录下：</p> <pre><code class="language-bash">cp $LOCAL_ROOT_PATH/data/mychannel.block $LOCAL_CA_PATH/soft.ifantasy.net/assets/ cp $LOCAL_ROOT_PATH/data/mychannel.block $LOCAL_CA_PATH/web.ifantasy.net/assets/ cp $LOCAL_ROOT_PATH/data/testchannel.block $LOCAL_CA_PATH/soft.ifantasy.net/assets/ cp $LOCAL_ROOT_PATH/data/testchannel.block $LOCAL_CA_PATH/web.ifantasy.net/assets/</code></pre> <p>现在使 soft 组织的 peer 节点加入创建的两个通道：</p> <pre><code class="language-bash">source envpeer1soft peer channel join -b $LOCAL_CA_PATH/soft.ifantasy.net/assets/mychannel.block peer channel join -b $LOCAL_CA_PATH/soft.ifantasy.net/assets/testchannel.block peer channel list</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/27bac80246f0d07c3d3231be42cabb72.jpg" alt="Hyperledger Fabric无系统通道启动及通道的创建和删除"></p> <p>然后使 soft 组织的 peer 节点加入创建的两个通道：</p> <pre><code class="language-bash">source envpeer1web peer channel join -b $LOCAL_CA_PATH/web.ifantasy.net/assets/mychannel.block peer channel join -b $LOCAL_CA_PATH/web.ifantasy.net/assets/testchannel.block peer channel list</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/38529ae7503f2a9665994b038344bc8e.jpg" alt="Hyperledger Fabric无系统通道启动及通道的创建和删除"></p> <h3 id="安装链码到指定通道">安装链码到指定通道</h3> <p>现在我们的网络中有 soft 和 web 两个组织，每个组织有个<code>peer1</code> 节点，每个节点都加入了<code>mychannel</code> 和<code>testchannel</code> 两个通道，如果想将链码安装到<code>testchannel</code> 通道，只需要按以下流程：</p> <ol> <li>两个组织分别安装链码：</li> </ol> <pre><code class="language-bash">source envpeer1soft # peer lifecycle chaincode package basic.tar.gz --path asset-transfer-basic/chaincode-go --label basic_1 peer lifecycle chaincode install basic.tar.gz peer lifecycle chaincode queryinstalled source envpeer1web peer lifecycle chaincode install basic.tar.gz peer lifecycle chaincode queryinstalled  export CHAINCODE_ID=basic_1:06613e463ef6694805dd896ca79634a2de36fdf019fa7976467e6e632104d718</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/6c475095265b379b0ca22711d687836f.jpg" alt="Hyperledger Fabric无系统通道启动及通道的创建和删除"></p> <p>由于本项目是从<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://ifantasy.net/2022/04/01/hyperledger_fabric_1_custom_our_network/"  target="_blank" rel="nofollow">Hyperledger Fabric定制联盟链网络工程实践</a> 中复制而来，所以这里直接安装该实验中打包过的链码<code>basic.tar.gz</code> ，并且设置<code>CHAINCODE_ID</code> 为链码安装后的<code>ID</code> 。在安装时不必指定具体通道，因为安装行为是针对节点而非通道，即 将节点安装到 peer 节点。</p> <ol start="2"> <li>两个组织分别批准链码：</li> </ol> <pre><code class="language-bash">source envpeer1soft peer lifecycle chaincode approveformyorg -o orderer1.orderer.ifantasy.net:7151 --tls --cafile $ORDERER_CA  --channelID testchannel --name basic --version 1.0 --sequence 1 --waitForEvent --init-required --package-id $CHAINCODE_ID peer lifecycle chaincode queryapproved -C testchannel -n basic --sequence 1 source envpeer1web peer lifecycle chaincode approveformyorg -o orderer1.orderer.ifantasy.net:7151 --tls --cafile $ORDERER_CA  --channelID testchannel --name basic --version 1.0 --sequence 1 --waitForEvent --init-required --package-id $CHAINCODE_ID peer lifecycle chaincode queryapproved -C testchannel -n basic --sequence 1</code></pre> <p>若想将链码安装到<code>testchannel</code> 通道上，只需要在批准链码时指定<code>--channelID</code> 为<code>testchannel</code> 即可。此时已可以在<code>testchannel</code> 上查看到链码批准情况：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/f61cb66c829012d8b161a8e148d7db82.jpg" alt="Hyperledger Fabric无系统通道启动及通道的创建和删除"></p> <ol start="3"> <li>web 组织提交链码：</li> </ol> <pre><code class="language-bash">source envpeer1web peer lifecycle chaincode commit -o orderer1.orderer.ifantasy.net:7151 --tls --cafile $ORDERER_CA --channelID testchannel --name basic --init-required --version 1.0 --sequence 1 --peerAddresses peer1.soft.ifantasy.net:7251 --tlsRootCertFiles $CORE_PEER_TLS_ROOTCERT_FILE --peerAddresses peer1.web.ifantasy.net:7351 --tlsRootCertFiles $CORE_PEER_TLS_ROOTCERT_FILE peer chaincode invoke --isInit -o orderer1.orderer.ifantasy.net:7151 --tls --cafile $ORDERER_CA --channelID testchannel --name basic --peerAddresses peer1.soft.ifantasy.net:7251 --tlsRootCertFiles $CORE_PEER_TLS_ROOTCERT_FILE --peerAddresses peer1.web.ifantasy.net:7351 --tlsRootCertFiles $CORE_PEER_TLS_ROOTCERT_FILE -c '{"Args":["InitLedger"]}'</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/7d230e5dd22661284e96413c0a030656.jpg" alt="Hyperledger Fabric无系统通道启动及通道的创建和删除"><br /> 4. 初始化并调用链码：</p> <pre><code class="language-bash">peer chaincode invoke --isInit -o orderer1.orderer.ifantasy.net:7151 --tls --cafile $ORDERER_CA --channelID testchannel --name basic --peerAddresses peer1.soft.ifantasy.net:7251 --tlsRootCertFiles $CORE_PEER_TLS_ROOTCERT_FILE --peerAddresses peer1.web.ifantasy.net:7351 --tlsRootCertFiles $CORE_PEER_TLS_ROOTCERT_FILE -c '{"Args":["InitLedger"]}' sleep 5 peer chaincode invoke -o orderer1.orderer.ifantasy.net:7151 --tls --cafile $ORDERER_CA --channelID testchannel --name basic --peerAddresses peer1.soft.ifantasy.net:7251 --tlsRootCertFiles $CORE_PEER_TLS_ROOTCERT_FILE --peerAddresses peer1.web.ifantasy.net:7351 --tlsRootCertFiles $CORE_PEER_TLS_ROOTCERT_FILE -c '{"Args":["GetAllAssets"]}'</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/3ae270b3b4120d92e9a2b39f4d98ac48.jpg" alt="Hyperledger Fabric无系统通道启动及通道的创建和删除"></p> <h2 id="删除通道">删除通道</h2> <p>区块链的不可篡改性注定了我们无法从网络上删除通道，只能将新数据（正常事务或配置更新）附加到区块链网络<sup class="footnote-ref"><a href="#fn2" id="fnref2" rel="nofollow">[2]</a></sup>。到现在我们已经讨论过了组织、节点及通道的添加和删除方式，发现 Fabric 联盟链通常对删除操作并没有提供支持。</p> <h2 id="参考">参考</h2> <hr class="footnotes-sep"/> <section class="footnotes"> <ol class="footnotes-list"> <li id="fn1" class="footnote-item"> <p>yuan1028.<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.jianshu.com/p/6d5d3567cd7a"  target="_blank" rel="nofollow">fabric 2.3系统通道</a>. 简书. [2021-01-21]<a href="#fnref1" class="footnote-backref" rel="nofollow">↩︎</a></p> </li> <li id="fn2" class="footnote-item"> <p>JACOB WILSON.<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://it-qa.com/how-do-you-delete-a-channel-on-hyperledger-fabric/"  target="_blank" rel="nofollow">How do you delete a channel on Hyperledger fabric?</a>. it-qa.com. [2019-04-05]<a href="#fnref2" class="footnote-backref" rel="nofollow">↩︎</a></p> </li> </ol> </section> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-20503.htm">如何检查特定MySQL数据库中所有表的字符集以及列名？</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-8-31-clash-windows.htm" title="8月31日|SSR/V2ray/Clash/Shadowrocket每天更新19.8M/S免费节点订阅链接">8月31日|SSR/V2ray/Clash/Shadowrocket每天更新19.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-26-shadowrocket-node.htm" title="9月26日|SSR/Shadowrocket/Clash/V2ray每天更新23M/S免费节点订阅链接">9月26日|SSR/Shadowrocket/Clash/V2ray每天更新23M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-5-17-free-clash.htm" title="5月17日|Clash/V2ray/Shadowrocket/SSR每天更新20.9M/S免费节点订阅链接">5月17日|Clash/V2ray/Shadowrocket/SSR每天更新20.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-7-free-v2ray-subscribe.htm" title="6月7日|SSR/Shadowrocket/Clash/V2ray每天更新22.9M/S免费节点订阅链接">6月7日|SSR/Shadowrocket/Clash/V2ray每天更新22.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-5-26-node-share-links.htm" title="5月26日|Shadowrocket/V2ray/SSR/Clash每天更新18.7M/S免费节点订阅链接">5月26日|Shadowrocket/V2ray/SSR/Clash每天更新18.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-19-free-subscribe-node.htm" title="11月19日|V2ray/SSR/Clash/Shadowrocket每天更新21.8M/S免费节点订阅链接">11月19日|V2ray/SSR/Clash/Shadowrocket每天更新21.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-21-free-high-speed-nodes.htm" title="11月21日|SSR/Clash/V2ray/Shadowrocket每天更新23M/S免费节点订阅链接">11月21日|SSR/Clash/V2ray/Shadowrocket每天更新23M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-4-21-clash-node.htm" title="4月21日|SSR/Clash/V2ray/Shadowrocket每天更新21.2M/S免费节点订阅链接">4月21日|SSR/Clash/V2ray/Shadowrocket每天更新21.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-5-2-node-share.htm" title="5月2日|Shadowrocket/V2ray/Clash/SSR每天更新19.9M/S免费节点订阅链接">5月2日|Shadowrocket/V2ray/Clash/SSR每天更新19.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-28-clash-node.htm" title="10月28日|Shadowrocket/Clash/V2ray/SSR每天更新21.1M/S免费节点订阅链接">10月28日|Shadowrocket/Clash/V2ray/SSR每天更新21.1M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                            ClashNodesFree免费订阅站 版权所有
+                            <br />
+                            Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery-3.0.0.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/plugin.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
