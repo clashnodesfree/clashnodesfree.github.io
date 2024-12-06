@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <link rel="canonical" href="https://clashnodesfree.github.io/news/article-21879.htm" />
+<!-- basic -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<!-- mobile metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<!-- site metas -->
+<title>快速排序Java代码实现</title>
+<meta name="description" content="1. 快速排序原理 （1）定义一个基准元素base(我这里定义的是最左面的元素定位基准元素) （2）定义两个变量i和j，j先从右向左遍历,找到第一个比base小的数就停止，i再从左向右便利找到第一个比" />
+<!-- bootstrap css -->
+<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/bootstrap.min.css">
+<!-- style css -->
+<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/style.css">
+<!-- Responsive-->
+<link rel="stylesheet" href="/assets/website/css/clashnodesfree/responsive.css">
+<!-- favicon -->
+<link rel="icon" href="__ADDON__/img/clashnodesfree/favicon.ico" type="image/x-icon"/>
+<!-- Scrollbar Custom CSS -->
+<link rel="stylesheet" href="/assets/website/css/clashnodesfree/jquery.mCustomScrollbar.min.css">
+<!-- Tweaks for older IEs-->
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+<!-- fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z348FF31FW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z348FF31FW');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!-- header section start -->
+    <div class="header_section header_bg">
+        <div class="container-fluid">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Clash Nodes Free</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="breadcrumb">
+              <a href="/">首页</a> / 
+              <a href="/news/">新闻资讯</a> / 
+              <span>正文</span>
+            </div>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <h1 class="services_taital mb-5">快速排序Java代码实现</h1>
+                                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> </h1> <p><strong>1. 快速排序原理</strong><br /> （1）定义一个基准元素base(我这里定义的是最左面的元素定位基准元素)<br /> （2）定义两个变量i和j，j先从右向左遍历,找到第一个比base小的数就停止，i再从左向右便利找到第一个比base大的数停止<br /> （3）交换i和j指向的元素<br /> （4）直到i和j指向同一个元素,将这个元素与基准元素交换<br /> 递归求解即可<br /><strong>2. 时间复杂度：O(nlogn)</strong><br /><strong>3. 代码实现</strong></p> <pre><code class="prism language-java"><span class="token keyword">public</span><span class="token keyword">class</span><span class="token class-name">Qsort</span><span class="token punctuation">{<!-- --></span><span class="token keyword">public</span><span class="token keyword">static</span><span class="token keyword">void</span><span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">11</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token function">Quicksort</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>a<span class="token punctuation">.</span>length<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">:</span> a<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 			System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token string">" "</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token keyword">private</span><span class="token keyword">static</span><span class="token keyword">void</span><span class="token function">Quicksort</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> a<span class="token punctuation">,</span><span class="token keyword">int</span> left<span class="token punctuation">,</span><span class="token keyword">int</span> right<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">if</span><span class="token punctuation">(</span>left<span class="token operator">&gt;</span>right<span class="token punctuation">)</span><span class="token keyword">return</span><span class="token punctuation">;</span><span class="token keyword">int</span> i<span class="token operator">=</span>left<span class="token punctuation">;</span><span class="token keyword">int</span> j<span class="token operator">=</span>right<span class="token punctuation">;</span><span class="token keyword">int</span> base<span class="token operator">=</span>a<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">while</span><span class="token punctuation">(</span>i<span class="token operator">!=</span>j<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">while</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">&gt;=</span>base<span class="token operator">&amp;&amp;</span>i<span class="token operator">&lt;</span>j<span class="token punctuation">)</span> 				j<span class="token operator">--</span><span class="token punctuation">;</span><span class="token keyword">while</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&lt;=</span>base<span class="token operator">&amp;&amp;</span>i<span class="token operator">&lt;</span>j<span class="token punctuation">)</span> 				i<span class="token operator">++</span><span class="token punctuation">;</span><span class="token keyword">int</span> temp<span class="token punctuation">;</span> 			temp<span class="token operator">=</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span> 			a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>a<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span> 			a<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span>temp<span class="token punctuation">;</span><span class="token punctuation">}</span> 		a<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token operator">=</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span> 		a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>base<span class="token punctuation">;</span><span class="token function">Quicksort</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>left<span class="token punctuation">,</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">Quicksort</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-21423.htm">一只身价13亿的猫（世界上最贵的猫）</a></p>
+                                        <p>下一个：<a href="/news/article-21880.htm">深圳宠物领养吧（深圳宠物领养吧最新消息）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-10-11-free-node-subscribe.htm" title="10月11日|V2ray/Shadowrocket/Clash/SSR每天更新18M/S免费节点订阅链接">10月11日|V2ray/Shadowrocket/Clash/SSR每天更新18M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-10-clash-node.htm" title="8月10日|V2ray/Shadowrocket/Clash/SSR每天更新18M/S免费节点订阅链接">8月10日|V2ray/Shadowrocket/Clash/SSR每天更新18M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-29-clash-node-daily-updates.htm" title="10月29日|Shadowrocket/V2ray/SSR/Clash每天更新20.1M/S免费节点订阅链接">10月29日|Shadowrocket/V2ray/SSR/Clash每天更新20.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-21423.htm" title="一只身价13亿的猫（世界上最贵的猫）">一只身价13亿的猫（世界上最贵的猫）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-22-free-shadowrocket-node.htm" title="6月22日|V2ray/Shadowrocket/Clash/SSR每天更新20.1M/S免费节点订阅链接">6月22日|V2ray/Shadowrocket/Clash/SSR每天更新20.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-9-node-share-links.htm" title="6月9日|Clash/SSR/Shadowrocket/V2ray每天更新20.9M/S免费节点订阅链接">6月9日|Clash/SSR/Shadowrocket/V2ray每天更新20.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-27-free-ssr-subscribe.htm" title="8月27日|V2ray/SSR/Clash/Shadowrocket每天更新19.3M/S免费节点订阅链接">8月27日|V2ray/SSR/Clash/Shadowrocket每天更新19.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-2-free-v2ray.htm" title="11月2日|Shadowrocket/V2ray/SSR/Clash每天更新22.5M/S免费节点订阅链接">11月2日|Shadowrocket/V2ray/SSR/Clash每天更新22.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-7-free-high-speed-nodes.htm" title="11月7日|Shadowrocket/V2ray/SSR/Clash每天更新21.8M/S免费节点订阅链接">11月7日|Shadowrocket/V2ray/SSR/Clash每天更新21.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-2-free-subscribe-node.htm" title="8月2日|Shadowrocket/Clash/SSR/V2ray每天更新21.8M/S免费节点订阅链接">8月2日|Shadowrocket/Clash/SSR/V2ray每天更新21.8M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                            ClashNodesFree免费订阅站 版权所有
+                            <br />
+                            Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery-3.0.0.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/plugin.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
