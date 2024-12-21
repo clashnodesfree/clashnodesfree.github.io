@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <link rel="canonical" href="https://clashnodesfree.github.io/news/article-28823.htm" />
+<!-- basic -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<!-- mobile metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<!-- site metas -->
+<title>IntelliJ IDEA配置Maven详解</title>
+<meta name="description" content="文章目录  1.下载Maven 2.配置本地仓库路径 3.配置maven环境变量 4.在IntelliJ IDEA中配置maven 5.idea中创建maven的web工程   Maven execu" />
+<!-- bootstrap css -->
+<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/bootstrap.min.css">
+<!-- style css -->
+<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/style.css">
+<!-- Responsive-->
+<link rel="stylesheet" href="/assets/website/css/clashnodesfree/responsive.css">
+<!-- favicon -->
+<link rel="icon" href="/assets/website/img/clashnodesfree/favicon.ico" type="image/x-icon"/>
+<!-- Scrollbar Custom CSS -->
+<link rel="stylesheet" href="/assets/website/css/clashnodesfree/jquery.mCustomScrollbar.min.css">
+<!-- Tweaks for older IEs-->
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+<!-- fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z348FF31FW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z348FF31FW');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!-- header section start -->
+    <div class="header_section header_bg">
+        <div class="container-fluid">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Clash Nodes Free</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="breadcrumb">
+              <a href="/">首页</a> / 
+              <a href="/news/">新闻资讯</a> / 
+              <span>正文</span>
+            </div>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <h1 class="services_taital mb-5">IntelliJ IDEA配置Maven详解</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <div class="toc"> <h3>文章目录</h3> <ul> <li><a href="#1Maven_1" rel="nofollow">1.下载Maven</a></li> <li><a href="#2_10" rel="nofollow">2.配置本地仓库路径</a></li> <li><a href="#3maven_15" rel="nofollow">3.配置maven环境变量</a></li> <li><a href="#4IntelliJ_IDEAmaven_33" rel="nofollow">4.在IntelliJ IDEA中配置maven</a></li> <li><a href="#5ideamavenweb_40" rel="nofollow">5.idea中创建maven的web工程</a></li> <li> <ul> <li><a href="#Maven_execution_terminated_abnormally_exit_code_1_55" rel="nofollow">Maven execution terminated abnormally (exit code 1)</a></li> </ul> </li> <li><a href="#_91" rel="nofollow">补充：</a></li> <li> <ul> <li><a href="#Mavenjar_92" rel="nofollow">Maven下载jar包速度过慢的解决</a></li> </ul> </li> </ul> </div> </h1> <p>官方地址：http://maven.apache.org/download.cgi<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/76943feeda574fadda8d837434c68d75.jpg" alt="IntelliJ IDEA配置Maven详解"><br /> 目前最新版是 apache-maven-3.8.3 版本，我当时使用的是 apache-maven-3.5.2 版本，大家也可以下载最新版本。<br /> Apache-maven-3.5.2 下载地址：http://archive.apache.org/dist/maven/maven-3/<br /> 下载后的版本如下:<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/41b6a2a78e3ceb268a037c91fcf28e53.jpg" alt="IntelliJ IDEA配置Maven详解"><br /> 解压并新建一个本地仓库文件夹:<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/47dba0becaf29c5631ea3db907e4cadd.jpg" alt="IntelliJ IDEA配置Maven详解"></p> </h1> <p>在 MAVE_HOME/conf/settings.xml 文件中配置本地仓库位置（maven 的安装目录下）：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/87c7c28c26cde935ff573922ece3f609.jpg" alt="IntelliJ IDEA配置Maven详解"><br /> 打开 settings.xml文件，配置如下：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/3d4d99c80a73fa7d7cfe7095af6af0f7.jpg" alt="IntelliJ IDEA配置Maven详解"></p> </h1> <p><strong>先配制好java jdk的环境变量</strong><br /> 下面是maven环境变量：<br /><strong>此电脑—右键—高级系统设置—环境变量—系统变量</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/ade7acca76f518845fbce155d00f5119.jpg" alt="IntelliJ IDEA配置Maven详解"></p> <p>1.配置 MAVEN_HOME ，变量值就是你的maven安装的路径（bin目录之前一级目录）<br /> 如图：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/9a0cebe4ed92915a6c56727a7c2563a8.jpg" alt="IntelliJ IDEA配置Maven详解"><br /> 上面配置了我们的Maven软件，注意：这个目录就是之前你解压maven的压缩文件包在的的目录，最好不要有中文和空格。</p> <p>2.配制path环境变量：双击path环境变量的值，或者点击编辑按钮进入到编辑页面。点击新建按钮，添加%MAVEN_HOME%\bin即可，注意这里名字要和上一项设置一致。<br /> 如图：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/ade8ddc4c17cef79261c0cbeda96801e.jpg" alt="IntelliJ IDEA配置Maven详解"><br /> 3.Maven软件版本测试<br /> 通过 mvn -v命令检查 maven是否安装成功，看到maven的版本为3.5.2及java版本为1.8即为安装成功。<br /> 找开cmd命令，输入mvn –v命令，如下图：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/3593c252f18121e10bafab6e61f65d2a.jpg" alt="IntelliJ IDEA配置Maven详解"></p> </h1> <p><strong>在idea中点击file&gt;settings&gt;搜索 maven</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/f94e28c156d4c8b8672b1e6c28e65b9b.jpg" alt="IntelliJ IDEA配置Maven详解"><br /><strong>注意还要在others settings&gt; defaults settings中进行全局设置，为了防止切换工程时用不了</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/2e279b230d5fa8b1680b15a6fc882a32.jpg" alt="IntelliJ IDEA配置Maven详解"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/5833fb30a6857cfde207b8ea7f9682f0.jpg" alt="IntelliJ IDEA配置Maven详解"></p> </h1> <p>打开 idea，选择创建一个新工程<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/f12bddf40d1d3c0837c18c74a30b9fc3.jpg" alt="IntelliJ IDEA配置Maven详解"><br /> 选择 idea提供好的 maven 的web 工程模板<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/ccbc901cbf37b6d18f46cc6407bdcf73.jpg" alt="IntelliJ IDEA配置Maven详解"></p> <p>点击 Next填写项目信息<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/6fc5572d55e5fb1e67f317de529ec358.jpg" alt="IntelliJ IDEA配置Maven详解"><br /> 点击 Next，添加的配置为 archetypeCatalog=internal<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/39944ae00aed514b1b9b413b88d337fb.jpg" alt="IntelliJ IDEA配置Maven详解"><br /> 点击 Next选择项目所在目录:<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/1787631de1197ae679d94d9e83c985db.jpg" alt="IntelliJ IDEA配置Maven详解"><br /> 点击 Finish后开始创建工程，耐心等待，直到出现如下界面。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/1f6cf403837fedae980435d2f702ee19.jpg" alt="IntelliJ IDEA配置Maven详解"><br /> 可能遇到的问题:</p> <h2><a id="Maven_execution_terminated_abnormally_exit_code_1_55" rel="nofollow"></a>Maven execution terminated abnormally (exit code 1)</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/5d22d564a0fa30bd3075873294a40912.jpg" alt="IntelliJ IDEA配置Maven详解"><br /> Maven-&gt;Runner: 添加<strong>-Dmaven.multiModuleProjectDirectory=$M2_HOME</strong> ，记得选择JDK<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/715b9b7701c4ceb054f1df40f3936657.jpg" alt="IntelliJ IDEA配置Maven详解"><br /> 手动添加 src/main/java 目录，如下图右键 main 文件夹&gt;New&gt;Directory<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/6d89bb3f54f8f6fdf55ea40619de29ee.jpg" alt="IntelliJ IDEA配置Maven详解"><br /> 创建一个新的文件夹命名为 java<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/21f2d59e2721efd10646a4a1621a6b82.jpg" alt="IntelliJ IDEA配置Maven详解"><br /> 点击 OK 后，在新的文件夹 java 上右键&gt;Make Directory as&gt;Sources Root<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/75ee02ab9cf2f4b7415eb7ec1bb5cfa4.jpg" alt="IntelliJ IDEA配置Maven详解"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/39aff3374b287161fd607f3c99a276df.jpg" alt="IntelliJ IDEA配置Maven详解"><br /> 也可以右键项目-选择Open Module Settings打开项目配置页面更改<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/1fc56bffb16d93ddd5e3885a849b73bf.jpg" alt="IntelliJ IDEA配置Maven详解"><br /> 添加 tomcat7 插件</p> <pre><code class="prism language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plugins</span><span class="token punctuation">&gt;</span></span><span class="token comment">&lt;!--tomcat插件，启动当前web应用--&gt;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plugin</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.apache.tomcat.maven<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>tomcat7-maven-plugin<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>2.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">&gt;</span></span><span class="token comment">&lt;!--修改tomcat启动的端口号--&gt;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>port</span><span class="token punctuation">&gt;</span></span>80<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>port</span><span class="token punctuation">&gt;</span></span><span class="token comment">&lt;!--修改tomcat部署当前项目虚拟目录（项目的访问跟路径）--&gt;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span><span class="token punctuation">&gt;</span></span>/<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>path</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plugin</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plugins</span><span class="token punctuation">&gt;</span></span></code></pre> <p>手动输入 tomcat7:run 命令运行项目<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/098442253b89a6df147d77d7740a0a11.jpg" alt="IntelliJ IDEA配置Maven详解"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/96a9454a7822b20b9547a88044b075b5.jpg" alt="IntelliJ IDEA配置Maven详解"></p> </h1> <h2><a id="Mavenjar_92" rel="nofollow"></a>Maven下载jar包速度过慢的解决</h2> <blockquote> <p>https://developer.aliyun.com/mvn/guide</p> </blockquote> <p>在maven的settings.xml文件里的mirrors节点，添加如下子节点：</p> <pre><code class="prism language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mirror</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>id</span><span class="token punctuation">&gt;</span></span>nexus-aliyun<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>id</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mirrorOf</span><span class="token punctuation">&gt;</span></span>central<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mirrorOf</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>Nexus aliyun<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url</span><span class="token punctuation">&gt;</span></span>http://maven.aliyun.com/nexus/content/groups/public<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mirror</span><span class="token punctuation">&gt;</span></span></code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/1fca5e59c1a2abbf6bbd5e191d0da378.jpg" alt="IntelliJ IDEA配置Maven详解"></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-28370.htm">合肥哪里领养宠物狗的 合肥哪里领养宠物狗的多</a></p>
+                                        <p>下一个：<a href="/news/article-28824.htm">开宠物食品厂需要什么手续呢 开宠物食品厂需要什么手续呢多少钱</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-24-free-v2ray-subscribe.htm" title="11月24日|Shadowrocket/SSR/Clash/V2ray每天更新20.8M/S免费节点订阅链接">11月24日|Shadowrocket/SSR/Clash/V2ray每天更新20.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-4-free-v2ray-subscribe.htm" title="12月4日|Clash/V2ray/SSR/Shadowrocket每天更新19.8M/S免费节点订阅链接">12月4日|Clash/V2ray/SSR/Shadowrocket每天更新19.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-31-clash-node.htm" title="7月31日|SSR/V2ray/Clash/Shadowrocket每天更新20.2M/S免费节点订阅链接">7月31日|SSR/V2ray/Clash/Shadowrocket每天更新20.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-4-12-free-shadowrocket-node.htm" title="4月12日|V2ray/Shadowrocket/Clash/SSR每天更新19.1M/S免费节点订阅链接">4月12日|V2ray/Shadowrocket/Clash/SSR每天更新19.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-16-free-v2ray.htm" title="8月16日|V2ray/Shadowrocket/Clash/SSR每天更新22.6M/S免费节点订阅链接">8月16日|V2ray/Shadowrocket/Clash/SSR每天更新22.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-14-free-node-subscribe.htm" title="8月14日|Shadowrocket/V2ray/SSR/Clash每天更新21.1M/S免费节点订阅链接">8月14日|Shadowrocket/V2ray/SSR/Clash每天更新21.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-10-clash-node.htm" title="11月10日|Clash/V2ray/SSR/Shadowrocket每天更新22.4M/S免费节点订阅链接">11月10日|Clash/V2ray/SSR/Shadowrocket每天更新22.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-25-node-share.htm" title="6月25日|V2ray/SSR/Shadowrocket/Clash每天更新21.7M/S免费节点订阅链接">6月25日|V2ray/SSR/Shadowrocket/Clash每天更新21.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-4-15-node-share.htm" title="4月15日|Clash/Shadowrocket/V2ray/SSR每天更新19.1M/S免费节点订阅链接">4月15日|Clash/Shadowrocket/V2ray/SSR每天更新19.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-22-free-node-subscribe.htm" title="9月22日|SSR/Clash/V2ray/Shadowrocket每天更新18M/S免费节点订阅链接">9月22日|SSR/Clash/V2ray/Shadowrocket每天更新18M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">63</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <p class="copyright_text">
+                            ClashNodesFree免费订阅站 版权所有
+                            <br />
+                            Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery-3.0.0.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/plugin.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
