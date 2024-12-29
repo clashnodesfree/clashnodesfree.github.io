@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <link rel="canonical" href="https://clashnodesfree.github.io/news/article-32628.htm" />
+<!-- basic -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<!-- mobile metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<!-- site metas -->
+<title>css实现文本垂直居中水平居中的几种方法</title>
+<meta name="description" content="2019独角兽企业重金招聘Python工程师标准&gt;&gt;&gt;    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果一个容器" />
+<!-- bootstrap css -->
+<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/bootstrap.min.css">
+<!-- style css -->
+<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/style.css">
+<!-- Responsive-->
+<link rel="stylesheet" href="/assets/website/css/clashnodesfree/responsive.css">
+<!-- favicon -->
+<link rel="icon" href="/assets/website/img/clashnodesfree/favicon.ico" type="image/x-icon"/>
+<!-- Scrollbar Custom CSS -->
+<link rel="stylesheet" href="/assets/website/css/clashnodesfree/jquery.mCustomScrollbar.min.css">
+<!-- Tweaks for older IEs-->
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+<!-- fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z348FF31FW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z348FF31FW');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!-- header section start -->
+    <div class="header_section header_bg">
+        <div class="container-fluid">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Clash Nodes Free</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="breadcrumb">
+              <a href="/">首页</a> / 
+              <a href="/news/">新闻资讯</a> / 
+              <span>正文</span>
+            </div>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <h1 class="services_taital mb-5">css实现文本垂直居中水平居中的几种方法</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <div class="content" id="articleContent"> <div class="ad-wrap"> <p><a style="color:#A00;font-weight:bold;" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://my.oschina.net/u/2663968/blog/3061697"  rel="nofollow">2019独角兽企业重金招聘Python工程师标准&gt;&gt;&gt;</a><img decoding="async" src="http://img.555519.xyz/uploads3/20220606/b7f72ccd879fd937fd85df12472e2b58.jpg" alt="css实现文本垂直居中水平居中的几种方法"></p> </div> <p><span id="OSC_h1_1"></span></p> </h1> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果一个容器中只有一行文字，对它实现居中相对比较简单，我们只需要设置它的实际高度height和所在行的高度line-height相等即可，例如</p> <pre><code class="language-css">.div-box{height:50px; line-height: 50px; width:100px; overflow: hidden; border:1px solid; }</code></pre> <pre><code class="language-html">&lt;div class="div-box"&gt; 		垂直居中 &lt;/div&gt;</code></pre> <p>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;代码很简，其中使用<span style="color:#0000CD;">overflow:hidden</span>的设置是为了防止内容超出容器或者产生自动换行。如果想让文本水平也居中的话，只要添加<span style="color:#0000CD;">text-align:center</span>就行了。</p> <p><span id="OSC_h1_2"></span></p> </h1> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CSS中的<span style="color:#0000CD;">vertical-align</span>属性只会对拥有<span style="color:#0000CD;">valign</span>特性的(X)HTML标签起作用，但是在CSS中还有一个display属性能够模拟<span style="color:#0000CD;">&lt;table&gt;</span>，采用<span style="color:#0000CD;">display-table</span>将<span style="color:#0000CD;">div</span>以表格形式显示，然后就可使用vertical-align的property属性了。</p> <pre><code class="language-css">.div-box{ height:200px; display:table; border: 1px solid #f00;} .div-box .div1{vertical-align: middle; display: table-cell;}</code></pre> <pre><code class="language-html">&lt;div class="div-box"&gt; 	&lt;p class="div1"&gt; 		文本垂直居中文本垂直居中 	&lt;/p&gt; &lt;/div&gt;</code></pre> <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;值得注意的是<span style="color:#0000CD;">display:table</span>和<span style="color:#0000CD;">display:table-cell</span>，前者必须设置在父元素上，后者必须设置在子元素上，因此在设置文本垂直居中时，要为文本多添加一个div。这个方法很不错，但是不幸的是Internet Explorer 6r(甚至 IE8 beta) 并不能正确地理解<span style="color:#0000CD;">display:table</span>和<span style="color:#0000CD;">display:table-cell</span>，因此这种方法在<span style="color:#0000CD;">Internet Explorer 6</span>及以下的版本中是无效的。</p> <p><span id="OSC_h1_3"></span></p> </h1> <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;这是采用绝对定位<span style="color:#0000CD;">div</span>的一种方法，把<span style="color:#0000CD;">top</span>设成<span style="color:#0000CD;">50%</span>，将需要居中的文本的<span style="color:#0000CD;">margin-top</span>设为自身高度的一半，这就要保证需要居中的文本的高度，如果是不确定的可以采用<span style="color:#0000CD;">js</span>动态获取高度设置<span style="color:#0000CD;">margin-top</span>亦可以达到同样的效果。</p> <pre><code class="language-css">.div-box{ position: relative;width: 30%; height: 30%; border: 1px solid #f00;} .div-box .div1{position:absolute; top:50%;left: 50%;margin-left: -5px; margin-right: -5px;  width: 10px; height: 10px; background: #f00;}</code></pre> <p><span id="OSC_h1_4"></span></p> </h1> <p>&nbsp; &nbsp; &nbsp; &nbsp; 这个方法使用了一个<span style="color:#0000CD;">position:absolute</span>，有固定宽度和高度的<span style="color:#0000CD;">div</span>。这个<span style="color:#0000CD;">div</span>&nbsp;被设置为<span style="color:#0000CD;">margin:auto;top:0;bottom:0</span>&nbsp;。但是因为它有固定高度，其实并不能和上下都间距为 0，因此<span style="color:#0000CD;">margin:auto;</span>会使它居中。</p> <pre><code class="language-css">.div1{position: absolute; margin: auto; top: 0;bottom: 0px;width: 100px;background: #f00;height: 100px;}</code></pre> <p>如果想要水平居中也是一样将<span style="color:#0000CD;">left</span>和<span style="color:#0000CD;">right</span>都设置为<span style="color:#0000CD;">0</span>。</p> <p><span id="OSC_h1_5"></span></p> </h1> <p>这个方法不仅能实现文本垂直居中，还支持文本高度的可变性，内容块定义<span style="color:#0000CD;">transform: translate(-50%,-50%)</span>必须带上浏览器厂商的前缀，还要加上<span style="color:#0000CD;">top: 50%</span>;<span style="color:#0000CD;"> left: 50</span>%;</p> <pre><code class="language-css">.div-box{ position:relative; width: 50%;height: 50%; border:1px solid #f00;} .div-box .div1{ height:100px; width:100px; position: absolute; background: #F00;left: 50%;top: 50%;transform :translate(-50%,-50%);-webkit-transform: translate(-50%,-50%);-moz-transform: translate(-50%,-50%);}</code></pre> <pre><code>&lt;div class="div-box"&gt; 		&lt;div class="div1"&gt; 			文本垂直居中文本垂直居中         &lt;/div&gt; &lt;/div&gt;</code></pre> <p><span id="OSC_h1_6"></span></p> </h1> <p>很受欢迎的一种居中实现方式，基本思想是使用<span style="color:#0000CD;">display: inline-block, vertical-align: middle</span>和一个伪元素让内容块处于容器中央。这个概念的解释可以参考CSS-Tricks上的文章《<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://css-tricks.com/centering-in-the-unknown/"  rel="nofollow">Centering in the Unknown</a>》</p> <pre><code class="language-css">.div-box{ text-align: center; overflow: auto; border:1px solid ; height: 500px; } .div-box:after{content: '';   height: 100%;  margin-left: -0.25em; /* To offset spacing. May vary by font */  } .div-box:after,.div-box .div1{  display: inline-block;  vertical-align: middle;  } .div-box .div1{max-width: 99%; }</code></pre> <p>如果内容块宽度大于容器宽度，比如放了一个很长的文本，但内容块宽度设置最大不能超过容器的100%减去0.25em，否则使用伪元素:after内容块会被挤到容器顶部，使用:before内容块会向下偏移100%。如果你的内容块需要占据尽可能多的水平空间，可以使用max-width: 99%;（针对较大的容器）或max-width: calc(100% -0.25em)（取决于支持的浏览器和容器宽度）。</p> <p><span id="OSC_h1_7"></span></p> </h1> <p>。Flexbox是CSS3新增属性，设计初衷是为了解决像垂直居中这样的常见布局问题。相关的文章如《<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://coding.smashingmagazine.com/2013/05/22/centering-elements-with-flexbox/"  rel="nofollow">Centering Elements with Flexbox</a>》。</p> <pre><code class="language-css">.div-box{display:display: flex; -ms-flex;display: -webkit-flex;align-items: center;-ms-flex-align: center;-webkit-align-items: center;-webkit-box-align: center;align-items: center;justify-content:center;border:1px solid ; height: 500px; } .div-box .div1{width:50px; height:50px; border:1px solid;}</code></pre> <p>其中<span style="color:#0000CD;">align-items</span>属性定义flex子项在flex容器的当前行的侧轴（纵轴）方向上的对齐方式，实现垂直居中，<span style="color:#0000CD;">justify-content</span>&nbsp;用于设置或检索弹性盒子元素在主轴（横轴）方向上的对齐方式,实现水平居中；</p> <div class="ad-wrap"> <div id="blog-title-ad"><ins class="adsbygoogle"></ins></div> </div> </div> <p>转载于:https://my.oschina.net/u/1778998/blog/777558</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-32145.htm">被猫咬了一个小洞要&#25171;&#38024;吗（被猫咬了一个洞需要打狂犬疫苗吗）</a></p>
+                                        <p>下一个：<a href="/news/article-32629.htm">三国杀武将登场特效是什么意思啊（三国杀出场特效）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-6-15-clash-windows.htm" title="6月15日|V2ray/SSR/Shadowrocket/Clash每天更新18.9M/S免费节点订阅链接">6月15日|V2ray/SSR/Shadowrocket/Clash每天更新18.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-27-clash-v2ray-ss-ssr.htm" title="12月27日|Shadowrocket/SSR/Clash/V2ray每天更新18.4M/S免费节点订阅链接地址">12月27日|Shadowrocket/SSR/Clash/V2ray每天更新18.4M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-2-free-subscribe-node.htm" title="9月2日|SSR/V2ray/Clash/Shadowrocket每天更新20.4M/S免费节点订阅链接">9月2日|SSR/V2ray/Clash/Shadowrocket每天更新20.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-14-clash-node.htm" title="10月14日|SSR/Shadowrocket/V2ray/Clash每天更新19.1M/S免费节点订阅链接">10月14日|SSR/Shadowrocket/V2ray/Clash每天更新19.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-30097.htm" title="有的人是不是不能养猫（有些人是不是不适合养宠物）">有的人是不是不能养猫（有些人是不是不适合养宠物）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-4-free-node-subscribe-links.htm" title="8月4日|SSR/Shadowrocket/V2ray/Clash每天更新21.9M/S免费节点订阅链接">8月4日|SSR/Shadowrocket/V2ray/Clash每天更新21.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-10-clash-node.htm" title="11月10日|Clash/V2ray/SSR/Shadowrocket每天更新22.4M/S免费节点订阅链接">11月10日|Clash/V2ray/SSR/Shadowrocket每天更新22.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-30254.htm" title="宠物粮食加工厂加盟费多少钱啊一年（开个宠物粮加工厂怎么样）">宠物粮食加工厂加盟费多少钱啊一年（开个宠物粮加工厂怎么样）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-25-clash-node-daily-updates.htm" title="12月25日|V2ray/SSR/Shadowrocket/Clash每天更新22.8M/S免费节点订阅链接地址">12月25日|V2ray/SSR/Shadowrocket/Clash每天更新22.8M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-4-5-clash-v2ray-ss-ssr.htm" title="4月5日|SSR/Shadowrocket/Clash/V2ray每天更新22.4M/S免费节点订阅链接">4月5日|SSR/Shadowrocket/Clash/V2ray每天更新22.4M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <p class="copyright_text">
+                            ClashNodesFree免费订阅站 版权所有
+                            <br />
+                            Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery-3.0.0.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/plugin.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
