@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <link rel="canonical" href="https://clashnodesfree.github.io/news/article-40379.htm" />
+<!-- basic -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<!-- mobile metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<!-- site metas -->
+<title>C++虚函数与纯虚函数</title>
+<meta name="description" content="C++的虚函数与纯虚函数 C++项目看起来真的是太恼火了，源码阅读起来有点不便，幸亏有source insight 保命。C++有个很重要的特性，那就是多态。多态的实现主要是两种方式：一个就是函数的重" />
+<!-- bootstrap css -->
+<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/bootstrap.min.css">
+<!-- style css -->
+<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/style.css">
+<!-- Responsive-->
+<link rel="stylesheet" href="/assets/website/css/clashnodesfree/responsive.css">
+<!-- favicon -->
+<link rel="icon" href="/assets/website/img/clashnodesfree/favicon.ico" type="image/x-icon"/>
+<!-- Scrollbar Custom CSS -->
+<link rel="stylesheet" href="/assets/website/css/clashnodesfree/jquery.mCustomScrollbar.min.css">
+<!-- Tweaks for older IEs-->
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+<!-- fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z348FF31FW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z348FF31FW');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!-- header section start -->
+    <div class="header_section header_bg">
+        <div class="container-fluid">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Clash Nodes Free</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="breadcrumb">
+              <a href="/">首页</a> / 
+              <a href="/news/">新闻资讯</a> / 
+              <span>正文</span>
+            </div>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <h1 class="services_taital mb-5">C++虚函数与纯虚函数</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <h2>C++的虚函数与纯虚函数</h2> <p>C++项目看起来真的是太恼火了，源码阅读起来有点不便，幸亏有source insight 保命。C++有个很重要的特性，那就是多态。多态的实现主要是两种方式：<strong>一个就是函数的重载，另一个就是继承中对虚函数的重写</strong>。虚函数的引入对C++大型项目接口设计统一标准起到了非常重要的作用，与虚函数相对应的就是纯虚函数。</p> <p><strong>虚函数</strong>：用 virtual 标识标记的函数就是虚函数，<strong>只含有</strong>虚函数（且不含纯虚函数）的类就叫做<strong>虚类或者虚基类</strong>。<strong>虚函数必须要实现，可以是空函数体</strong>。被子类继承，子类不重写的话那就是直接基类的方法。</p> <p><strong>纯虚函数</strong>：同样含有 virtual 标识符，但是定义时函数则是在函数名后直接加 =0 定义；<strong>含有</strong>纯虚函数的类叫<strong>纯虚类</strong>，<strong>纯虚函数不用实现</strong>。子类只继承函数名，具体功能需要子类自己实现。</p> <p>栗子奉上：</p> <pre class="has"><code class="language-cpp">virtual void printTest();         //虚函数，需要函数体  virtual void printTest() = 0;     //纯虚函数，只用定义</code></pre> <h2>Java抽象类和接口</h2> <p>写过Java的人会发现，这个的功能特性与 java 的<strong>抽象类和接口的函数</strong>是类似的</p> <p><strong>抽象类</strong>：用 abstract 标识符标记的类就叫抽象类。抽象类的函数需要函数体，类似C++虚函数一样。</p> <p><strong>接口</strong>：与类（class）相对，用 Interface 标识符标记。接口只定义函数名，不具体实现。这个类似C++纯虚函数</p> <p>直接栗子：</p> <pre class="has"><code class="language-java">// 以下为多个文件 //-------------------- Base.java----------------- package test;  abstract public class Base {        // 基类，抽象类     public void printClass() {      // 抽象类函数必须实现，不然会报错         System.out.println("print base class");     } }   //------------------ Child1.java---------------- package test;  public class Child1 extends Base{    // 子类继承，可直接继承基类函数，不用实现  }   //------------------Child2.java---------------- package test;  public class Child2 extends Base {     @Override     public void printClass() {        // 子类继承，可对基类函数进行重写         System.out.println("print child2 class");     } }  //**************************************************************************** //------------------------------ IBase.java------------------------- package test;  public interface IBase {    //接口，只定义接口函数形式，不具体实现     void printClass(); }   //----------------------------- Child1_IBase.java---------------------- package test;  public class Child1_IBase implements IBase {     @Override     public void printClass() {        // 实现接口类，函数必须重写         System.out.println("print Interface Child1");     } }   //*************************************************************************** //------------------TestMain.java-------------- package test;  public class TestMain {     public static void main(String[] args) {         Child1 child1 = new Child1();    //未进行函数重写         Child2 child2 = new Child2();    //已进行函数重写         child1.printClass();                // 基类函数打印         child2.printClass();                // Child2 子类函数打印          Child1_IBase child1Interface = new Child1_IBase();         child1Interface.printClass();     } } </code></pre> <h2>虚类和纯虚类 虚函数和纯虚函数</h2> <p>话说回C++，C++的虚函数和纯虚函数的实现也就跟这 java 抽象类和接口差不多了。栗子二连</p> <pre class="has"><code class="language-cpp">#include &lt;iostream&gt; using namespace std;  class base {    //虚基类 public:     virtual void printClass() {    //虚函数实现         cout &lt;&lt;"print base class" &lt;&lt;endl;     } };  class baseVirtual {    //纯虚类，只要含有一个纯虚函数即是纯虚类 public:     virtual void printClass() {        //虚函数，需要实现         cout &lt;&lt;"print baseVirtual class" &lt;&lt;endl;     }     virtual void printClassVirtual() = 0;    //纯虚函数，不需实现 };  //--------------------------------------------------------------- class sameChild1: public base {    //子类继承，不自己重写虚函数  };  class overrideChild2: public base{ public:     void printClass() override {        // 虚函数重写，override 可不加上         cout &lt;&lt;"print child2 class" &lt;&lt;endl;     } };  class virtualChild3 : public baseVirtual { public:     void printClassVirtual() override {    // 纯虚函数实现，override 可不加上         cout &lt;&lt;"print virtualChild3 class" &lt;&lt;endl;     } };  //--------------------------------------------------------------- int main() {     base baseIns;        //虚基类，可以进行实例化     baseIns.printClass();      sameChild1 child1;    // 子类，函数直接继承父类     child1.printClass();      overrideChild2 child2;    // 子类，进行了函数重写     child2.printClass();      // baseVirtual baseVirIns;    // 纯虚类，不可实例化     // baseVirIns.printClassVirtual();      virtualChild3 child3;        // 纯虚类的子类，进行了纯虚函数的重写     child3.printClassVirtual();     return 0; }</code></pre> <p>结果输出：</p> <p><img fetchpriority="high" decoding="async" alt="" class="has" height="102" src="http://img.555519.xyz/uploads/20230209/b3c40bed8d1818868375424d37b7a2fa.jpg"></p> <p>&nbsp;与java不同之处：</p> <p>1. java 的抽象类和接口都是不可以单独实例化的，只能由子类实例化</p> <p>2. C++只有纯虚类不可以实例化，普通的虚基类可以进行实例化；因为方法有实现（但其实Java抽象类也有实现，哈哈哈）。</p> <p>同时既然说到了 override，就说一下我的理解：</p> <h2>C++ override的使用</h2> <p>首先需要明确一个问题，那就是子类到底从基类中继承到了什么，这里只讨论函数方法</p> <p>1. 基类中的纯虚函数，子类<strong>仅继承接口形式</strong>，具体函数体需要自己实现。</p> <p>2. 基类中的虚函数，子类继承到了<strong>接口形式+缺省实现。</strong>具体函数<strong>一般还是要子类自己实现</strong>，当然也可直接使用基类的。</p> <p>3. 基类中的非虚函数，子类继承到<strong>接口形式+具体实现</strong>。具体函数<strong>一般不需要子类自己实现</strong>，当然你强行想再实现也是可以的。</p> <p>那就好像有没有 override 都可以正常实现虚函数的重写，那为什么要加个 override 呢？其实 override 是C++ 11之后加入的保留字，<strong>用于对虚函数重写的强制检查</strong>。举个栗子，还是上面那个示例，</p> <pre class="has"><code class="language-cpp">class overrideChild2: public base{ public:     /**     * 函数名写错！！!     * 假如没有 override ，程序员以为是对基类函数的重写，实际函数写错了。编译也不会有任何问题，到             * 函数调用的时候，仍然使用基类的接口形式调用；那么就会出现于预想中不一样的结果     **/     void printClassSSSP() /*override*/ {                 cout &lt;&lt;"print child2 class" &lt;&lt;endl;     } };</code></pre> <p>对基类虚函数重写的错误，有可能因为函数名，参数类型，返回类型等等这些产生错误；但是这个是书写错误，这个是不容易查找出来的。派生类只会把这个当成是一个全新的函数，这是会带来很大的困扰，于是就有了 override 。<strong>被override 标识的函数，就明确表示是对基类函数的重写，那么必然需要有存在这样一个基类函数，在编译过程就会进行一个强制检查</strong>。如果发现基类中并没有这个函数，那说明是我们写错了函数，这样会保证虚函数的有效重写。所以 override 针对对象是基类的<strong>虚函数</strong>，<strong>非虚函数表示基类一般希望子类继承自己的方法实现，加上一个 override 同样也会报错提醒</strong>。</p> <p><strong>override 使用前提</strong>：</p> <p>1）子类想改写基类函数；</p> <p>2）基类函数为虚函数；&nbsp;</p> <p>3）函数形式与基类保持一致（包括函数名，参数，返回类型）&nbsp;</p> <p>说白了 override 就是一种辅助的措施，防止一些不必要的错误</p> <p>ps: 还是写这些杂的轻松快乐。磕盐要加糖，我们都一样。</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-40378.htm">Java中定义和声明之间的区别。</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-8-free-shadowrocket-node.htm" title="1月8日|Shadowrocket/Clash/V2ray/SSR每天更新20.2M/S免费节点订阅链接地址">1月8日|Shadowrocket/Clash/V2ray/SSR每天更新20.2M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-26511.htm" title="动物疫苗举报电话号码（动物疫苗举报电话号码是多少）">动物疫苗举报电话号码（动物疫苗举报电话号码是多少）</a></li>
+                        <li class="py-2"><a href="/news/article-25112.htm" title="MySQL数据库之数据表操作_Mysql">MySQL数据库之数据表操作_Mysql</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-22-free-node-subscribe.htm" title="11月22日|Clash/V2ray/Shadowrocket/SSR每天更新18.9M/S免费节点订阅链接">11月22日|Clash/V2ray/Shadowrocket/SSR每天更新18.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-40379.htm" title="C++虚函数与纯虚函数">C++虚函数与纯虚函数</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-12-shadowrocket-node.htm" title="11月12日|SSR/V2ray/Clash/Shadowrocket每天更新19.7M/S免费节点订阅链接">11月12日|SSR/V2ray/Clash/Shadowrocket每天更新19.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-1-free-v2ray-subscribe.htm" title="11月1日|SSR/Clash/V2ray/Shadowrocket每天更新21.3M/S免费节点订阅链接">11月1日|SSR/Clash/V2ray/Shadowrocket每天更新21.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-34541.htm" title="动物疫苗监管部门是哪里的部门（动物疫苗管理制度）">动物疫苗监管部门是哪里的部门（动物疫苗管理制度）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-13-free-shadowrocket-node.htm" title="12月13日|Clash/SSR/Shadowrocket/V2ray每天更新19.8M/S免费节点订阅链接">12月13日|Clash/SSR/Shadowrocket/V2ray每天更新19.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-10-free-ssr-node.htm" title="1月10日|V2ray/Shadowrocket/Clash/SSR每天更新20.2M/S免费节点订阅链接地址">1月10日|V2ray/Shadowrocket/Clash/SSR每天更新20.2M/S免费节点订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">42</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <p class="copyright_text">
+                            ClashNodesFree免费订阅站 版权所有
+                            <br />
+                            Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery-3.0.0.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/plugin.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
