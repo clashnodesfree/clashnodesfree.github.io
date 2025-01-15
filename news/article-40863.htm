@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 
 <head>
-    <link rel="canonical" href="https://clashnodesfree.github.io/news/article-40378.htm" />
+    <link rel="canonical" href="https://clashnodesfree.github.io/news/article-40863.htm" />
 <!-- basic -->
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,8 +11,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 <!-- site metas -->
-<title>Java中定义和声明之间的区别。</title>
-<meta name="description" content="对于定义和声明之间的区别，应该首先考虑其字面含义，其中包括声明或声明的“声明”方法，而描述某些实体的“定义”方法。 以下是定义和声明之间的重要区别。    序号 键 声明 定义     1 概念 声明" />
+<title>React18之状态批处理的使用_React</title>
+<meta name="description" content="目录  状态自动批处理 17版  18版  退出状态自动批处理  要点概述   react在3月29号正式发布了18版本, 此次更新包括: 状态自动批处理, 客户端渲染api的更新, 新的hook等很" />
 <!-- bootstrap css -->
 <link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/bootstrap.min.css">
 <!-- style css -->
@@ -88,12 +88,12 @@
 
             <div class="row">
                 <div class="col-md-9">
-                    <h1 class="services_taital mb-5">Java中定义和声明之间的区别。</h1>
+                    <h1 class="services_taital mb-5">React18之状态批处理的使用_React</h1>
                                     <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
-                  				  				  				<p>对于定义和声明之间的区别，应该首先考虑其字面含义，其中包括声明或声明的“声明”方法，而描述某些实体的“定义”方法。</p> <p>以下是定义和声明之间的重要区别。</p> <table class="table table-bordered table-striped"> <thead> <tr class="firstRow"> <th>序号</th> <th>键</th> <th>声明</th> <th>定义</th> </tr> </thead> <tbody> <tr> <td>1</td> <td>概念</td> <td>声明的概念包括通知编译器有关变量的属性，例如变量的名称，其持有的值的类型以及初始值（如果有的话）。</td> <td>虽然定义基本上是函数的实际实现和内存位置，并且在定义变量期间分配了有关该变量的内存。</td> </tr> <tr> <td>2</td> <td>C异常</td> <td>对于c语言，声明和定义都同时发生。</td> <td>在其他语言（例如Java）中，两者都出现在不同的地方。</td> </tr> <tr> <td>3</td> <td>出现次数</td> <td>可以对变量或函数进行多次声明。</td> <td>变量或函数只能定义一次。</td> </tr> <tr> <td>4</td> <td>内存分配</td> <td>在声明变量或函数期间未分配内存。</td> <td>在定义变量或函数期间已分配内存。</td> </tr> </tbody> </table> <h2>声明与定义示例</h2> <p><strong>JavaTester.java</strong></p> <pre>public&nbsp;class&nbsp;JavaTester{ &nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;void&nbsp;main(String&nbsp;args[]){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;a;&nbsp;//&nbsp;declaration&nbsp;of&nbsp;variable &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a=10;&nbsp;//&nbsp;definition&nbsp;of&nbsp;variable &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;functionA(a);&nbsp;//&nbsp;declaration&nbsp;of&nbsp;function &nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;void&nbsp;functionA(int&nbsp;a){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("value&nbsp;of&nbsp;a&nbsp;is&nbsp;"&nbsp;+&nbsp;a);&nbsp;//&nbsp;definition&nbsp;of&nbsp;function &nbsp;&nbsp;&nbsp;} }</pre> <p>输出结果</p> <pre>value&nbsp;of&nbsp;a&nbsp;is&nbsp;10</pre> <div></div> 			                <div class="clearfix"></div>
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">状态自动批处理</a></li> <li><a href="#_label1" rel="nofollow">17版</a></li> <li><a href="#_label2" rel="nofollow"> 18版</a></li> <li><a href="#_label3" rel="nofollow"> 退出状态自动批处理</a></li> <li><a href="#_label4" rel="nofollow"> 要点概述</a></li> </ul> </div> <p>react在3月29号正式发布了18版本, 此次更新包括: 状态自动批处理, 客户端渲染api的更新, 新的hook等很多变化, 本章先说一下状态批处理的变化.</p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://reactjs.org/blog/2022/03/29/react-v18.html"   target="_blank" rel="nofollow">React v18.0 – React Blog</a></p> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>状态自动批处理</h2> <blockquote> <p>18版本之前, 在合成事件之外的原生事件中(例如 setTimeout, onclick, promise) , 更新状态并不会进行批量处理(合并), 这意味着在原生事件中多次调用状态更新会造成多次应用的重新渲染, 往往我们只需要最后一次即可, react在18版本后优化了这个问题</p> </blockquote> <div class="ay1code"> <pre class="brush:js;">import { useState } from 'react'     function App() {    const [num1, setNum1] = useState(1)    const [num2, setNum2] = useState(1)    const add = () =&gt; {      setTimeout(() =&gt; {        setNum1((pre) =&gt; pre + 1)        setNum2((pre) =&gt; pre + 1)      })    }    console.log('渲染了')    return (      &lt;div className="App"&gt;        &lt;header className="App-header"&gt;react 18&lt;/header&gt;        &lt;p&gt;num1 : {num1}&lt;/p&gt;        &lt;p&gt;num2 : {num2}&lt;/p&gt;        &lt;button onClick={add}&gt;+1&lt;/button&gt;      &lt;/div&gt;    )  }     export default App</pre> </div> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>17版</h2> <p>点击四下后,组件渲染了8次</p> <p style="text-align:center"><img fetchpriority="high" decoding="async" alt="" height="326" src="http://img.555519.xyz/uploads3/20220504/fb5ac915bfa3d62316d47ad1342067c4.jpg"></p> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2> 18版</h2> <p>点击4下后, 组件渲染了4次</p> <p style="text-align:center"><img decoding="async" alt="" height="248" src="http://img.555519.xyz/uploads3/20220504/8c1329b3edd8addbac557061fc8e827a.jpg"></p> <p class="maodian"><a name="_label3" rel="nofollow"></a></p> <h2> 退出状态自动批处理</h2> <blockquote> <p>在某些场景下 我们可能不需要批处理状态更新, 此时我们需要用到 react-dom 提供的flushSync函数, 该函数需传入一个回调, 并且会同步刷新回调中的状态更新</p> </blockquote> <div class="ay1code"> <pre class="brush:js;">import { useState } from 'react'  import { flushSync } from 'react-dom'     function App() {    const [num1, setNum1] = useState(1)    const [num2, setNum2] = useState(1)    const add = () =&gt; {      setTimeout(() =&gt; {        flushSync(() =&gt; {          setNum1((pre) =&gt; pre + 1)        })        flushSync(() =&gt; {          setNum2((pre) =&gt; pre + 1)        })      })    }    console.log('渲染了')    console.log(num1, num2)    return (      &lt;div className="App"&gt;        &lt;header className="App-header"&gt;react 18&lt;/header&gt;        &lt;p&gt;num1 : {num1}&lt;/p&gt;        &lt;p&gt;num2 : {num2}&lt;/p&gt;        &lt;button onClick={add}&gt;+1&lt;/button&gt;      &lt;/div&gt;    )  }     export default App</pre> </div> <p style="text-align:center"><img decoding="async" alt="" height="289" src="http://img.555519.xyz/uploads3/20220504/68629dd32aafa79675ec8d459a1ec50f.jpg"></p> <p class="maodian"><a name="_label4" rel="nofollow"></a></p> <h2> 要点概述</h2> <blockquote> <p>1. 原生事件内状态更新改为批量处理</p> <p>2. 不需要批量处理时 使用 react-dom 提供的flushSync函数, 此函数同步刷新参数回调内的状态更新</p> </blockquote> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
-                                        <p>上一个：<a href="/news/article-39880.htm">动物疫苗间隔时间多久打 动物疫苗间隔时间多久打第二针</a></p>
-                                        <p>下一个：<a href="/news/article-40379.htm">C++虚函数与纯虚函数</a></p>
+                                        <p>上一个：<a href="/news/article-40379.htm">C++虚函数与纯虚函数</a></p>
+                                        <p>下一个：<a href="/news/article-40864.htm">中农大动物医院有限公司是国企吗还是私企（中农大动物医院怎么样）</a></p>
                                     </div>
                                 </div>
                 <div class="col-md-3">
@@ -103,16 +103,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-12-26-clash-v2ray-ss-ssr.htm" title="12月26日|Clash/Shadowrocket/SSR/V2ray每天更新21.7M/S免费节点订阅链接地址">12月26日|Clash/Shadowrocket/SSR/V2ray每天更新21.7M/S免费节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-22337.htm" title="宠物粮品牌排行榜前十名图片 宠物粮品牌排行榜前十名图片及价格">宠物粮品牌排行榜前十名图片 宠物粮品牌排行榜前十名图片及价格</a></li>
-                        <li class="py-2"><a href="/news/article-27437.htm" title="免费宠物救助站北京（宠物救助站北京电话）">免费宠物救助站北京（宠物救助站北京电话）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-28-free-ssr-subscribe.htm" title="12月28日|Shadowrocket/SSR/Clash/V2ray每天更新18.3M/S免费节点订阅链接地址">12月28日|Shadowrocket/SSR/Clash/V2ray每天更新18.3M/S免费节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-23250.htm" title="麦富迪猫粮属于什么档次 麦富迪猫粮属于什么档次的品牌">麦富迪猫粮属于什么档次 麦富迪猫粮属于什么档次的品牌</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-26-free-node-subscribe-links.htm" title="11月26日|Clash/SSR/V2ray/Shadowrocket每天更新20.5M/S免费节点订阅链接">11月26日|Clash/SSR/V2ray/Shadowrocket每天更新20.5M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-26511.htm" title="动物疫苗举报电话号码（动物疫苗举报电话号码是多少）">动物疫苗举报电话号码（动物疫苗举报电话号码是多少）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-5-free-v2ray.htm" title="12月5日|SSR/Shadowrocket/V2ray/Clash每天更新20.1M/S免费节点订阅链接">12月5日|SSR/Shadowrocket/V2ray/Clash每天更新20.1M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-30098.htm" title="动物疫苗供应站的职能（动物疫苗供应站的职能职责）">动物疫苗供应站的职能（动物疫苗供应站的职能职责）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-16-node-share-links.htm" title="11月16日|Clash/SSR/V2ray/Shadowrocket每天更新21.2M/S免费节点订阅链接">11月16日|Clash/SSR/V2ray/Shadowrocket每天更新21.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-32145.htm" title="被猫咬了一个小洞要&#25171;&#38024;吗（被猫咬了一个洞需要打狂犬疫苗吗）">被猫咬了一个小洞要&#25171;&#38024;吗（被猫咬了一个洞需要打狂犬疫苗吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-15-free-v2ray-subscribe.htm" title="10月15日|Shadowrocket/SSR/V2ray/Clash每天更新19.6M/S免费节点订阅链接">10月15日|Shadowrocket/SSR/V2ray/Clash每天更新19.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-10-node-share-links.htm" title="12月10日|V2ray/Shadowrocket/SSR/Clash每天更新22.7M/S免费节点订阅链接">12月10日|V2ray/Shadowrocket/SSR/Clash每天更新22.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-30-free-node-subscribe-links.htm" title="11月30日|V2ray/Clash/Shadowrocket/SSR每天更新18.4M/S免费节点订阅链接">11月30日|V2ray/Clash/Shadowrocket/SSR每天更新18.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-40863.htm" title="React18之状态批处理的使用_React">React18之状态批处理的使用_React</a></li>
+                        <li class="py-2"><a href="/news/article-26050.htm" title="宠物领养数据库 宠物领养数据库建表">宠物领养数据库 宠物领养数据库建表</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-10-clash-node.htm" title="11月10日|Clash/V2ray/SSR/Shadowrocket每天更新22.4M/S免费节点订阅链接">11月10日|Clash/V2ray/SSR/Shadowrocket每天更新22.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-30730.htm" title="单链表按顺序插入节点、修改节点、删除节点">单链表按顺序插入节点、修改节点、删除节点</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-27-clash-v2ray-ss-ssr.htm" title="12月27日|Shadowrocket/SSR/Clash/V2ray每天更新18.4M/S免费节点订阅链接地址">12月27日|Shadowrocket/SSR/Clash/V2ray每天更新18.4M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-19131.htm" title="一片片枫叶随风飘落好像什么造句（一片片枫叶随着秋风飘落改为拟人句）">一片片枫叶随风飘落好像什么造句（一片片枫叶随着秋风飘落改为拟人句）</a></li>
                     </ul>
     </div>
 </div>
