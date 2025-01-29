@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+    	<link rel="canonical" href="https://clashnodesfree.github.io/news/article-47305.htm" />
+	<!-- basic -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<!-- mobile metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<!-- site metas -->
+	<title>Python，如何将元组中的元素作为参数传入函数</title>
+		<meta name="description" content="本文由Markdown语法编辑器编辑完成。  1. 需求： 现在有一个Python的需求需要实现： 就是实现连接一次数据库，就能够执行多条SQL语句，而且这个SQL语句是需要通过调用者将每一次执行的参" />
+	
+    <meta name="author" content="ClashNodesFree免费订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashnodesfree.github.io/news/article-47305.htm" />
+    <meta property="og:site_name" content="ClashNodesFree免费订阅站" />
+    <meta property="og:title" content="Python，如何将元组中的元素作为参数传入函数" />
+    <meta property="og:image" content="https://clashnodesfree.github.io/uploads/20240323/67515d5613f54ad595999fa7d2110788.webp" />
+        <meta property="og:release_date" content="2025-01-28T09:31:29" />
+    <meta property="og:updated_time" content="2025-01-28T09:31:29" />
+        <meta property="og:description" content="本文由Markdown语法编辑器编辑完成。  1. 需求： 现在有一个Python的需求需要实现： 就是实现连接一次数据库，就能够执行多条SQL语句，而且这个SQL语句是需要通过调用者将每一次执行的参" />
+        
+	<!-- bootstrap css -->
+	<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/bootstrap.min.css">
+	<!-- style css -->
+	<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/style.css">
+	<!-- Responsive-->
+	<link rel="stylesheet" href="/assets/website/css/clashnodesfree/responsive.css">
+	<!-- favicon -->
+	<link rel="icon" href="/assets/website/img/clashnodesfree/favicon.ico" type="image/x-icon"/>
+	<!-- Scrollbar Custom CSS -->
+	<link rel="stylesheet" href="/assets/website/css/clashnodesfree/jquery.mCustomScrollbar.min.css">
+	<!-- Tweaks for older IEs-->
+	<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+	<!-- fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Python，如何将元组中的元素作为参数传入函数">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z348FF31FW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z348FF31FW');
+</script>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!-- header section start -->
+    <div class="header_section header_bg">
+        <div class="container-fluid">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Clash Nodes Free</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="breadcrumb">
+              <a href="/">首页</a> / 
+              <a href="/news/">新闻资讯</a> / 
+              <span>正文</span>
+            </div>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <h1 class="services_taital mb-5">Python，如何将元组中的元素作为参数传入函数</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>本文由Markdown语法编辑器编辑完成。</p> <h2> <a id="1__2" rel="nofollow"></a>1. 需求：</h2> <p>现在有一个Python的需求需要实现：</p> <p>就是实现连接一次数据库，就能够执行多条SQL语句，而且这个SQL语句是需要通过调用者将每一次执行的参数传入进来，组合成一条完整的SQL语句再去执行。</p> <p>经过初步研究，传入参数时，通过数组的形式，数组中的每一个元素则是一个元组tuple（因为SQL中需要填入的参数可能是多个，所以需要通过元组的形式传入）。</p> <p>比如SQL语句的形式为：<br /> basic_sql = ‘SELECT * FROM series se where se.body_part like “%{}%” and se.modality = “{}”’<br /> 在这条SQL中，有两个变量需要传入，分别用{}表示，一个是序列的body_part, 一个是序列的modality。准备传入的参数为：<br /> [(‘Chest’, ‘CT’), (‘Lung’, ‘MRI’), (‘Leg’, ‘DR’)]等。</p> <p>希望通过以下的格式化函数，将参数传入：<br /> SELECT * FROM series se where se.body_part like “%{}%” and se.modality = “{}”.format(param1, param2) 这样。</p> <h2> <a id="2__17" rel="nofollow"></a>2. 函数实现：</h2> <p>虽然看起来这个需求非常明确，也比较简单。但是实现起来，还是花费了我好长的时间。究其原因，主要的困惑就是如何能够将这个参数传入到SQL中，并且去执行SQL。</p> <h3> <a id="21__20" rel="nofollow"></a>2.1 思路一：</h3> <p>在基于需求中提到的那个解决思路，我希望是拼接字符串，将拼接后的整个字符串作为完整的SQL语句，然后执行生成结果。</p> <pre><code class="prism language-python"><span class="token keyword">def</span> <span class="token function">execute_multi_sql</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> sql<span class="token punctuation">,</span> params_list<span class="token punctuation">)</span><span class="token punctuation">:</span> 	result_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>         <span class="token keyword">try</span><span class="token punctuation">:</span>             self<span class="token punctuation">.</span>_db_connection <span class="token operator">=</span> self<span class="token punctuation">.</span>_db_connection_pool<span class="token punctuation">.</span>connection<span class="token punctuation">(</span><span class="token punctuation">)</span>             self<span class="token punctuation">.</span>_db_cursor <span class="token operator">=</span> self<span class="token punctuation">.</span>_db_connection<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span> 			<span class="token keyword">for</span> params <span class="token keyword">in</span> params_list<span class="token punctuation">:</span> 			    combined_sql <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> 			    combined_sql<span class="token punctuation">.</span>append<span class="token punctuation">(</span>sql<span class="token punctuation">)</span> 			    combined_sql<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">'.format('</span><span class="token punctuation">)</span> 			    combined_sql<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token builtin">map</span><span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">,</span> params<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> 			    combined_sql<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">')'</span><span class="token punctuation">)</span> 			    combined_sql <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>combined_sql<span class="token punctuation">)</span> 			    logger<span class="token punctuation">.</span>debug<span class="token punctuation">(</span><span class="token string">"executing sql: %s"</span> <span class="token operator">%</span> combined_sql<span class="token punctuation">)</span> 			    self<span class="token punctuation">.</span>_db_cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>combined_sql<span class="token punctuation">)</span> 			    result <span class="token operator">=</span> self<span class="token punctuation">.</span>_db_cursor<span class="token punctuation">.</span>fetchall<span class="token punctuation">(</span><span class="token punctuation">)</span> 			    logger<span class="token punctuation">.</span>debug<span class="token punctuation">(</span>u<span class="token string">"SQL语句已经被执行, 结果是:\n %s"</span> <span class="token operator">%</span> <span class="token builtin">str</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">)</span> 			    result_list<span class="token punctuation">.</span>append<span class="token punctuation">(</span>result<span class="token punctuation">)</span> 		<span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>             logger<span class="token punctuation">.</span>exception<span class="token punctuation">(</span>u<span class="token string">"执行sql语句时，发生了错误: %s"</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span>message<span class="token punctuation">)</span>             <span class="token keyword">raise</span>         <span class="token keyword">finally</span><span class="token punctuation">:</span>             self<span class="token punctuation">.</span>_db_connection<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>             <span class="token keyword">return</span> result_list </code></pre> <p>但是在执行这个函数的时候，会报异常，异常说明是：tuple out of bounds.<br /> 以下是问题产生的原因：</p> <h3> <a id="22__51" rel="nofollow"></a>2.2 思路二：</h3> <p>通过google搜索，最终找到的解决方案是如下链接所示：<br /><strong>expanding tuples into arguments.</strong><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://stackoverflow.com/questions/1993727/expanding-tuples-into-arguments"  rel="nofollow">https://stackoverflow.com/questions/1993727/expanding-tuples-into-arguments</a></p> <pre><code class="prism language-python"><span class="token keyword">from</span> DBUtils<span class="token punctuation">.</span>PooledDB <span class="token keyword">import</span> PooledDB <span class="token keyword">import</span> logging <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>      <span class="token keyword">def</span> <span class="token function">execute_multi</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> sql<span class="token punctuation">,</span> params_list<span class="token punctuation">)</span><span class="token punctuation">:</span>         <span class="token keyword">if</span> <span class="token operator">not</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>params_list<span class="token punctuation">,</span> <span class="token builtin">list</span><span class="token punctuation">)</span><span class="token punctuation">:</span>             <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span>u<span class="token string">'传入参数要求是列表类型,请检查传入参数类型!'</span><span class="token punctuation">)</span>         result_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>         <span class="token keyword">try</span><span class="token punctuation">:</span>             self<span class="token punctuation">.</span>_db_connection <span class="token operator">=</span> self<span class="token punctuation">.</span>_db_connection_pool<span class="token punctuation">.</span>connection<span class="token punctuation">(</span><span class="token punctuation">)</span>             self<span class="token punctuation">.</span>_db_cursor <span class="token operator">=</span> self<span class="token punctuation">.</span>_db_connection<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span>              <span class="token keyword">for</span> params <span class="token keyword">in</span> params_list<span class="token punctuation">:</span>                 <span class="token comment"># 将每一个元组中存的参数传入format中,替换sql中的变量值.</span>                 <span class="token comment"># 如果数组中的元素不是元组,则sql中只有一个变量需要替换,将参数直接替换.</span>                 <span class="token keyword">if</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>params<span class="token punctuation">,</span> <span class="token builtin">tuple</span><span class="token punctuation">)</span><span class="token punctuation">:</span>                     combined_sql <span class="token operator">=</span> sql<span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token operator">*</span>params<span class="token punctuation">)</span>                 <span class="token keyword">else</span><span class="token punctuation">:</span>                     combined_sql <span class="token operator">=</span> sql<span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>params<span class="token punctuation">)</span>                  logger<span class="token punctuation">.</span>debug<span class="token punctuation">(</span><span class="token string">"executing sql: %s"</span> <span class="token operator">%</span> combined_sql<span class="token punctuation">)</span>                 self<span class="token punctuation">.</span>_db_cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>combined_sql<span class="token punctuation">)</span>                 result <span class="token operator">=</span> self<span class="token punctuation">.</span>_db_cursor<span class="token punctuation">.</span>fetchall<span class="token punctuation">(</span><span class="token punctuation">)</span>                 logger<span class="token punctuation">.</span>debug<span class="token punctuation">(</span>u<span class="token string">"SQL语句已经被执行, 结果是:\n %s"</span> <span class="token operator">%</span> <span class="token builtin">str</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">)</span>                 <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">:</span>                     result_list<span class="token punctuation">.</span>append<span class="token punctuation">(</span>result<span class="token punctuation">)</span>         <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>             logger<span class="token punctuation">.</span>exception<span class="token punctuation">(</span>u<span class="token string">"执行sql语句时，发生了错误: %s"</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span>message<span class="token punctuation">)</span>             <span class="token keyword">raise</span>         <span class="token keyword">finally</span><span class="token punctuation">:</span>             self<span class="token punctuation">.</span>_db_connection<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>             <span class="token keyword">return</span> result_list </code></pre> <p>这段代码中，最主要的修改就是关于处理参数的部分. 由于传入的参数是一个数组，数组中的每一个元素是一个tuple, tuple内的元素个数是由第2个参数sql中需要传入的参数个数对应的。如上述需求中提到的，传入的sql中需要补充两个参数值，分别是body_part和modality, 因此数组中每一个tuple的长度也是2.<br /> 这样通过*tuple的方式，可以依次取出tuple中的每一个元素作为变量，传入前面的sql语句中，组成一个完整的sql语句。然后再调用db.execute, 便可以获取到查询结果.</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-46820.htm">领养宠物百科（领养宠物须知）</a></p>
+                                        <p>下一个：<a href="/news/article-47306.htm">急售二手颗粒饲料机一台多少钱（二手颗粒饲料机饲料颗粒机）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-30731.htm" title="宠物粮市场分析论文范文怎么写（宠物粮市场开发方案）">宠物粮市场分析论文范文怎么写（宠物粮市场开发方案）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-26-free-node-subscribe-links.htm" title="11月26日|Clash/SSR/V2ray/Shadowrocket每天更新20.5M/S免费节点订阅链接">11月26日|Clash/SSR/V2ray/Shadowrocket每天更新20.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-20504.htm" title="Hyperledger Fabric无系统通道启动及通道的创建和删除">Hyperledger Fabric无系统通道启动及通道的创建和删除</a></li>
+                        <li class="py-2"><a href="/news/article-21421.htm" title="初中毕业可以上兽医学校吗（初中毕业能上兽医学校宠物专业学校）">初中毕业可以上兽医学校吗（初中毕业能上兽医学校宠物专业学校）</a></li>
+                        <li class="py-2"><a href="/news/article-34922.htm" title="深圳宠物领养中心有哪些地址和电话（深圳宠物领养中心有哪些地址和电话地址）">深圳宠物领养中心有哪些地址和电话（深圳宠物领养中心有哪些地址和电话地址）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-6-free-v2ray.htm" title="12月6日|Clash/V2ray/SSR/Shadowrocket每天更新19.1M/S免费节点订阅链接">12月6日|Clash/V2ray/SSR/Shadowrocket每天更新19.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-16-free-v2ray.htm" title="1月16日|Clash/V2ray/Shadowrocket/SSR每天更新22.7M/S免费节点订阅链接地址">1月16日|Clash/V2ray/Shadowrocket/SSR每天更新22.7M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-23250.htm" title="麦富迪猫粮属于什么档次 麦富迪猫粮属于什么档次的品牌">麦富迪猫粮属于什么档次 麦富迪猫粮属于什么档次的品牌</a></li>
+                        <li class="py-2"><a href="/news/article-28368.htm" title="动物疫苗属于疫苗的分类吗对吗对吗（疫苗包括动物疫苗吗）">动物疫苗属于疫苗的分类吗对吗对吗（疫苗包括动物疫苗吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-4-free-clash.htm" title="11月4日|V2ray/Clash/SSR/Shadowrocket每天更新20.6M/S免费节点订阅链接">11月4日|V2ray/Clash/SSR/Shadowrocket每天更新20.6M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <p class="copyright_text">
+                            ClashNodesFree免费订阅站 版权所有
+                            <br />
+                            Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery-3.0.0.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/plugin.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

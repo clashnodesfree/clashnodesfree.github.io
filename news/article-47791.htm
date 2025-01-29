@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+    	<link rel="canonical" href="https://clashnodesfree.github.io/news/article-47791.htm" />
+	<!-- basic -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<!-- mobile metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<!-- site metas -->
+	<title>flex布局之5个div盒子一排，不同屏幕，盒子宽度自适应</title>
+		<meta name="description" content="一.需求 不同大小的屏幕进入页面，都是一排5个div盒子，且div盒子宽度随屏幕自适应 二.效果 三.代码和注释如下 &lt;el-rowclass="indexListBoxRow"&gt;&lt;" />
+	
+    <meta name="author" content="ClashNodesFree免费订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashnodesfree.github.io/news/article-47791.htm" />
+    <meta property="og:site_name" content="ClashNodesFree免费订阅站" />
+    <meta property="og:title" content="flex布局之5个div盒子一排，不同屏幕，盒子宽度自适应" />
+    <meta property="og:image" content="https://clashnodesfree.github.io/uploads/20240323/f473c41fc227da7d258e0f7572adbd50.webp" />
+        <meta property="og:release_date" content="2025-01-29T10:26:16" />
+    <meta property="og:updated_time" content="2025-01-29T10:26:16" />
+        <meta property="og:description" content="一.需求 不同大小的屏幕进入页面，都是一排5个div盒子，且div盒子宽度随屏幕自适应 二.效果 三.代码和注释如下 &lt;el-rowclass="indexListBoxRow"&gt;&lt;" />
+        
+	<!-- bootstrap css -->
+	<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/bootstrap.min.css">
+	<!-- style css -->
+	<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/style.css">
+	<!-- Responsive-->
+	<link rel="stylesheet" href="/assets/website/css/clashnodesfree/responsive.css">
+	<!-- favicon -->
+	<link rel="icon" href="/assets/website/img/clashnodesfree/favicon.ico" type="image/x-icon"/>
+	<!-- Scrollbar Custom CSS -->
+	<link rel="stylesheet" href="/assets/website/css/clashnodesfree/jquery.mCustomScrollbar.min.css">
+	<!-- Tweaks for older IEs-->
+	<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+	<!-- fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="flex布局之5个div盒子一排，不同屏幕，盒子宽度自适应">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z348FF31FW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z348FF31FW');
+</script>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!-- header section start -->
+    <div class="header_section header_bg">
+        <div class="container-fluid">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Clash Nodes Free</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="breadcrumb">
+              <a href="/">首页</a> / 
+              <a href="/news/">新闻资讯</a> / 
+              <span>正文</span>
+            </div>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <h1 class="services_taital mb-5">flex布局之5个div盒子一排，不同屏幕，盒子宽度自适应</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>一.需求<br /> 不同大小的屏幕进入页面，都是一排5个div盒子，且div盒子宽度随屏幕自适应</p> <p>二.效果<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/e7f8558539c8bb87bd573e5621c816ae.jpg" alt="flex布局之5个div盒子一排，不同屏幕，盒子宽度自适应"><br /> 三.代码和注释如下</p> <pre><code class="prism language-javascript"><span class="token operator">&lt;</span>el<span class="token operator">-</span>row<span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"indexListBoxRow"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span>el<span class="token operator">-</span>col<span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"indexList_box"</span>         v<span class="token operator">-</span><span class="token keyword">for</span><span class="token operator">=</span><span class="token string">"(item,index) in indexList"</span><span class="token operator">:</span>key<span class="token operator">=</span><span class="token string">"item.id"</span><span class="token comment">//循环展示div盒子</span><span class="token operator">:</span><span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"{ lastLine: (index + 1) % 5 == 0 }"</span><span class="token comment">//若div盒子下标+1跟5取余为0，则代表这是最后一列，即第5列，则展示lastLine这个类名下的样式</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span>div<span class="token operator">&gt;</span><span class="token comment">//每个div盒子里的内容，内容撑出div盒子高度</span><span class="token operator">&lt;</span>div<span class="token operator">:</span>title<span class="token operator">=</span><span class="token string">"item.name"</span><span class="token operator">&gt;</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">{<!-- --></span>item<span class="token punctuation">.</span>name<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span><span class="token operator">&lt;</span>div<span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"description"</span><span class="token operator">&gt;</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">{<!-- --></span>item<span class="token punctuation">.</span>value<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span><span class="token operator">&lt;</span>i<span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"el-icon-arrow-right"</span> @click<span class="token operator">=</span><span class="token string">"detailClick(item.metricsId)"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>i<span class="token operator">&gt;</span><span class="token operator">&lt;</span>div<span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"date"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span>i<span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"el-icon-refresh-right"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>i<span class="token operator">&gt;</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">{<!-- --></span>item<span class="token punctuation">.</span>flushTime<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>col<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>row<span class="token operator">&gt;</span></code></pre> <pre><code class="prism language-javascript"><span class="token operator">&lt;</span>style lang<span class="token operator">=</span><span class="token string">"less"</span> scoped<span class="token operator">&gt;</span><span class="token punctuation">.</span>indexListBoxRow<span class="token punctuation">{<!-- --></span>     margin<span class="token operator">-</span>top<span class="token operator">:</span> 41px<span class="token punctuation">;</span><span class="token literal-property property">display</span><span class="token operator">:</span> flex<span class="token punctuation">;</span><span class="token comment">//flex布局</span>     flex<span class="token operator">-</span>wrap<span class="token operator">:</span> wrap<span class="token punctuation">;</span><span class="token comment">//可换行</span><span class="token punctuation">}</span><span class="token punctuation">.</span>indexList_box<span class="token punctuation">{<!-- --></span>     border<span class="token operator">-</span>radius<span class="token operator">:</span> 8px<span class="token punctuation">;</span>     margin<span class="token operator">-</span>bottom<span class="token operator">:</span> 16px<span class="token punctuation">;</span><span class="token comment">//每个div盒子下边距为16px</span>     margin<span class="token operator">-</span>right<span class="token operator">:</span> 40px<span class="token punctuation">;</span><span class="token comment">//每个div盒子之间的右边距为40px</span>     background<span class="token operator">-</span>color<span class="token operator">:</span> #fff<span class="token punctuation">;</span><span class="token literal-property property">width</span><span class="token operator">:</span><span class="token function">calc</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token operator">%</span><span class="token operator">-</span> 160px<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//每个div盒子的宽度=（百分百的屏幕宽度-4个40px的右间距）/5个div盒子</span><span class="token punctuation">}</span><span class="token punctuation">.</span>lastLine<span class="token punctuation">{<!-- --></span>     margin<span class="token operator">-</span>right<span class="token operator">:</span><span class="token number">0</span><span class="token operator">!</span>important<span class="token punctuation">;</span><span class="token comment">//每行第5个，即最后一列的div盒子的右边距设为0px</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">&gt;</span></code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-47306.htm">急售二手颗粒饲料机一台多少钱（二手颗粒饲料机饲料颗粒机）</a></p>
+                                        <p>下一个：<a href="/news/article-47792.htm">宠物领养平台论文答辩怎么写范文图片（宠物领养系统毕业设计）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-31681.htm" title="动物防疫疫苗与接种的区别是什么呢（动物疫苗是什么意思）">动物防疫疫苗与接种的区别是什么呢（动物疫苗是什么意思）</a></li>
+                        <li class="py-2"><a href="/news/article-19589.htm" title="Rust如何开发eBPF应用">Rust如何开发eBPF应用</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-14-node-share.htm" title="11月14日|Clash/Shadowrocket/SSR/V2ray每天更新18.9M/S免费节点订阅链接">11月14日|Clash/Shadowrocket/SSR/V2ray每天更新18.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-30-free-v2ray-subscribe.htm" title="10月30日|Clash/V2ray/Shadowrocket/SSR每天更新21.3M/S免费节点订阅链接">10月30日|Clash/V2ray/Shadowrocket/SSR每天更新21.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-19130.htm" title="厦门市宠物领养中心地址（厦门领养宠物猫中心）">厦门市宠物领养中心地址（厦门领养宠物猫中心）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-7-free-v2ray.htm" title="10月7日|Shadowrocket/V2ray/SSR/Clash每天更新18.6M/S免费节点订阅链接">10月7日|Shadowrocket/V2ray/SSR/Clash每天更新18.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-19-free-subscribe-node.htm" title="11月19日|V2ray/SSR/Clash/Shadowrocket每天更新21.8M/S免费节点订阅链接">11月19日|V2ray/SSR/Clash/Shadowrocket每天更新21.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-40379.htm" title="C++虚函数与纯虚函数">C++虚函数与纯虚函数</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-19-free-clash-subscribe.htm" title="1月19日|SSR/Shadowrocket/Clash/V2ray每天更新18.4M/S免费节点订阅链接地址">1月19日|SSR/Shadowrocket/Clash/V2ray每天更新18.4M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-27436.htm" title="做猫粮成本（猫粮制作成本）">做猫粮成本（猫粮制作成本）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <p class="copyright_text">
+                            ClashNodesFree免费订阅站 版权所有
+                            <br />
+                            Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery-3.0.0.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/plugin.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
