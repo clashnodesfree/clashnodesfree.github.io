@@ -1,33 +1,60 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
-    <link rel="canonical" href="https://clashnodesfree.github.io/news/article-26972.htm" />
-<!-- basic -->
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<!-- mobile metas -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="viewport" content="initial-scale=1, maximum-scale=1">
-<!-- site metas -->
-<title>CentOS 7.5 配置</title>
-<meta name="description" content="文章目录  CentOS 7.5 配置   添加用户超权限 安装中文输入法 安装 vscode 安装 gcc/g++ 和 git   安装 SCL 安装 gcc/g++ 10.2.1 安装 git 2" />
-<!-- bootstrap css -->
-<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/bootstrap.min.css">
-<!-- style css -->
-<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/style.css">
-<!-- Responsive-->
-<link rel="stylesheet" href="/assets/website/css/clashnodesfree/responsive.css">
-<!-- favicon -->
-<link rel="icon" href="/assets/website/img/clashnodesfree/favicon.ico" type="image/x-icon"/>
-<!-- Scrollbar Custom CSS -->
-<link rel="stylesheet" href="/assets/website/css/clashnodesfree/jquery.mCustomScrollbar.min.css">
-<!-- Tweaks for older IEs-->
-<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
-<!-- fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
-<!-- Google tag (gtag.js) -->
+    	<link rel="canonical" href="https://clashnodesfree.github.io/news/article-26972.htm" />
+	<!-- basic -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<!-- mobile metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<!-- site metas -->
+	<title>CentOS 7.5 配置</title>
+		<meta name="description" content="文章目录  CentOS 7.5 配置   添加用户超权限 安装中文输入法 安装 vscode 安装 gcc/g++ 和 git   安装 SCL 安装 gcc/g++ 10.2.1 安装 git 2" />
+	
+    <meta name="author" content="ClashNodesFree免费订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashnodesfree.github.io/news/article-26972.htm" />
+    <meta property="og:site_name" content="ClashNodesFree免费订阅站" />
+    <meta property="og:title" content="CentOS 7.5 配置" />
+    <meta property="og:image" content="https://clashnodesfree.github.io/uploads/20240323/d3933e448d10217e26c64fd907d4d3a2.webp" />
+        <meta property="og:release_date" content="2024-12-17T10:13:55" />
+    <meta property="og:updated_time" content="2024-12-17T10:13:55" />
+        <meta property="og:description" content="文章目录  CentOS 7.5 配置   添加用户超权限 安装中文输入法 安装 vscode 安装 gcc/g++ 和 git   安装 SCL 安装 gcc/g++ 10.2.1 安装 git 2" />
+        
+	<!-- bootstrap css -->
+	<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/bootstrap.min.css">
+	<!-- style css -->
+	<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/style.css">
+	<!-- Responsive-->
+	<link rel="stylesheet" href="/assets/website/css/clashnodesfree/responsive.css">
+	<!-- favicon -->
+	<link rel="icon" href="/assets/website/img/clashnodesfree/favicon.ico" type="image/x-icon"/>
+	<!-- Scrollbar Custom CSS -->
+	<link rel="stylesheet" href="/assets/website/css/clashnodesfree/jquery.mCustomScrollbar.min.css">
+	<!-- Tweaks for older IEs-->
+	<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+	<!-- fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="CentOS 7.5 配置">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+	<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z348FF31FW"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -36,7 +63,7 @@
 
   gtag('config', 'G-Z348FF31FW');
 </script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
      crossorigin="anonymous"></script>
 </head>
 
@@ -103,16 +130,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-8-15-free-node-subscribe-links.htm" title="8月15日|SSR/V2ray/Shadowrocket/Clash每天更新22.9M/S免费节点订阅链接">8月15日|SSR/V2ray/Shadowrocket/Clash每天更新22.9M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-13-free-shadowrocket-node.htm" title="12月13日|Clash/SSR/Shadowrocket/V2ray每天更新19.8M/S免费节点订阅链接">12月13日|Clash/SSR/Shadowrocket/V2ray每天更新19.8M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-6-free-v2ray-subscribe.htm" title="11月6日|SSR/V2ray/Clash/Shadowrocket每天更新18M/S免费节点订阅链接">11月6日|SSR/V2ray/Clash/Shadowrocket每天更新18M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-13-free-clash-subscribe.htm" title="10月13日|Shadowrocket/Clash/V2ray/SSR每天更新18.1M/S免费节点订阅链接">10月13日|Shadowrocket/Clash/V2ray/SSR每天更新18.1M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-4-free-shadowrocket-node.htm" title="9月4日|V2ray/SSR/Clash/Shadowrocket每天更新21.7M/S免费节点订阅链接">9月4日|V2ray/SSR/Clash/Shadowrocket每天更新21.7M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-21-clash-windows.htm" title="10月21日|Clash/Shadowrocket/SSR/V2ray每天更新22.5M/S免费节点订阅链接">10月21日|Clash/Shadowrocket/SSR/V2ray每天更新22.5M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-5-free-v2ray.htm" title="12月5日|SSR/Shadowrocket/V2ray/Clash每天更新20.1M/S免费节点订阅链接">12月5日|SSR/Shadowrocket/V2ray/Clash每天更新20.1M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-4-18-node-share-links.htm" title="4月18日|Clash/V2ray/Shadowrocket/SSR每天更新21.9M/S免费节点订阅链接">4月18日|Clash/V2ray/Shadowrocket/SSR每天更新21.9M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-1-free-ssr-subscribe.htm" title="10月1日|SSR/Shadowrocket/Clash/V2ray每天更新18.8M/S免费节点订阅链接">10月1日|SSR/Shadowrocket/Clash/V2ray每天更新18.8M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-4-28-free-node-subscribe.htm" title="4月28日|Shadowrocket/Clash/SSR/V2ray每天更新21.9M/S免费节点订阅链接">4月28日|Shadowrocket/Clash/SSR/V2ray每天更新21.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-21423.htm" title="一只身价13亿的猫（世界上最贵的猫）">一只身价13亿的猫（世界上最贵的猫）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-22-node-share-links.htm" title="12月22日|SSR/Clash/Shadowrocket/V2ray每天更新19.4M/S免费节点订阅链接地址">12月22日|SSR/Clash/Shadowrocket/V2ray每天更新19.4M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-44352.htm" title="动物医院的发展方向和前景如何（动物医院规模）">动物医院的发展方向和前景如何（动物医院规模）</a></li>
+                        <li class="py-2"><a href="/news/article-35404.htm" title="动物疫苗去哪里买的到 动物疫苗去哪里买的到呢">动物疫苗去哪里买的到 动物疫苗去哪里买的到呢</a></li>
+                        <li class="py-2"><a href="/news/article-25580.htm" title="2021年河南动物疫苗中标公告公布时间（河南省2021年动物疫苗中标公告）">2021年河南动物疫苗中标公告公布时间（河南省2021年动物疫苗中标公告）</a></li>
+                        <li class="py-2"><a href="/news/article-21879.htm" title="快速排序Java代码实现">快速排序Java代码实现</a></li>
+                        <li class="py-2"><a href="/news/article-20048.htm" title="宠物犬领养流程图（宠物犬领养流程图解）">宠物犬领养流程图（宠物犬领养流程图解）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-8-free-shadowrocket-node.htm" title="1月8日|Shadowrocket/Clash/V2ray/SSR每天更新20.2M/S免费节点订阅链接地址">1月8日|Shadowrocket/Clash/V2ray/SSR每天更新20.2M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-31164.htm" title="什么是https和http（https和http的区别）_在线工具">什么是https和http（https和http的区别）_在线工具</a></li>
+                        <li class="py-2"><a href="/news/article-36938.htm" title="使用 shell 脚本自动获取发版指标数据">使用 shell 脚本自动获取发版指标数据</a></li>
                     </ul>
     </div>
 </div>
@@ -124,37 +151,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

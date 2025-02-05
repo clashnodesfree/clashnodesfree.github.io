@@ -1,33 +1,60 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
-    <link rel="canonical" href="https://clashnodesfree.github.io/news/article-40379.htm" />
-<!-- basic -->
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<!-- mobile metas -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="viewport" content="initial-scale=1, maximum-scale=1">
-<!-- site metas -->
-<title>C++虚函数与纯虚函数</title>
-<meta name="description" content="C++的虚函数与纯虚函数 C++项目看起来真的是太恼火了，源码阅读起来有点不便，幸亏有source insight 保命。C++有个很重要的特性，那就是多态。多态的实现主要是两种方式：一个就是函数的重" />
-<!-- bootstrap css -->
-<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/bootstrap.min.css">
-<!-- style css -->
-<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/style.css">
-<!-- Responsive-->
-<link rel="stylesheet" href="/assets/website/css/clashnodesfree/responsive.css">
-<!-- favicon -->
-<link rel="icon" href="/assets/website/img/clashnodesfree/favicon.ico" type="image/x-icon"/>
-<!-- Scrollbar Custom CSS -->
-<link rel="stylesheet" href="/assets/website/css/clashnodesfree/jquery.mCustomScrollbar.min.css">
-<!-- Tweaks for older IEs-->
-<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
-<!-- fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
-<!-- Google tag (gtag.js) -->
+    	<link rel="canonical" href="https://clashnodesfree.github.io/news/article-40379.htm" />
+	<!-- basic -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<!-- mobile metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<!-- site metas -->
+	<title>C++虚函数与纯虚函数</title>
+		<meta name="description" content="C++的虚函数与纯虚函数 C++项目看起来真的是太恼火了，源码阅读起来有点不便，幸亏有source insight 保命。C++有个很重要的特性，那就是多态。多态的实现主要是两种方式：一个就是函数的重" />
+	
+    <meta name="author" content="ClashNodesFree免费订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashnodesfree.github.io/news/article-40379.htm" />
+    <meta property="og:site_name" content="ClashNodesFree免费订阅站" />
+    <meta property="og:title" content="C++虚函数与纯虚函数" />
+    <meta property="og:image" content="https://clashnodesfree.github.io/uploads/20240323/09004ed4b09aa34decc7c94ceeb17eb2.webp" />
+        <meta property="og:release_date" content="2025-01-14T07:34:27" />
+    <meta property="og:updated_time" content="2025-01-14T07:34:27" />
+        <meta property="og:description" content="C++的虚函数与纯虚函数 C++项目看起来真的是太恼火了，源码阅读起来有点不便，幸亏有source insight 保命。C++有个很重要的特性，那就是多态。多态的实现主要是两种方式：一个就是函数的重" />
+        
+	<!-- bootstrap css -->
+	<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/bootstrap.min.css">
+	<!-- style css -->
+	<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/style.css">
+	<!-- Responsive-->
+	<link rel="stylesheet" href="/assets/website/css/clashnodesfree/responsive.css">
+	<!-- favicon -->
+	<link rel="icon" href="/assets/website/img/clashnodesfree/favicon.ico" type="image/x-icon"/>
+	<!-- Scrollbar Custom CSS -->
+	<link rel="stylesheet" href="/assets/website/css/clashnodesfree/jquery.mCustomScrollbar.min.css">
+	<!-- Tweaks for older IEs-->
+	<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+	<!-- fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="C++虚函数与纯虚函数">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+	<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z348FF31FW"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -36,7 +63,7 @@
 
   gtag('config', 'G-Z348FF31FW');
 </script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
      crossorigin="anonymous"></script>
 </head>
 
@@ -103,16 +130,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2025-1-15-free-node-subscribe-links.htm" title="1月15日|V2ray/Clash/Shadowrocket/SSR每天更新20M/S免费节点订阅链接地址">1月15日|V2ray/Clash/Shadowrocket/SSR每天更新20M/S免费节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-1-free-v2ray.htm" title="1月1日|Shadowrocket/Clash/V2ray/SSR每天更新21.2M/S免费节点订阅链接地址">1月1日|Shadowrocket/Clash/V2ray/SSR每天更新21.2M/S免费节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-28-free-ssr-subscribe.htm" title="12月28日|Shadowrocket/SSR/Clash/V2ray每天更新18.3M/S免费节点订阅链接地址">12月28日|Shadowrocket/SSR/Clash/V2ray每天更新18.3M/S免费节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-24-free-clash-subscribe.htm" title="12月24日|SSR/V2ray/Clash/Shadowrocket每天更新22.1M/S免费节点订阅链接地址">12月24日|SSR/V2ray/Clash/Shadowrocket每天更新22.1M/S免费节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-26049.htm" title="宠物粮食行业发展前景分析论文范文怎么写（宠物粮食创业）">宠物粮食行业发展前景分析论文范文怎么写（宠物粮食创业）</a></li>
-                        <li class="py-2"><a href="/news/article-38893.htm" title="Java四舍五入保留两位小数">Java四舍五入保留两位小数</a></li>
-                        <li class="py-2"><a href="/news/article-26511.htm" title="动物疫苗举报电话号码（动物疫苗举报电话号码是多少）">动物疫苗举报电话号码（动物疫苗举报电话号码是多少）</a></li>
-                        <li class="py-2"><a href="/news/article-21421.htm" title="初中毕业可以上兽医学校吗（初中毕业能上兽医学校宠物专业学校）">初中毕业可以上兽医学校吗（初中毕业能上兽医学校宠物专业学校）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-11-free-v2ray-subscribe.htm" title="12月11日|V2ray/Shadowrocket/SSR/Clash每天更新20.4M/S免费节点订阅链接">12月11日|V2ray/Shadowrocket/SSR/Clash每天更新20.4M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-9-free-subscribe-node.htm" title="12月9日|Clash/V2ray/Shadowrocket/SSR每天更新20.6M/S免费节点订阅链接">12月9日|Clash/V2ray/Shadowrocket/SSR每天更新20.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-25112.htm" title="MySQL数据库之数据表操作_Mysql">MySQL数据库之数据表操作_Mysql</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-16-free-subscribe-node.htm" title="12月16日|SSR/Shadowrocket/V2ray/Clash每天更新18.6M/S免费节点订阅链接">12月16日|SSR/Shadowrocket/V2ray/Clash每天更新18.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-45332.htm" title="使用 Docker 搭建 Confluence">使用 Docker 搭建 Confluence</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-8-free-shadowrocket-node.htm" title="1月8日|Shadowrocket/Clash/V2ray/SSR每天更新20.2M/S免费节点订阅链接地址">1月8日|Shadowrocket/Clash/V2ray/SSR每天更新20.2M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-34062.htm" title="宠物领养协议书范本模板下载大全 宠物领养协议书范本模板下载大全图片">宠物领养协议书范本模板下载大全 宠物领养协议书范本模板下载大全图片</a></li>
+                        <li class="py-2"><a href="/news/article-40379.htm" title="C++虚函数与纯虚函数">C++虚函数与纯虚函数</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-10-node-share-links.htm" title="12月10日|V2ray/Shadowrocket/SSR/Clash每天更新22.7M/S免费节点订阅链接">12月10日|V2ray/Shadowrocket/SSR/Clash每天更新22.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-26973.htm" title="动物医院大众点评100字通用评论语句 动物医院大众点评100字通用评论语句怎么写">动物医院大众点评100字通用评论语句 动物医院大众点评100字通用评论语句怎么写</a></li>
+                        <li class="py-2"><a href="/news/article-44849.htm" title="成都宠物收容机构有哪些（成都宠物收留中心）">成都宠物收容机构有哪些（成都宠物收留中心）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-26-free-ssr-node.htm" title="1月26日|Shadowrocket/SSR/Clash/V2ray每天更新21.1M/S免费节点订阅链接地址">1月26日|Shadowrocket/SSR/Clash/V2ray每天更新21.1M/S免费节点订阅链接地址</a></li>
                     </ul>
     </div>
 </div>
@@ -124,16 +151,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">51</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

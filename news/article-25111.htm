@@ -1,33 +1,60 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
-    <link rel="canonical" href="https://clashnodesfree.github.io/news/article-25111.htm" />
-<!-- basic -->
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<!-- mobile metas -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="viewport" content="initial-scale=1, maximum-scale=1">
-<!-- site metas -->
-<title>Halo 开源项目学习注册与登录</title>
-<meta name="description" content="基本介绍 首次启动 Halo 项目时需要安装博客并注册用户信息，当博客安装完成后用户就可以根据注册的信息登录到管理员界面，下面我们分析一下整个过程中代码是如何执行的。 博客安装 项目启动成功后，我们可" />
-<!-- bootstrap css -->
-<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/bootstrap.min.css">
-<!-- style css -->
-<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/style.css">
-<!-- Responsive-->
-<link rel="stylesheet" href="/assets/website/css/clashnodesfree/responsive.css">
-<!-- favicon -->
-<link rel="icon" href="/assets/website/img/clashnodesfree/favicon.ico" type="image/x-icon"/>
-<!-- Scrollbar Custom CSS -->
-<link rel="stylesheet" href="/assets/website/css/clashnodesfree/jquery.mCustomScrollbar.min.css">
-<!-- Tweaks for older IEs-->
-<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
-<!-- fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
-<!-- Google tag (gtag.js) -->
+    	<link rel="canonical" href="https://clashnodesfree.github.io/news/article-25111.htm" />
+	<!-- basic -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<!-- mobile metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<!-- site metas -->
+	<title>Halo 开源项目学习注册与登录</title>
+		<meta name="description" content="基本介绍 首次启动 Halo 项目时需要安装博客并注册用户信息，当博客安装完成后用户就可以根据注册的信息登录到管理员界面，下面我们分析一下整个过程中代码是如何执行的。 博客安装 项目启动成功后，我们可" />
+	
+    <meta name="author" content="ClashNodesFree免费订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashnodesfree.github.io/news/article-25111.htm" />
+    <meta property="og:site_name" content="ClashNodesFree免费订阅站" />
+    <meta property="og:title" content="Halo 开源项目学习注册与登录" />
+    <meta property="og:image" content="https://clashnodesfree.github.io/uploads/20240323/15ae8fa851b4c56e4081dda0520bb4ec.webp" />
+        <meta property="og:release_date" content="2024-12-13T12:04:14" />
+    <meta property="og:updated_time" content="2024-12-13T12:04:14" />
+        <meta property="og:description" content="基本介绍 首次启动 Halo 项目时需要安装博客并注册用户信息，当博客安装完成后用户就可以根据注册的信息登录到管理员界面，下面我们分析一下整个过程中代码是如何执行的。 博客安装 项目启动成功后，我们可" />
+        
+	<!-- bootstrap css -->
+	<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/bootstrap.min.css">
+	<!-- style css -->
+	<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/style.css">
+	<!-- Responsive-->
+	<link rel="stylesheet" href="/assets/website/css/clashnodesfree/responsive.css">
+	<!-- favicon -->
+	<link rel="icon" href="/assets/website/img/clashnodesfree/favicon.ico" type="image/x-icon"/>
+	<!-- Scrollbar Custom CSS -->
+	<link rel="stylesheet" href="/assets/website/css/clashnodesfree/jquery.mCustomScrollbar.min.css">
+	<!-- Tweaks for older IEs-->
+	<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+	<!-- fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Halo 开源项目学习注册与登录">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+	<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z348FF31FW"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -36,7 +63,7 @@
 
   gtag('config', 'G-Z348FF31FW');
 </script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
      crossorigin="anonymous"></script>
 </head>
 
@@ -103,16 +130,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-7-8-free-v2ray-subscribe.htm" title="7月8日|V2ray/SSR/Clash/Shadowrocket每天更新22.8M/S免费节点订阅链接">7月8日|V2ray/SSR/Clash/Shadowrocket每天更新22.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-1-clash-node-daily-updates.htm" title="2月1日|V2ray/Clash/SSR/Shadowrocket每天更新20.1M/S免费节点订阅链接地址">2月1日|V2ray/Clash/SSR/Shadowrocket每天更新20.1M/S免费节点订阅链接地址</a></li>
                         <li class="py-2"><a href="/news/article-26511.htm" title="动物疫苗举报电话号码（动物疫苗举报电话号码是多少）">动物疫苗举报电话号码（动物疫苗举报电话号码是多少）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-6-free-clash-subscribe.htm" title="8月6日|V2ray/Clash/SSR/Shadowrocket每天更新21.8M/S免费节点订阅链接">8月6日|V2ray/Clash/SSR/Shadowrocket每天更新21.8M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-30-free-v2ray-subscribe.htm" title="10月30日|Clash/V2ray/Shadowrocket/SSR每天更新21.3M/S免费节点订阅链接">10月30日|Clash/V2ray/Shadowrocket/SSR每天更新21.3M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-18615.htm" title="cgtn法语频道（cgtn是什么台）">cgtn法语频道（cgtn是什么台）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-10-node-share-links.htm" title="12月10日|V2ray/Shadowrocket/SSR/Clash每天更新22.7M/S免费节点订阅链接">12月10日|V2ray/Shadowrocket/SSR/Clash每天更新22.7M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-13-node-share-links.htm" title="11月13日|Shadowrocket/SSR/Clash/V2ray每天更新23M/S免费节点订阅链接">11月13日|Shadowrocket/SSR/Clash/V2ray每天更新23M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-29281.htm" title="家用小型狗粮机器价格多少（小型狗粮设备多少钱）">家用小型狗粮机器价格多少（小型狗粮设备多少钱）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-7-26-clash-node-daily-updates.htm" title="7月26日|V2ray/Shadowrocket/SSR/Clash每天更新21.7M/S免费节点订阅链接">7月26日|V2ray/Shadowrocket/SSR/Clash每天更新21.7M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-3-free-shadowrocket-node.htm" title="8月3日|Shadowrocket/Clash/SSR/V2ray每天更新20.5M/S免费节点订阅链接">8月3日|Shadowrocket/Clash/SSR/V2ray每天更新20.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-24644.htm" title="真正的宠物狗免费领养网站有哪些地方（真正的宠物狗免费领养网站有哪些地方呢）">真正的宠物狗免费领养网站有哪些地方（真正的宠物狗免费领养网站有哪些地方呢）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-19-free-subscribe-node.htm" title="11月19日|V2ray/SSR/Clash/Shadowrocket每天更新21.8M/S免费节点订阅链接">11月19日|V2ray/SSR/Clash/Shadowrocket每天更新21.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-20962.htm" title="宠物医院十大品牌加盟排行榜（宠物医院十大品牌加盟排行榜图片）">宠物医院十大品牌加盟排行榜（宠物医院十大品牌加盟排行榜图片）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-26-free-ssr-node.htm" title="1月26日|Shadowrocket/SSR/Clash/V2ray每天更新21.1M/S免费节点订阅链接地址">1月26日|Shadowrocket/SSR/Clash/V2ray每天更新21.1M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-26973.htm" title="动物医院大众点评100字通用评论语句 动物医院大众点评100字通用评论语句怎么写">动物医院大众点评100字通用评论语句 动物医院大众点评100字通用评论语句怎么写</a></li>
+                        <li class="py-2"><a href="/news/article-19130.htm" title="厦门市宠物领养中心地址（厦门领养宠物猫中心）">厦门市宠物领养中心地址（厦门领养宠物猫中心）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-29-free-ssr-node.htm" title="11月29日|SSR/Shadowrocket/Clash/V2ray每天更新19.4M/S免费节点订阅链接">11月29日|SSR/Shadowrocket/Clash/V2ray每天更新19.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-21879.htm" title="快速排序Java代码实现">快速排序Java代码实现</a></li>
                     </ul>
     </div>
 </div>
@@ -124,37 +151,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

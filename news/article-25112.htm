@@ -1,33 +1,60 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
-    <link rel="canonical" href="https://clashnodesfree.github.io/news/article-25112.htm" />
-<!-- basic -->
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<!-- mobile metas -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="viewport" content="initial-scale=1, maximum-scale=1">
-<!-- site metas -->
-<title>MySQL数据库之数据表操作_Mysql</title>
-<meta name="description" content="目录  一、创建数据表  1、基本语法 2、创建方式一 3、创建方式二 4、表选项 5、复制已有表结构  二、显示数据表  三、显示表结构  四、显示表创建语句  五、设置表属性  六、修改表结构  " />
-<!-- bootstrap css -->
-<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/bootstrap.min.css">
-<!-- style css -->
-<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/style.css">
-<!-- Responsive-->
-<link rel="stylesheet" href="/assets/website/css/clashnodesfree/responsive.css">
-<!-- favicon -->
-<link rel="icon" href="/assets/website/img/clashnodesfree/favicon.ico" type="image/x-icon"/>
-<!-- Scrollbar Custom CSS -->
-<link rel="stylesheet" href="/assets/website/css/clashnodesfree/jquery.mCustomScrollbar.min.css">
-<!-- Tweaks for older IEs-->
-<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
-<!-- fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
-<!-- Google tag (gtag.js) -->
+    	<link rel="canonical" href="https://clashnodesfree.github.io/news/article-25112.htm" />
+	<!-- basic -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<!-- mobile metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<!-- site metas -->
+	<title>MySQL数据库之数据表操作_Mysql</title>
+		<meta name="description" content="目录  一、创建数据表  1、基本语法 2、创建方式一 3、创建方式二 4、表选项 5、复制已有表结构  二、显示数据表  三、显示表结构  四、显示表创建语句  五、设置表属性  六、修改表结构  " />
+	
+    <meta name="author" content="ClashNodesFree免费订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashnodesfree.github.io/news/article-25112.htm" />
+    <meta property="og:site_name" content="ClashNodesFree免费订阅站" />
+    <meta property="og:title" content="MySQL数据库之数据表操作_Mysql" />
+    <meta property="og:image" content="https://clashnodesfree.github.io/uploads/20240323/240acf4cb1f90a15ae20c0c70b7a6e2f.webp" />
+        <meta property="og:release_date" content="2024-12-13T12:04:14" />
+    <meta property="og:updated_time" content="2024-12-13T12:04:14" />
+        <meta property="og:description" content="目录  一、创建数据表  1、基本语法 2、创建方式一 3、创建方式二 4、表选项 5、复制已有表结构  二、显示数据表  三、显示表结构  四、显示表创建语句  五、设置表属性  六、修改表结构  " />
+        
+	<!-- bootstrap css -->
+	<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/bootstrap.min.css">
+	<!-- style css -->
+	<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/style.css">
+	<!-- Responsive-->
+	<link rel="stylesheet" href="/assets/website/css/clashnodesfree/responsive.css">
+	<!-- favicon -->
+	<link rel="icon" href="/assets/website/img/clashnodesfree/favicon.ico" type="image/x-icon"/>
+	<!-- Scrollbar Custom CSS -->
+	<link rel="stylesheet" href="/assets/website/css/clashnodesfree/jquery.mCustomScrollbar.min.css">
+	<!-- Tweaks for older IEs-->
+	<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+	<!-- fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="MySQL数据库之数据表操作_Mysql">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+	<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z348FF31FW"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -36,7 +63,7 @@
 
   gtag('config', 'G-Z348FF31FW');
 </script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
      crossorigin="anonymous"></script>
 </head>
 
@@ -103,16 +130,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-7-30-clash-node.htm" title="7月30日|SSR/Shadowrocket/V2ray/Clash每天更新22.6M/S免费节点订阅链接">7月30日|SSR/Shadowrocket/V2ray/Clash每天更新22.6M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-9-shadowrocket-node.htm" title="10月9日|Clash/V2ray/Shadowrocket/SSR每天更新20.3M/S免费节点订阅链接">10月9日|Clash/V2ray/Shadowrocket/SSR每天更新20.3M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-23-free-clash.htm" title="12月23日|SSR/V2ray/Shadowrocket/Clash每天更新21.2M/S免费节点订阅链接地址">12月23日|SSR/V2ray/Shadowrocket/Clash每天更新21.2M/S免费节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-30-free-clash.htm" title="12月30日|Shadowrocket/Clash/SSR/V2ray每天更新21.8M/S免费节点订阅链接地址">12月30日|Shadowrocket/Clash/SSR/V2ray每天更新21.8M/S免费节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-5-14-free-node-subscribe.htm" title="5月14日|SSR/Clash/V2ray/Shadowrocket每天更新21.1M/S免费节点订阅链接">5月14日|SSR/Clash/V2ray/Shadowrocket每天更新21.1M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-5-clash-node.htm" title="8月5日|Shadowrocket/V2ray/SSR/Clash每天更新22.4M/S免费节点订阅链接">8月5日|Shadowrocket/V2ray/SSR/Clash每天更新22.4M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-26-clash-v2ray-ss-ssr.htm" title="8月26日|Clash/Shadowrocket/V2ray/SSR每天更新21.1M/S免费节点订阅链接">8月26日|Clash/Shadowrocket/V2ray/SSR每天更新21.1M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-29-free-v2ray-subscribe.htm" title="12月29日|V2ray/SSR/Clash/Shadowrocket每天更新19.4M/S免费节点订阅链接地址">12月29日|V2ray/SSR/Clash/Shadowrocket每天更新19.4M/S免费节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-26-free-node-subscribe-links.htm" title="11月26日|Clash/SSR/V2ray/Shadowrocket每天更新20.5M/S免费节点订阅链接">11月26日|Clash/SSR/V2ray/Shadowrocket每天更新20.5M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-28-clash-node.htm" title="10月28日|Shadowrocket/Clash/V2ray/SSR每天更新21.1M/S免费节点订阅链接">10月28日|Shadowrocket/Clash/V2ray/SSR每天更新21.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-29-free-ssr-node.htm" title="11月29日|SSR/Shadowrocket/Clash/V2ray每天更新19.4M/S免费节点订阅链接">11月29日|SSR/Shadowrocket/Clash/V2ray每天更新19.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-23252.htm" title="宠物粮食品牌前十名有哪些呢视频 宠物粮食品牌前十名有哪些呢视频讲解">宠物粮食品牌前十名有哪些呢视频 宠物粮食品牌前十名有哪些呢视频讲解</a></li>
+                        <li class="py-2"><a href="/news/article-19590.htm" title="梦见抱个小男孩子,好不好（梦到抱个小男孩是什么意思）">梦见抱个小男孩子,好不好（梦到抱个小男孩是什么意思）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-13-free-shadowrocket-node.htm" title="12月13日|Clash/SSR/Shadowrocket/V2ray每天更新19.8M/S免费节点订阅链接">12月13日|Clash/SSR/Shadowrocket/V2ray每天更新19.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-30-free-shadowrocket-node.htm" title="1月30日|Shadowrocket/V2ray/Clash/SSR每天更新21.4M/S免费节点订阅链接地址">1月30日|Shadowrocket/V2ray/Clash/SSR每天更新21.4M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-26512.htm" title="北京观园宠物市场（北京观园宠物市场电话）">北京观园宠物市场（北京观园宠物市场电话）</a></li>
+                        <li class="py-2"><a href="/news/article-38893.htm" title="Java四舍五入保留两位小数">Java四舍五入保留两位小数</a></li>
+                        <li class="py-2"><a href="/news/article-47306.htm" title="急售二手颗粒饲料机一台多少钱（二手颗粒饲料机饲料颗粒机）">急售二手颗粒饲料机一台多少钱（二手颗粒饲料机饲料颗粒机）</a></li>
+                        <li class="py-2"><a href="/news/article-33585.htm" title="南京有哪些好玩的地方,带孩子玩的地方(南京有哪些好玩的地方,带孩子玩的景点)">南京有哪些好玩的地方,带孩子玩的地方(南京有哪些好玩的地方,带孩子玩的景点)</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-2-free-node-subscribe-links.htm" title="2月2日|Clash/V2ray/SSR/Shadowrocket每天更新19.2M/S免费节点订阅链接地址">2月2日|Clash/V2ray/SSR/Shadowrocket每天更新19.2M/S免费节点订阅链接地址</a></li>
                     </ul>
     </div>
 </div>
@@ -124,37 +151,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>
