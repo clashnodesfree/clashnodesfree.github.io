@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+    	<link rel="canonical" href="https://clashnodesfree.github.io/news/article-54576.htm" />
+	<!-- basic -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<!-- mobile metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<!-- site metas -->
+	<title>Python中位置参数、关键字参数、默认参数和不定长参数(非固定参数)的简介</title>
+		<meta name="description" content="前言;在进行调用函数之间传参时,难免会遇到各种参数形式,下来我们来看看Python中位置参数、关键字参数、默认参数和不定长参数(非固定参数)  文章目录:  一.位置参数: 二.关键字参数: 三.默认" />
+	
+    <meta name="author" content="ClashNodesFree免费订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashnodesfree.github.io/news/article-54576.htm" />
+    <meta property="og:site_name" content="ClashNodesFree免费订阅站" />
+    <meta property="og:title" content="Python中位置参数、关键字参数、默认参数和不定长参数(非固定参数)的简介" />
+    <meta property="og:image" content="https://clashnodesfree.github.io/uploads/20240323/240acf4cb1f90a15ae20c0c70b7a6e2f.webp" />
+        <meta property="og:release_date" content="2025-02-11T05:42:08" />
+    <meta property="og:updated_time" content="2025-02-11T05:42:08" />
+        <meta property="og:description" content="前言;在进行调用函数之间传参时,难免会遇到各种参数形式,下来我们来看看Python中位置参数、关键字参数、默认参数和不定长参数(非固定参数)  文章目录:  一.位置参数: 二.关键字参数: 三.默认" />
+        
+	<!-- bootstrap css -->
+	<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/bootstrap.min.css">
+	<!-- style css -->
+	<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/style.css">
+	<!-- Responsive-->
+	<link rel="stylesheet" href="/assets/website/css/clashnodesfree/responsive.css">
+	<!-- favicon -->
+	<link rel="icon" href="/assets/website/img/clashnodesfree/favicon.ico" type="image/x-icon"/>
+	<!-- Scrollbar Custom CSS -->
+	<link rel="stylesheet" href="/assets/website/css/clashnodesfree/jquery.mCustomScrollbar.min.css">
+	<!-- Tweaks for older IEs-->
+	<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+	<!-- fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Python中位置参数、关键字参数、默认参数和不定长参数(非固定参数)的简介">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z348FF31FW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z348FF31FW');
+</script>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!-- header section start -->
+    <div class="header_section header_bg">
+        <div class="container-fluid">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Clash Nodes Free</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="breadcrumb">
+              <a href="/">首页</a> / 
+              <a href="/news/">新闻资讯</a> / 
+              <span>正文</span>
+            </div>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <h1 class="services_taital mb-5">Python中位置参数、关键字参数、默认参数和不定长参数(非固定参数)的简介</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night"> <p><strong>前言;在进行调用函数之间传参时,难免会遇到各种参数形式,下来我们来看看Python中位置参数、关键字参数、默认参数和不定长参数(非固定参数)</strong></p> <div class="toc"> <h3>文章目录:</h3> <ul> <li><a href="#_2" rel="nofollow">一.位置参数:</a></li> <li><a href="#_18" rel="nofollow">二.关键字参数:</a></li> <li><a href="#_40" rel="nofollow">三.默认参数:</a></li> <li><a href="#_59" rel="nofollow">四.不定长参数(非固定参数)</a></li> <li> <ul> <li><a href="#1args_61" rel="nofollow">1.不定长参数元组(*args):</a></li> <li><a href="#2kwargs_77" rel="nofollow">2.不定长参数字典(**kwargs):</a></li> </ul> </li> </ul> </div> </h1> <p><strong>函数调用时,根据形参的位置进行传递参数:</strong></p> <p><font color="blue">示例:</font></p> <pre><code class="prism language-python"><span class="token triple-quoted-string string">""" 位置参数;位置必须以一对应,缺一不可 """</span><span class="token string">""</span><span class="token comment">#函数的定义</span><span class="token keyword">def</span><span class="token function">my_n</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>age<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"我的姓名是:%s,我的年龄是:%d岁"</span><span class="token operator">%</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>age<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">#调用函数</span> my_n<span class="token punctuation">(</span><span class="token string">"小王"</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">)</span></code></pre> <p><font color="red">位置参数:位置必须一一对应,缺一不可</font></p> </h1> <p><strong>关键字参数:只需要书写正确的形参名称</strong></p> <p><font color="blue">示例:</font></p> <pre><code class="prism language-python"><span class="token comment">#定义函数</span><span class="token keyword">def</span><span class="token function">my_nn</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>age<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"我的姓名是:%s,我的年龄是:%d岁"</span><span class="token operator">%</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>age<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">#函数调用</span> my_nn<span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">"小李"</span><span class="token punctuation">,</span>age<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">)</span> my_nn<span class="token punctuation">(</span>age<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">,</span>name<span class="token operator">=</span><span class="token string">"小红"</span><span class="token punctuation">)</span></code></pre> <p><font color="blue">运行结果:<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220722/be3e7d61ca8ea147ecadc0f4608fdf98.jpg" alt="Python中位置参数、关键字参数、默认参数和不定长参数(非固定参数)的简介"><br /><font color="red">注意:</font></font></p> <ul> <li>有位置参数时,关键字参数要放在位置参数的后面</li> <li>不能对一个形参多次传值</li> <li>当存在多个关键字参数时,参数位置不分先后</li> </ul> <p><font color="blue">错误示范:<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220722/2128543bbf5b252b533b2e9974c1747a.jpg" alt="Python中位置参数、关键字参数、默认参数和不定长参数(非固定参数)的简介"></font></p> </h1> <p><strong>缺省参数:形参给予一个数值,如果调用时候不再次进行赋值,那么调用的是默认值,否则是重新赋的值</strong></p> <p><font color="red">格式:<code>def 函数名(参数1,参数2=数值)</code></font></p> <p><font color="blue">举例:</font></p> <pre><code class="prism language-python"><span class="token keyword">def</span><span class="token function">my_nnn</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>age<span class="token operator">=</span><span class="token number">21</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token keyword">return</span> name<span class="token punctuation">,</span>age<span class="token keyword">print</span><span class="token punctuation">(</span>my_nnn<span class="token punctuation">(</span><span class="token string">"王"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span>my_nnn<span class="token punctuation">(</span><span class="token string">"小"</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre> <p><font color="blue">运行结果:<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220722/1cd1068c516c7dc1774f2de9098e5c86.jpg" alt="Python中位置参数、关键字参数、默认参数和不定长参数(非固定参数)的简介"><br /><font color="red">注意:</font></font></p> <ol> <li>可以更改默认参数的值,也可以不更改:</li> <li>如果已经写了默认参数,那么后面不能再写形参,也就是说默认参数在形参的后面:</li> <li>如果没有参数,则为默认值,如果重新写了数值,则为重写后的数值:</li> </ol> </h1> <p><strong>不定长参数(非固定参数):在不确定传入参数的数量时,会用到不定长参数,不定长参数又有两种,<font color="red">不定长参数元组 和 不定长参数字典:</font></strong></p> <h2><a id="1args_61" rel="nofollow"></a>1.不定长参数元组(*args):</h2> <p><strong>顾名思义不定长参数元组是一个元组了,格式:<code>:def 函数名(*参数名):</code></strong></p> <p><font color="red">*args 接收的是实参,位置参数,将其转化成元祖返回</font></p> <p><font color="blue">举例:</font></p> <pre><code class="prism language-python"><span class="token comment">#不定长参数元组;</span><span class="token keyword">def</span><span class="token function">ret</span><span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token keyword">print</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">type</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">)</span> ret<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">)</span></code></pre> <p><font color="blue">结果:<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220722/ccf996de2d890406bc61d9a3c244f70d.jpg" alt="Python中位置参数、关键字参数、默认参数和不定长参数(非固定参数)的简介"></font></p> <h2><a id="2kwargs_77" rel="nofollow"></a>2.不定长参数字典(**kwargs):</h2> <p><strong>格式:<code>def 函数名(**参数名)</code></strong></p> <p><font color="red">**kwargs 接收到的是实参,关键字参数,将其转化成字典</font></p> <p><font color="blue">举例:</font></p> <pre><code class="prism language-python"><span class="token comment">#不定长参数字典</span><span class="token keyword">def</span><span class="token function">dict</span><span class="token punctuation">(</span><span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token keyword">print</span><span class="token punctuation">(</span>kwargs<span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">type</span><span class="token punctuation">(</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span>kwargs<span class="token punctuation">[</span><span class="token string">"name"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token builtin">dict</span><span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">"hello"</span><span class="token punctuation">,</span>age<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">)</span></code></pre> <p><font color="blue">结果:<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220722/d16356379d251b09104bca38624116ec.jpg" alt="Python中位置参数、关键字参数、默认参数和不定长参数(非固定参数)的简介"></font></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-54031.htm">厦门宠物收留中心 厦门宠物收留中心电话</a></p>
+                                        <p>下一个：<a href="/news/article-54577.htm">vue npm run lint修改错误配置</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-25112.htm" title="MySQL数据库之数据表操作_Mysql">MySQL数据库之数据表操作_Mysql</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-3-free-clash-subscribe.htm" title="1月3日|V2ray/SSR/Clash/Shadowrocket每天更新21.5M/S免费节点订阅链接地址">1月3日|V2ray/SSR/Clash/Shadowrocket每天更新21.5M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-17-free-subscribe-node.htm" title="12月17日|SSR/Shadowrocket/Clash/V2ray每天更新20.9M/S免费节点订阅链接">12月17日|SSR/Shadowrocket/Clash/V2ray每天更新20.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-30-free-node-subscribe-links.htm" title="11月30日|V2ray/Clash/Shadowrocket/SSR每天更新18.4M/S免费节点订阅链接">11月30日|V2ray/Clash/Shadowrocket/SSR每天更新18.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-39396.htm" title="宠物粮食生产厂家一年能盈利多少亿元（宠物粮食加工厂好做吗）">宠物粮食生产厂家一年能盈利多少亿元（宠物粮食加工厂好做吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-1-free-v2ray.htm" title="1月1日|Shadowrocket/Clash/V2ray/SSR每天更新21.2M/S免费节点订阅链接地址">1月1日|Shadowrocket/Clash/V2ray/SSR每天更新21.2M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-15-free-shadowrocket-node.htm" title="11月15日|Shadowrocket/V2ray/SSR/Clash每天更新19.8M/S免费节点订阅链接">11月15日|Shadowrocket/V2ray/SSR/Clash每天更新19.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-43844.htm" title="动物疫苗接种注意事项（动物疫苗接种注意问题）">动物疫苗接种注意事项（动物疫苗接种注意问题）</a></li>
+                        <li class="py-2"><a href="/news/article-23714.htm" title="Asp.Net Core使用Ocelot结合Consul实现服务注册和发现_实用技巧">Asp.Net Core使用Ocelot结合Consul实现服务注册和发现_实用技巧</a></li>
+                        <li class="py-2"><a href="/news/article-26512.htm" title="北京观园宠物市场（北京观园宠物市场电话）">北京观园宠物市场（北京观园宠物市场电话）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <p class="copyright_text">
+                            ClashNodesFree免费订阅站 版权所有
+                            <br />
+                            Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery-3.0.0.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/plugin.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
