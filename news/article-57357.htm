@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+    	<link rel="canonical" href="https://clashnodesfree.github.io/news/article-57357.htm" />
+	<!-- basic -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<!-- mobile metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<!-- site metas -->
+	<title>Python yield 用法</title>
+		<meta name="description" content="yield&nbsp;用法说明  yield&nbsp;简单说来就是一个生成器，生成器是这样一个函数，它记住上一次返回时在函数体中的位置。对生成器函数的第二次（或第 n 次）调用跳转至该函数中间，而上" />
+	
+    <meta name="author" content="ClashNodesFree免费订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashnodesfree.github.io/news/article-57357.htm" />
+    <meta property="og:site_name" content="ClashNodesFree免费订阅站" />
+    <meta property="og:title" content="Python yield 用法" />
+    <meta property="og:image" content="https://clashnodesfree.github.io/uploads/20240323/9a0122327fa66b90ff72b270313cf8e6.webp" />
+        <meta property="og:release_date" content="2025-02-16T07:19:21" />
+    <meta property="og:updated_time" content="2025-02-16T07:19:21" />
+        <meta property="og:description" content="yield&nbsp;用法说明  yield&nbsp;简单说来就是一个生成器，生成器是这样一个函数，它记住上一次返回时在函数体中的位置。对生成器函数的第二次（或第 n 次）调用跳转至该函数中间，而上" />
+        
+	<!-- bootstrap css -->
+	<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/bootstrap.min.css">
+	<!-- style css -->
+	<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/style.css">
+	<!-- Responsive-->
+	<link rel="stylesheet" href="/assets/website/css/clashnodesfree/responsive.css">
+	<!-- favicon -->
+	<link rel="icon" href="/assets/website/img/clashnodesfree/favicon.ico" type="image/x-icon"/>
+	<!-- Scrollbar Custom CSS -->
+	<link rel="stylesheet" href="/assets/website/css/clashnodesfree/jquery.mCustomScrollbar.min.css">
+	<!-- Tweaks for older IEs-->
+	<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+	<!-- fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Python yield 用法">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z348FF31FW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z348FF31FW');
+</script>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!-- header section start -->
+    <div class="header_section header_bg">
+        <div class="container-fluid">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Clash Nodes Free</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="breadcrumb">
+              <a href="/">首页</a> / 
+              <a href="/news/">新闻资讯</a> / 
+              <span>正文</span>
+            </div>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <h1 class="services_taital mb-5">Python yield 用法</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <h2 class="sectionedit2" style="margin:0px 0px 1em 20px; padding:0.5em 0px 0px; color:rgb(51,51,51); font-size:22px; font-weight:normal; border-bottom-width:1px; border-bottom-style:solid; border-color:rgb(204,204,204); clear:left; font-family:Verdana,'Lucida Grande',Lucida,Helvetica,Arial,sans-serif; line-height:19px; text-align:justify"><a target="_blank" name="yield_%E7%94%A8%E6%B3%95%E8%AF%B4%E6%98%8E" id="yield_用法说明" style="color:rgb(106,57,6); padding:0px; margin:0px" rel="nofollow"><span class="search_hit" style="padding:0px; margin:0px; background-color:rgb(255,255,153)">yield</span>&nbsp;用法说明</a></h2> <div class="level2" style="padding:0px; margin:0px 0px 0px 23px; color:rgb(51,51,51); font-family:Verdana,'Lucida Grande',Lucida,Helvetica,Arial,sans-serif; font-size:13px; line-height:19px; text-align:justify"> <p style="padding-top:0px; padding-bottom:0px; margin-top:0px; margin-bottom:1em"><span class="search_hit" style="padding:0px; margin:0px; background-color:rgb(255,255,153)">yield</span>&nbsp;简单说来就是一个<span style="padding:0px; margin:0px">生成器</span>，<span style="padding:0px; margin:0px">生成器</span>是这样一个函数，它记住上一次返回时在函数体中的位置。对生成器函数的第二次（或第 n 次）调用跳转至该函数中间，而上次调用的所有局部变量都保持不变。</p> <ul style="padding:0px; margin:0px 0px 1em 3.5em; line-height:1.5em; list-style-type:square; color:rgb(99,140,156)"> <li class="level1" style="padding:0px; margin:0px"> <div class="li" style="padding:0px; margin:0px; color:rgb(51,51,51)">     生成器 是 一个函数</div> </li> </ul> <p style="padding-top:0px; padding-bottom:0px; margin-top:0px; margin-bottom:1em"> 函数的所有参数都会保留</p> <ul style="padding:0px; margin:0px 0px 1em 3.5em; line-height:1.5em; list-style-type:square; color:rgb(99,140,156)"> <li class="level1" style="padding:0px; margin:0px"> <div class="li" style="padding:0px; margin:0px; color:rgb(51,51,51)">     第二次调用 此函数 时</div> </li> </ul> <p style="padding-top:0px; padding-bottom:0px; margin-top:0px; margin-bottom:1em"> 使用的参数是前一次保留下的.</p> <ul style="padding:0px; margin:0px 0px 1em 3.5em; line-height:1.5em; list-style-type:square; color:rgb(99,140,156)"> <li class="level1" style="padding:0px; margin:0px"> <div class="li" style="padding:0px; margin:0px; color:rgb(51,51,51)">     生成器还“记住”了它在流控制构造</div> </li> </ul> <p style="padding-top:0px; padding-bottom:0px; margin-top:0px; margin-bottom:1em"> 生成器不仅“记住”了它数据状态。 生成器还“记住”了它在流控制构造（在命令式编程中，这种构造不只是数据值）中的位置。由于连续性使您在执行框架间任意跳转，而不总是返回到直接调用者的上下文（如同生成器那样），因此它仍是比较一般的。</p> </div> <h2 class="sectionedit3" style="margin:0px 0px 1em 20px; padding:0.5em 0px 0px; color:rgb(51,51,51); font-size:22px; font-weight:normal; border-bottom-width:1px; border-bottom-style:solid; border-color:rgb(204,204,204); clear:left; font-family:Verdana,'Lucida Grande',Lucida,Helvetica,Arial,sans-serif; line-height:19px; text-align:justify"><a target="_blank" name="t1" style="color:rgb(106,57,6)" rel="nofollow"></a><a target="_blank" name="yield_%E7%94%9F%E6%88%90%E5%99%A8%E7%9A%84%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6" id="yield_生成器的运行机制" style="color:rgb(106,57,6); padding:0px; margin:0px" rel="nofollow"><span class="search_hit" style="padding:0px; margin:0px; background-color:rgb(255,255,153)">yield</span>&nbsp;生成器的运行机制</a></h2> <div class="level2" style="padding:0px; margin:0px 0px 0px 23px; color:rgb(51,51,51); font-family:Verdana,'Lucida Grande',Lucida,Helvetica,Arial,sans-serif; font-size:13px; line-height:19px; text-align:justify"> <p style="padding-top:0px; padding-bottom:0px; margin-top:0px; margin-bottom:1em"> 当你问生成器要一个数时，生成器会执行，直至出现<span class="search_hit" style="padding:0px; margin:0px; background-color:rgb(255,255,153)">yield</span>&nbsp;语句，生成器把<span class="search_hit" style="padding:0px; margin:0px; background-color:rgb(255,255,153)">yield</span>&nbsp;的参数给你，之后生成器就不会往下继续运行。 当你问他要下一个数时，他会从上次的状态开始运行，直至出现<span class="search_hit" style="padding:0px; margin:0px; background-color:rgb(255,255,153)">yield</span>语句，把参数给你，之后停下。如此反复直至退出函数。</p> </div> <h2 class="sectionedit4" style="margin:0px 0px 1em 20px; padding:0.5em 0px 0px; color:rgb(51,51,51); font-size:22px; font-weight:normal; border-bottom-width:1px; border-bottom-style:solid; border-color:rgb(204,204,204); clear:left; font-family:Verdana,'Lucida Grande',Lucida,Helvetica,Arial,sans-serif; line-height:19px; text-align:justify"><a target="_blank" name="t2" style="color:rgb(106,57,6)" rel="nofollow"></a><a target="_blank" name="%E4%BE%8B%E5%AD%90_python_%E6%8E%92%E5%88%97_%E7%BB%84%E5%90%88%E7%94%9F%E6%88%90%E5%99%A8" id="例子_python_排列_组合生成器" style="color:rgb(106,57,6); padding:0px; margin:0px" rel="nofollow">例子：<span class="search_hit" style="padding:0px; margin:0px; background-color:rgb(255,255,153)">Python</span>&nbsp;排列，组合生成器</a></h2> <div class="level2" style="padding:0px; margin:0px 0px 0px 23px; color:rgb(51,51,51); font-family:Verdana,'Lucida Grande',Lucida,Helvetica,Arial,sans-serif; font-size:13px; line-height:19px; text-align:justify"> <pre><code class="language-python">&lt;span class="co1" style="padding: 0px; margin: 0px; color: rgb(128, 128, 128); font-style: italic;"&gt;#生成全排列&lt;/span&gt; &lt;span class="kw1" style="padding: 0px; margin: 0px; color: rgb(177, 177, 0);"&gt;def&lt;/span&gt; perm&lt;span class="br0" style="padding: 0px; margin: 0px; color: rgb(102, 204, 102);"&gt;(&lt;/span&gt;items, n=&lt;span class="kw2" style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-weight: bold;"&gt;None&lt;/span&gt;&lt;span class="br0" style="padding: 0px; margin: 0px; color: rgb(102, 204, 102);"&gt;)&lt;/span&gt;:     &lt;span class="kw1" style="padding: 0px; margin: 0px; color: rgb(177, 177, 0);"&gt;if&lt;/span&gt; n &lt;span class="kw1" style="padding: 0px; margin: 0px; color: rgb(177, 177, 0);"&gt;is&lt;/span&gt; &lt;span class="kw2" style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-weight: bold;"&gt;None&lt;/span&gt;:         n = &lt;span class="kw2" style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-weight: bold;"&gt;len&lt;/span&gt;&lt;span class="br0" style="padding: 0px; margin: 0px; color: rgb(102, 204, 102);"&gt;(&lt;/span&gt;items&lt;span class="br0" style="padding: 0px; margin: 0px; color: rgb(102, 204, 102);"&gt;)&lt;/span&gt;     &lt;span class="kw1" style="padding: 0px; margin: 0px; color: rgb(177, 177, 0);"&gt;for&lt;/span&gt; i &lt;span class="kw1" style="padding: 0px; margin: 0px; color: rgb(177, 177, 0);"&gt;in&lt;/span&gt; &lt;span class="kw2" style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-weight: bold;"&gt;range&lt;/span&gt;&lt;span class="br0" style="padding: 0px; margin: 0px; color: rgb(102, 204, 102);"&gt;(&lt;/span&gt;&lt;span class="kw2" style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-weight: bold;"&gt;len&lt;/span&gt;&lt;span class="br0" style="padding: 0px; margin: 0px; color: rgb(102, 204, 102);"&gt;(&lt;/span&gt;items&lt;span class="br0" style="padding: 0px; margin: 0px; color: rgb(102, 204, 102);"&gt;)&lt;/span&gt;&lt;span class="br0" style="padding: 0px; margin: 0px; color: rgb(102, 204, 102);"&gt;)&lt;/span&gt;:         v = items&lt;span class="br0" style="padding: 0px; margin: 0px; color: rgb(102, 204, 102);"&gt;[&lt;/span&gt;i:i+&lt;span class="nu0" style="padding: 0px; margin: 0px; color: rgb(204, 102, 204);"&gt;1&lt;/span&gt;&lt;span class="br0" style="padding: 0px; margin: 0px; color: rgb(102, 204, 102);"&gt;]&lt;/span&gt;         &lt;span class="kw1" style="padding: 0px; margin: 0px; color: rgb(177, 177, 0);"&gt;if&lt;/span&gt; n == &lt;span class="nu0" style="padding: 0px; margin: 0px; color: rgb(204, 102, 204);"&gt;1&lt;/span&gt;:             &lt;span class="kw1" style="padding: 0px; margin: 0px; color: rgb(177, 177, 0);"&gt;&lt;span class="search_hit" style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); background-color: rgb(255, 255, 153);"&gt;yield&lt;/span&gt;&lt;/span&gt; v         &lt;span class="kw1" style="padding: 0px; margin: 0px; color: rgb(177, 177, 0);"&gt;else&lt;/span&gt;:             rest = items&lt;span class="br0" style="padding: 0px; margin: 0px; color: rgb(102, 204, 102);"&gt;[&lt;/span&gt;:i&lt;span class="br0" style="padding: 0px; margin: 0px; color: rgb(102, 204, 102);"&gt;]&lt;/span&gt; + items&lt;span class="br0" style="padding: 0px; margin: 0px; color: rgb(102, 204, 102);"&gt;[&lt;/span&gt;i+&lt;span class="nu0" style="padding: 0px; margin: 0px; color: rgb(204, 102, 204);"&gt;1&lt;/span&gt;:&lt;span class="br0" style="padding: 0px; margin: 0px; color: rgb(102, 204, 102);"&gt;]&lt;/span&gt;             &lt;span class="kw1" style="padding: 0px; margin: 0px; color: rgb(177, 177, 0);"&gt;for&lt;/span&gt; p &lt;span class="kw1" style="padding: 0px; margin: 0px; color: rgb(177, 177, 0);"&gt;in&lt;/span&gt; perm&lt;span class="br0" style="padding: 0px; margin: 0px; color: rgb(102, 204, 102);"&gt;(&lt;/span&gt;rest, n-&lt;span class="nu0" style="padding: 0px; margin: 0px; color: rgb(204, 102, 204);"&gt;1&lt;/span&gt;&lt;span class="br0" style="padding: 0px; margin: 0px; color: rgb(102, 204, 102);"&gt;)&lt;/span&gt;:                 &lt;span class="kw1" style="padding: 0px; margin: 0px; color: rgb(177, 177, 0);"&gt;&lt;span class="search_hit" style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); background-color: rgb(255, 255, 153);"&gt;yield&lt;/span&gt;&lt;/span&gt; v + p &nbsp; &lt;span class="co1" style="padding: 0px; margin: 0px; color: rgb(128, 128, 128); font-style: italic;"&gt;#生成组合&lt;/span&gt; &lt;span class="kw1" style="padding: 0px; margin: 0px; color: rgb(177, 177, 0);"&gt;def&lt;/span&gt; comb&lt;span class="br0" style="padding: 0px; margin: 0px; color: rgb(102, 204, 102);"&gt;(&lt;/span&gt;items, n=&lt;span class="kw2" style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-weight: bold;"&gt;None&lt;/span&gt;&lt;span class="br0" style="padding: 0px; margin: 0px; color: rgb(102, 204, 102);"&gt;)&lt;/span&gt;:     &lt;span class="kw1" style="padding: 0px; margin: 0px; color: rgb(177, 177, 0);"&gt;if&lt;/span&gt; n &lt;span class="kw1" style="padding: 0px; margin: 0px; color: rgb(177, 177, 0);"&gt;is&lt;/span&gt; &lt;span class="kw2" style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-weight: bold;"&gt;None&lt;/span&gt;:         n = &lt;span class="kw2" style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-weight: bold;"&gt;len&lt;/span&gt;&lt;span class="br0" style="padding: 0px; margin: 0px; color: rgb(102, 204, 102);"&gt;(&lt;/span&gt;items&lt;span class="br0" style="padding: 0px; margin: 0px; color: rgb(102, 204, 102);"&gt;)&lt;/span&gt;         &lt;span class="kw1" style="padding: 0px; margin: 0px; color: rgb(177, 177, 0);"&gt;for&lt;/span&gt; i &lt;span class="kw1" style="padding: 0px; margin: 0px; color: rgb(177, 177, 0);"&gt;in&lt;/span&gt; &lt;span class="kw2" style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-weight: bold;"&gt;range&lt;/span&gt;&lt;span class="br0" style="padding: 0px; margin: 0px; color: rgb(102, 204, 102);"&gt;(&lt;/span&gt;&lt;span class="kw2" style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-weight: bold;"&gt;len&lt;/span&gt;&lt;span class="br0" style="padding: 0px; margin: 0px; color: rgb(102, 204, 102);"&gt;(&lt;/span&gt;items&lt;span class="br0" style="padding: 0px; margin: 0px; color: rgb(102, 204, 102);"&gt;)&lt;/span&gt;&lt;span class="br0" style="padding: 0px; margin: 0px; color: rgb(102, 204, 102);"&gt;)&lt;/span&gt;:         v = items&lt;span class="br0" style="padding: 0px; margin: 0px; color: rgb(102, 204, 102);"&gt;[&lt;/span&gt;i:i+&lt;span class="nu0" style="padding: 0px; margin: 0px; color: rgb(204, 102, 204);"&gt;1&lt;/span&gt;&lt;span class="br0" style="padding: 0px; margin: 0px; color: rgb(102, 204, 102);"&gt;]&lt;/span&gt;         &lt;span class="kw1" style="padding: 0px; margin: 0px; color: rgb(177, 177, 0);"&gt;if&lt;/span&gt; n == &lt;span class="nu0" style="padding: 0px; margin: 0px; color: rgb(204, 102, 204);"&gt;1&lt;/span&gt;:             &lt;span class="kw1" style="padding: 0px; margin: 0px; color: rgb(177, 177, 0);"&gt;&lt;span class="search_hit" style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); background-color: rgb(255, 255, 153);"&gt;yield&lt;/span&gt;&lt;/span&gt; v         &lt;span class="kw1" style="padding: 0px; margin: 0px; color: rgb(177, 177, 0);"&gt;else&lt;/span&gt;:             rest = items&lt;span class="br0" style="padding: 0px; margin: 0px; color: rgb(102, 204, 102);"&gt;[&lt;/span&gt;i+&lt;span class="nu0" style="padding: 0px; margin: 0px; color: rgb(204, 102, 204);"&gt;1&lt;/span&gt;:&lt;span class="br0" style="padding: 0px; margin: 0px; color: rgb(102, 204, 102);"&gt;]&lt;/span&gt;             &lt;span class="kw1" style="padding: 0px; margin: 0px; color: rgb(177, 177, 0);"&gt;for&lt;/span&gt; c &lt;span class="kw1" style="padding: 0px; margin: 0px; color: rgb(177, 177, 0);"&gt;in&lt;/span&gt; comb&lt;span class="br0" style="padding: 0px; margin: 0px; color: rgb(102, 204, 102);"&gt;(&lt;/span&gt;rest, n-&lt;span class="nu0" style="padding: 0px; margin: 0px; color: rgb(204, 102, 204);"&gt;1&lt;/span&gt;&lt;span class="br0" style="padding: 0px; margin: 0px; color: rgb(102, 204, 102);"&gt;)&lt;/span&gt;:                 &lt;span class="kw1" style="padding: 0px; margin: 0px; color: rgb(177, 177, 0);"&gt;&lt;span class="search_hit" style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); background-color: rgb(255, 255, 153);"&gt;yield&lt;/span&gt;&lt;/span&gt; v + c &nbsp; a = perm&lt;span class="br0" style="padding: 0px; margin: 0px; color: rgb(102, 204, 102);"&gt;(&lt;/span&gt;&lt;span class="st0" style="padding: 0px; margin: 0px; color: rgb(255, 0, 0);"&gt;'abc'&lt;/span&gt;&lt;span class="br0" style="padding: 0px; margin: 0px; color: rgb(102, 204, 102);"&gt;)&lt;/span&gt; &lt;span class="kw1" style="padding: 0px; margin: 0px; color: rgb(177, 177, 0);"&gt;for&lt;/span&gt; b &lt;span class="kw1" style="padding: 0px; margin: 0px; color: rgb(177, 177, 0);"&gt;in&lt;/span&gt; a:     &lt;span class="kw1" style="padding: 0px; margin: 0px; color: rgb(177, 177, 0);"&gt;print&lt;/span&gt; b     &lt;span class="kw1" style="padding: 0px; margin: 0px; color: rgb(177, 177, 0);"&gt;break&lt;/span&gt; &lt;span class="kw1" style="padding: 0px; margin: 0px; color: rgb(177, 177, 0);"&gt;print&lt;/span&gt; &lt;span class="st0" style="padding: 0px; margin: 0px; color: rgb(255, 0, 0);"&gt;'-'&lt;/span&gt;&lt;span class="sy0" style="padding: 0px; margin: 0px; color: rgb(102, 204, 102);"&gt;*&lt;/span&gt;&lt;span class="nu0" style="padding: 0px; margin: 0px; color: rgb(204, 102, 204);"&gt;20&lt;/span&gt; &lt;span class="kw1" style="padding: 0px; margin: 0px; color: rgb(177, 177, 0);"&gt;for&lt;/span&gt; b &lt;span class="kw1" style="padding: 0px; margin: 0px; color: rgb(177, 177, 0);"&gt;in&lt;/span&gt; a:     &lt;span class="kw1" style="padding: 0px; margin: 0px; color: rgb(177, 177, 0);"&gt;print&lt;/span&gt; b</code></pre> <p style="padding-top:0px; padding-bottom:0px; margin-top:0px; margin-bottom:1em"> 结果如下：</p> <pre class="file" name="code" style="white-space: pre-wrap; word-wrap: break-word; padding: 0.5em; margin-top: 0px; margin-bottom: 1em; font-size: 12px; border: 1px dashed rgb(204, 204, 204); overflow: auto; width: auto !important; background-color: rgb(222, 231, 236);">102 pvopf006 ~/test&gt; ./generator.py abc -------------------- acb bac bca cab cba</pre> <p style="padding-top:0px; padding-bottom:0px; margin-top:0px; margin-bottom:1em"> 可以看到，在第一个循环break后，生成器没有继续执行，而第二个循环接着第一个循环执行</p> </div> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-57356.htm">docker-compose部署etcd 集群</a></p>
+                                        <p>下一个：<a href="/news/article-57930.htm">宠物粮食品牌前十名排名榜最新（宠物粮品牌名称）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-54576.htm" title="Python中位置参数、关键字参数、默认参数和不定长参数(非固定参数)的简介">Python中位置参数、关键字参数、默认参数和不定长参数(非固定参数)的简介</a></li>
+                        <li class="py-2"><a href="/news/article-20504.htm" title="Hyperledger Fabric无系统通道启动及通道的创建和删除">Hyperledger Fabric无系统通道启动及通道的创建和删除</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-13-free-node-subscribe.htm" title="1月13日|Shadowrocket/V2ray/SSR/Clash每天更新21M/S免费节点订阅链接地址">1月13日|Shadowrocket/V2ray/SSR/Clash每天更新21M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-32629.htm" title="三国杀武将登场特效是什么意思啊（三国杀出场特效）">三国杀武将登场特效是什么意思啊（三国杀出场特效）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-27-clash-v2ray-ss-ssr.htm" title="12月27日|Shadowrocket/SSR/Clash/V2ray每天更新18.4M/S免费节点订阅链接地址">12月27日|Shadowrocket/SSR/Clash/V2ray每天更新18.4M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-39880.htm" title="动物疫苗间隔时间多久打 动物疫苗间隔时间多久打第二针">动物疫苗间隔时间多久打 动物疫苗间隔时间多久打第二针</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-6-clash-v2ray-ss-ssr.htm" title="2月6日|Clash/SSR/V2ray/Shadowrocket每天更新18.2M/S免费节点订阅链接地址">2月6日|Clash/SSR/V2ray/Shadowrocket每天更新18.2M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-20503.htm" title="如何检查特定MySQL数据库中所有表的字符集以及列名？">如何检查特定MySQL数据库中所有表的字符集以及列名？</a></li>
+                        <li class="py-2"><a href="/news/article-36448.htm" title="动物疫苗稀释液首选（动物疫苗制备流程）">动物疫苗稀释液首选（动物疫苗制备流程）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-21-free-high-speed-nodes.htm" title="11月21日|SSR/Clash/V2ray/Shadowrocket每天更新23M/S免费节点订阅链接">11月21日|SSR/Clash/V2ray/Shadowrocket每天更新23M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">51</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <p class="copyright_text">
+                            ClashNodesFree免费订阅站 版权所有
+                            <br />
+                            Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery-3.0.0.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/plugin.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
