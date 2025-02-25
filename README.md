@@ -1,4 +1,4 @@
-# 2月23日|Shadowrocket/Clash/V2ray/SSR每天更新20.4M/S免费节点订阅链接地址  更新时间 2025-02-23 10:02:30
+# 2月25日|V2ray/Clash/Shadowrocket/SSR每天更新20M/S免费节点订阅链接地址  更新时间 2025-02-25 05:16:19
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://clashnodesfree.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### Clash订阅链接
 
-- https://clashnodesfree.github.io/uploads/2025/02/0-20250223.yaml
-- https://clashnodesfree.github.io/uploads/2025/02/1-20250223.yaml
-- https://clashnodesfree.github.io/uploads/2025/02/2-20250223.yaml
-- https://clashnodesfree.github.io/uploads/2025/02/3-20250223.yaml
-- https://clashnodesfree.github.io/uploads/2025/02/4-20250223.yaml
+- https://clashnodesfree.github.io/uploads/2025/02/0-20250225.yaml
+- https://clashnodesfree.github.io/uploads/2025/02/1-20250225.yaml
+- https://clashnodesfree.github.io/uploads/2025/02/2-20250225.yaml
+- https://clashnodesfree.github.io/uploads/2025/02/3-20250225.yaml
+- https://clashnodesfree.github.io/uploads/2025/02/4-20250225.yaml
 
 ### V2ray订阅链接
 
-- https://clashnodesfree.github.io/uploads/2025/02/0-20250223.txt
-- https://clashnodesfree.github.io/uploads/2025/02/1-20250223.txt
-- https://clashnodesfree.github.io/uploads/2025/02/2-20250223.txt
-- https://clashnodesfree.github.io/uploads/2025/02/3-20250223.txt
-- https://clashnodesfree.github.io/uploads/2025/02/4-20250223.txt
+- https://clashnodesfree.github.io/uploads/2025/02/0-20250225.txt
+- https://clashnodesfree.github.io/uploads/2025/02/1-20250225.txt
+- https://clashnodesfree.github.io/uploads/2025/02/2-20250225.txt
+- https://clashnodesfree.github.io/uploads/2025/02/3-20250225.txt
+- https://clashnodesfree.github.io/uploads/2025/02/4-20250225.txt
 
 ### Sing-box订阅链接
 
-- https://clashnodesfree.github.io/uploads/2025/02/20250223.json
+- https://clashnodesfree.github.io/uploads/2025/02/20250225.json
 
 ## 更多clash节点订阅 ：
 
