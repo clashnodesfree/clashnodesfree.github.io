@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+    	<link rel="canonical" href="https://clashnodesfree.github.io/news/article-73412.htm" />
+	<!-- basic -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<!-- mobile metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<!-- site metas -->
+	<title>如何使用线程池执行定时任务？</title>
+		<meta name="description" content="在 Java 语言中，有两个线程池可以执行定时任务：ScheduledThreadPool 和 SingleThreadScheduledExecutor，其中 SingleThreadSchedul" />
+	
+    <meta name="author" content="ClashNodesFree免费订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashnodesfree.github.io/news/article-73412.htm" />
+    <meta property="og:site_name" content="ClashNodesFree免费订阅站" />
+    <meta property="og:title" content="如何使用线程池执行定时任务？" />
+    <meta property="og:image" content="https://clashnodesfree.github.io/uploads/20240323/15ae8fa851b4c56e4081dda0520bb4ec.webp" />
+        <meta property="og:release_date" content="2025-03-14T07:04:55" />
+    <meta property="og:updated_time" content="2025-03-14T07:04:55" />
+        <meta property="og:description" content="在 Java 语言中，有两个线程池可以执行定时任务：ScheduledThreadPool 和 SingleThreadScheduledExecutor，其中 SingleThreadSchedul" />
+        
+	<!-- bootstrap css -->
+	<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/bootstrap.min.css">
+	<!-- style css -->
+	<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/style.css">
+	<!-- Responsive-->
+	<link rel="stylesheet" href="/assets/website/css/clashnodesfree/responsive.css">
+	<!-- favicon -->
+	<link rel="icon" href="/assets/website/img/clashnodesfree/favicon.ico" type="image/x-icon"/>
+	<!-- Scrollbar Custom CSS -->
+	<link rel="stylesheet" href="/assets/website/css/clashnodesfree/jquery.mCustomScrollbar.min.css">
+	<!-- Tweaks for older IEs-->
+	<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+	<!-- fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="如何使用线程池执行定时任务？">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z348FF31FW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z348FF31FW');
+</script>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!-- header section start -->
+    <div class="header_section header_bg">
+        <div class="container-fluid">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Clash Nodes Free</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="breadcrumb">
+              <a href="/">首页</a> / 
+              <a href="/news/">新闻资讯</a> / 
+              <span>正文</span>
+            </div>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <h1 class="services_taital mb-5">如何使用线程池执行定时任务？</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<p>在 Java 语言中，有两个线程池可以执行定时任务：ScheduledThreadPool 和 SingleThreadScheduledExecutor，其中 SingleThreadScheduledExecutor 可以看做是 ScheduledThreadPool 的单线程版本，它的用法和 ScheduledThreadPool 是一样的，所以本文重点来看 ScheduledThreadPool 线程池的使用。<br /> ScheduledThreadPool 执行定时任务的方法有以下 3 个：</p> <ol> <li>使用 schedule 方法执行定时任务，只执行一次定时任务。</li> <li>使用 scheduleAtFixedRate 方法执行定时任务，执行多次定时任务。</li> <li>使用 scheduleWithFixedDelay 方法执行定时任务，执行多次定时任务。</li> </ol> <p>接下来我们看这 3 个方法的具体使用和区别。</p> <h2 id="1schedule">1.schedule</h2> <p>schedule 方法只能执行一次定时任务，它需要传递 3 个参数：</p> <ul> <li>第 1 个参数：传递一个任务，Runnable 或 Callable 对象；</li> <li>第 2 个参数：添加定时任务后，再过多久开始执行定时任务；</li> <li>第 3 个参数：时间单位，配合参数 2 一起使用。</li> </ul> <p>下面我们创建一个 3 秒以后执行的定时任务：</p> <pre><code class="language-java">import java.time.LocalDateTime; import java.util.concurrent.Executors; import java.util.concurrent.ScheduledExecutorService; import java.util.concurrent.TimeUnit;  public class ScheduledThreadPoolExample {     public static void main(String[] args) throws InterruptedException {         // 创建 ScheduledThreadPool 线程池         ScheduledExecutorService threadPool = Executors.newScheduledThreadPool(10);         System.out.println("schedule 方法添加任务：" + LocalDateTime.now());         threadPool.schedule(new Runnable() {             @Override             public void run() {                 System.out.println("执行 schedule 方法：" + LocalDateTime.now());             }         }, 3, TimeUnit.SECONDS); // 3s 之后执行          // 以下代码是给业务方法一个时间对照信息         TimeUnit.SECONDS.sleep(10); // 休眠 10s         System.out.println("当前时间：" + LocalDateTime.now());     } }</code></pre> <p>以上程序的执行结果如下图所示：<br /><img decoding="async" src="https://cdn.nlark.com/yuque/0/2022/png/92791/1643285135216-0a5be9dc-bde7-40d8-8d44-7bf2f40da008.png#clientId=ue0197902-a877-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=229&amp;id=u1bcadc1c&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=458&amp;originWidth=1812&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=80487&amp;status=done&amp;style=none&amp;taskId=uc0ed874c-a6d6-496c-9984-8878a85487e&amp;title=&amp;width=906" alt="image.png"><br /> 从上述结果中可以看出，使用 schedule 方法只能执行一次定时任务。</p> <h2 id="2scheduleatfixedrate">2.scheduleAtFixedRate</h2> <p>scheduleAtFixedRate 方法可以执行多次定时任务，此方法需要 4 个参数：</p> <ul> <li>第 1 个参数：传递一个任务，Runnable 或 Callable 对象；</li> <li>第 2 个参数：添加定时任务后，再过多久开始执行定时任务；</li> <li>第 3 个参数：定时任务执行的时间间隔；</li> <li>第 4 个参数：时间单位，配合参数 2 和参数 3 一起使用。</li> </ul> <p>下面我们创建一个 3 秒后执行的定时任务，每个定时任务执行的时间间隔为 2 秒，实现代码如下：</p> <pre><code class="language-java">import java.time.LocalDateTime; import java.util.concurrent.Executors; import java.util.concurrent.ScheduledExecutorService; import java.util.concurrent.TimeUnit;  public class ScheduledThreadPoolExample {     public static void main(String[] args) throws InterruptedException {         // 创建 ScheduledThreadPool 线程池         ScheduledExecutorService threadPool = Executors.newScheduledThreadPool(10);         System.out.println("scheduleAtFixedRate 方法添加任务：" + LocalDateTime.now());         threadPool.scheduleAtFixedRate(new Runnable() {                                            @Override                                            public void run() {                                                System.out.println("执行 scheduleAtFixedRate 方法：" + LocalDateTime.now());                                                // 休眠 2s                                                try {                                                    TimeUnit.SECONDS.sleep(2);                                                } catch (InterruptedException e) {                                                    e.printStackTrace();                                                }                                            }                                        },                 3L, // 3s 后开始执行定时任务                 2L, // 定时任务的执行间隔为 2s                 TimeUnit.SECONDS); // 描述上面两个参数的时间单位     } }</code></pre> <p>以上程序的执行结果如下图所示：<br /><img decoding="async" src="https://cdn.nlark.com/yuque/0/2022/png/92791/1643287036829-da0d6744-f637-410a-bd9c-8dd59a5b68e8.png#clientId=u5b0cec9e-c3d0-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=324&amp;id=u82026f29&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=647&amp;originWidth=2600&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=205224&amp;status=done&amp;style=none&amp;taskId=u53be7687-5476-4f20-83a5-0dbe5bb49ca&amp;title=&amp;width=1300" alt="image.png"><br /> 从上述结果可以看出，当任务添加成功之后，3s 后开始执行第一个定时任务，之后每隔 2s 执行一次定时任务。</p> <h2 id="3schedulewithfixeddelay">3.scheduleWithFixedDelay</h2> <p>scheduleWithFixedDelay 方法的使用和 scheduleAtFixedRate 类似，但执行效果完全不同，这个很容易理解如果效果一样就不用创建两个方法了。<br /><strong>scheduleWithFixedDelay 方法是在方法执行完成之后，再隔 N 秒执行下一个定时任务，和 scheduleAtFixedRate 的固定时间执行不同，scheduleWithFixedDelay 方法的执行受定时任务执行的时长影响</strong>，比如以下代码：</p> <pre><code class="language-java">import java.time.LocalDateTime; import java.util.concurrent.Executors; import java.util.concurrent.ScheduledExecutorService; import java.util.concurrent.TimeUnit;  public class ScheduledThreadPoolExample {     public static void main(String[] args) throws InterruptedException {         // 创建 ScheduledThreadPool 线程池         ScheduledExecutorService threadPool = Executors.newScheduledThreadPool(10);         System.out.println("scheduleWithFixedDelay 方法添加任务：" + LocalDateTime.now());         threadPool.scheduleWithFixedDelay(new Runnable() {                                               @Override                                               public void run() {                                                   System.out.println("执行 scheduleWithFixedDelay 方法：" + LocalDateTime.now());                                                   // 休眠 2s                                                   try {                                                       TimeUnit.SECONDS.sleep(2);                                                   } catch (InterruptedException e) {                                                       e.printStackTrace();                                                   }                                               }                                           },                 3L, // 3s 后开始执行定时任务                 2L, // 定时任务执行完 2s 之后，再执行下一个定时任务                 TimeUnit.SECONDS); // 描述上面两个参数的时间单位     } }</code></pre> <p>以上程序的执行结果如下图所示：<br /><img decoding="async" src="https://cdn.nlark.com/yuque/0/2022/png/92791/1643287771381-5cda78b7-f7c4-41c0-9f25-89c5a7369259.png#clientId=u5b0cec9e-c3d0-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=263&amp;id=u4fea7e83&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=525&amp;originWidth=2086&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=168985&amp;status=done&amp;style=none&amp;taskId=ue6611b7a-f289-466f-8bcf-70790ec08e2&amp;title=&amp;width=1043" alt="image.png"><br /> 从上述结果可以看出，定时任务在 3s 之后开始执行，以后每隔 4s 执行一次，这 4s 包含了，定时任务执行花费的 2s，加上每隔 2s 执行一次的时间间隔，也就是说<strong>scheduleWithFixedDelay 是在任务执行完 N 秒之后，再执行下一次定时任务</strong>。</p> <h2 id="总结">总结</h2> <p>线程池执行定时任务的实现方法有 3 个：</p> <ol> <li>使用 schedule 方法执行定时任务，只执行一次定时任务。</li> <li>使用 scheduleAtFixedRate 方法执行定时任务，执行多次定时任务，它的执行时间间隔是固定的，不受定时任务执行时长影响（定时任务时间间隔 &gt; 任务执行时间）。</li> <li>使用 scheduleWithFixedDelay 方法执行定时任务，执行多次定时任务，它是在定时任务执行完之后，再隔 N 秒开始执行下一次定时任务，它的执行时间受定时任务执行时长影响</li> </ol> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-72746.htm">属相养猫有禁忌吗（生肖不适合养猫）</a></p>
+                                        <p>下一个：<a href="/news/article-73413.htm">厦门宠物领养中心电话地址查询（厦门宠物领养中心电话地址查询）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-2-7-free-shadowrocket-node.htm" title="2月7日|SSR/Shadowrocket/V2ray/Clash每天更新20.9M/S免费节点订阅链接地址">2月7日|SSR/Shadowrocket/V2ray/Clash每天更新20.9M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-48782.htm" title="动物疫苗的作用有哪些方面 动物疫苗的作用有哪些方面呢">动物疫苗的作用有哪些方面 动物疫苗的作用有哪些方面呢</a></li>
+                        <li class="py-2"><a href="/news/article-48252.htm" title="公务员国考什么时候报名（公务员国考什么时候考试时间）">公务员国考什么时候报名（公务员国考什么时候考试时间）</a></li>
+                        <li class="py-2"><a href="/news/article-48250.htm" title="vue+Echarts绘制动态折线图">vue+Echarts绘制动态折线图</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-29-free-clash-subscribe.htm" title="1月29日|SSR/V2ray/Shadowrocket/Clash每天更新21.3M/S免费节点订阅链接地址">1月29日|SSR/V2ray/Shadowrocket/Clash每天更新21.3M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-24-free-subscribe-node.htm" title="1月24日|Shadowrocket/V2ray/Clash/SSR每天更新22.2M/S免费节点订阅链接地址">1月24日|Shadowrocket/V2ray/Clash/SSR每天更新22.2M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-30-free-shadowrocket-node.htm" title="1月30日|Shadowrocket/V2ray/Clash/SSR每天更新21.4M/S免费节点订阅链接地址">1月30日|Shadowrocket/V2ray/Clash/SSR每天更新21.4M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-17-free-ssr-subscribe.htm" title="2月17日|V2ray/Clash/Shadowrocket/SSR每天更新20.3M/S免费节点订阅链接地址">2月17日|V2ray/Clash/Shadowrocket/SSR每天更新20.3M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-67559.htm" title="动物防疫站周六日上班吗 动物防疫站周六日上班吗北京">动物防疫站周六日上班吗 动物防疫站周六日上班吗北京</a></li>
+                        <li class="py-2"><a href="/news/article-38894.htm" title="宠物店一般卖几个月的猫比较好（宠物店一般卖几个月的猫比较好呢）">宠物店一般卖几个月的猫比较好（宠物店一般卖几个月的猫比较好呢）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">45</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <p class="copyright_text">
+                            ClashNodesFree免费订阅站 版权所有
+                            <br />
+                            Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery-3.0.0.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/plugin.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
