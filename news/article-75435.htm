@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+    	<link rel="canonical" href="https://clashnodesfree.github.io/news/article-75435.htm" />
+	<!-- basic -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<!-- mobile metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<!-- site metas -->
+	<title>go异常/错误机制（panic和error）</title>
+		<meta name="description" content="go异常/错误机制    defer   后进先出原则 立即解析原则 可修改返回值   panic      defer defer是go提供的一种延迟执行机制。  后进先出原则 当执行defer时，" />
+	
+    <meta name="author" content="ClashNodesFree免费订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashnodesfree.github.io/news/article-75435.htm" />
+    <meta property="og:site_name" content="ClashNodesFree免费订阅站" />
+    <meta property="og:title" content="go异常/错误机制（panic和error）" />
+    <meta property="og:image" content="https://clashnodesfree.github.io/uploads/20240323/ed216feb620e857e62e319edb7810fbd.webp" />
+        <meta property="og:release_date" content="2025-03-17T09:39:12" />
+    <meta property="og:updated_time" content="2025-03-17T09:39:12" />
+        <meta property="og:description" content="go异常/错误机制    defer   后进先出原则 立即解析原则 可修改返回值   panic      defer defer是go提供的一种延迟执行机制。  后进先出原则 当执行defer时，" />
+        
+	<!-- bootstrap css -->
+	<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/bootstrap.min.css">
+	<!-- style css -->
+	<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/style.css">
+	<!-- Responsive-->
+	<link rel="stylesheet" href="/assets/website/css/clashnodesfree/responsive.css">
+	<!-- favicon -->
+	<link rel="icon" href="/assets/website/img/clashnodesfree/favicon.ico" type="image/x-icon"/>
+	<!-- Scrollbar Custom CSS -->
+	<link rel="stylesheet" href="/assets/website/css/clashnodesfree/jquery.mCustomScrollbar.min.css">
+	<!-- Tweaks for older IEs-->
+	<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+	<!-- fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="go异常/错误机制（panic和error）">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z348FF31FW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z348FF31FW');
+</script>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!-- header section start -->
+    <div class="header_section header_bg">
+        <div class="container-fluid">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Clash Nodes Free</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="breadcrumb">
+              <a href="/">首页</a> / 
+              <a href="/news/">新闻资讯</a> / 
+              <span>正文</span>
+            </div>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <h1 class="services_taital mb-5">go异常/错误机制（panic和error）</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>go异常/错误机制</h3> <ul> <li> <ul> <li><a href="#defer_2" rel="nofollow">defer</a></li> <li> <ul> <li><a href="#_5" rel="nofollow">后进先出原则</a></li> <li><a href="#_24" rel="nofollow">立即解析原则</a></li> <li><a href="#_33" rel="nofollow">可修改返回值</a></li> </ul> </li> <li><a href="#panic_46" rel="nofollow">panic</a></li> </ul> </li> </ul> </div> <h2> <a id="defer_2" rel="nofollow"></a>defer</h2> <p>defer是go提供的一种<strong>延迟执行</strong>机制。</p> <h3> <a id="_5" rel="nofollow"></a>后进先出原则</h3> <p>当执行defer时，会将对应的函数压入栈中，在函数返回或者panic异常结束时，go会从栈中取出延迟函数执行。</p> <pre><code class="prism language-go"><span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 	<span class="token keyword">defer</span> fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"1"</span><span class="token punctuation">)</span> 	<span class="token keyword">defer</span> fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"2"</span><span class="token punctuation">)</span> 	<span class="token keyword">defer</span> fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"3"</span><span class="token punctuation">)</span> 	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span> <span class="token punctuation">}</span> </code></pre> <p>打印结果为</p> <pre><code class="prism language-go">hello <span class="token number">3</span> <span class="token number">2</span> <span class="token number">1</span> </code></pre> <h3> <a id="_24" rel="nofollow"></a>立即解析原则</h3> <pre><code class="prism language-go">	i <span class="token operator">:=</span> <span class="token number">1</span> 	<span class="token keyword">defer</span> fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"first is %d\n"</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token comment">//1</span> 	i <span class="token operator">=</span> <span class="token number">2</span> 	fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"current is %d\n"</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token comment">//2</span> </code></pre> <p>当 defer 以<strong>闭包的方式引用外部变量</strong>时，则会在延迟函数真正执行的时候，根据整个上下文确定当前的值</p> <h3> <a id="_33" rel="nofollow"></a>可修改返回值</h3> <pre><code class="prism language-go"><span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token punctuation">{<!-- --></span>  fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">}</span> <span class="token keyword">func</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>i <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>  <span class="token keyword">defer</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> i<span class="token operator">++</span> <span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token keyword">return</span> <span class="token number">1</span> <span class="token punctuation">}</span> </code></pre> <p>打印结果是2</p> <h2> <a id="panic_46" rel="nofollow"></a>panic</h2> <p>panic是一个严重错误机制，它会导致程序终止，并<strong>依次逆序执行 panic 所在函数可能存在的 defer 函数列表</strong>，然后返回该函数的调用方。<br /><strong>recover 内置函数可用于捕获 panic，重新恢复程序正常执行流程，但是 recover 函数只有在 defer 内部使用才有效</strong></p> <pre><code class="prism language-go"><span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 	err <span class="token operator">:=</span> <span class="token function">panicAndReturnErr</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 	<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span><span class="token punctuation">{<!-- --></span> 		fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"err is %+v\n"</span><span class="token punctuation">,</span> err<span class="token punctuation">)</span> 	<span class="token punctuation">}</span> 	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"returned normally from panicAndReturnErr"</span><span class="token punctuation">)</span> <span class="token punctuation">}</span> <span class="token keyword">func</span> <span class="token function">panicAndReturnErr</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>err <span class="token builtin">error</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 	<span class="token keyword">defer</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span><span class="token comment">//如果defer内有recover，则从 panic 中恢复，不会终止程序</span> 		<span class="token keyword">if</span> e <span class="token operator">:=</span> <span class="token function">recover</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> e <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{<!-- --></span><span class="token comment">//error occur!</span> 			<span class="token comment">// 打印栈信息</span> 			buf <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">byte</span><span class="token punctuation">,</span> <span class="token number">1024</span><span class="token punctuation">)</span> 			buf <span class="token operator">=</span> buf<span class="token punctuation">[</span><span class="token punctuation">:</span>runtime<span class="token punctuation">.</span><span class="token function">Stack</span><span class="token punctuation">(</span>buf<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">]</span> 			err <span class="token operator">=</span> fmt<span class="token punctuation">.</span><span class="token function">Errorf</span><span class="token punctuation">(</span><span class="token string">"[PANIC]%v\n%s\n"</span><span class="token punctuation">,</span> e<span class="token punctuation">,</span> buf<span class="token punctuation">)</span> 		<span class="token punctuation">}</span> 	<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"panic begin"</span><span class="token punctuation">)</span> 	<span class="token function">panic</span><span class="token punctuation">(</span><span class="token string">"error occur!"</span><span class="token punctuation">)</span><span class="token comment">//开始执行defer函数</span> 	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"panic over"</span><span class="token punctuation">)</span> 	<span class="token keyword">return</span> <span class="token boolean">nil</span> <span class="token punctuation">}</span>  </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-74756.htm">认证与授权流程与spring boot整合 spring security</a></p>
+                                        <p>下一个：<a href="/news/article-75436.htm">宠物粮怎样跑销售 宠物粮销售渠道</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-19-free-clash-subscribe.htm" title="1月19日|SSR/Shadowrocket/Clash/V2ray每天更新18.4M/S免费节点订阅链接地址">1月19日|SSR/Shadowrocket/Clash/V2ray每天更新18.4M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-38893.htm" title="Java四舍五入保留两位小数">Java四舍五入保留两位小数</a></li>
+                        <li class="py-2"><a href="/news/article-57931.htm" title="宠物主粮品牌消费排行榜（高端宠物粮食）">宠物主粮品牌消费排行榜（高端宠物粮食）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-26-free-ssr-node.htm" title="1月26日|Shadowrocket/SSR/Clash/V2ray每天更新21.1M/S免费节点订阅链接地址">1月26日|Shadowrocket/SSR/Clash/V2ray每天更新21.1M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-48782.htm" title="动物疫苗的作用有哪些方面 动物疫苗的作用有哪些方面呢">动物疫苗的作用有哪些方面 动物疫苗的作用有哪些方面呢</a></li>
+                        <li class="py-2"><a href="/news/article-64409.htm" title="宠物粮食销售需要许可证吗现在（宠物粮食销售需要许可证吗现在怎么办）">宠物粮食销售需要许可证吗现在（宠物粮食销售需要许可证吗现在怎么办）</a></li>
+                        <li class="py-2"><a href="/news/article-47791.htm" title="flex布局之5个div盒子一排，不同屏幕，盒子宽度自适应">flex布局之5个div盒子一排，不同屏幕，盒子宽度自适应</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-29-free-clash-subscribe.htm" title="1月29日|SSR/V2ray/Shadowrocket/Clash每天更新21.3M/S免费节点订阅链接地址">1月29日|SSR/V2ray/Shadowrocket/Clash每天更新21.3M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-50317.htm" title="卖宠物粮食的上市公司名单（卖宠物粮食的公司叫什么名字）">卖宠物粮食的上市公司名单（卖宠物粮食的公司叫什么名字）</a></li>
+                        <li class="py-2"><a href="/news/article-51361.htm" title="三国杀里面限定技可以用几次（三国杀里面的限定技只能用一次吗）">三国杀里面限定技可以用几次（三国杀里面的限定技只能用一次吗）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">54</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <p class="copyright_text">
+                            ClashNodesFree免费订阅站 版权所有
+                            <br />
+                            Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery-3.0.0.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/plugin.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
