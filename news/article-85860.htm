@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+    	<link rel="canonical" href="https://clashnodesfree.github.io/news/article-85860.htm" />
+	<!-- basic -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<!-- mobile metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<!-- site metas -->
+	<title>dubbo发送过程编码失败，会唤醒发送线程吗？_在线工具</title>
+		<meta name="description" content="dubbo发送过程编码失败，会唤醒发送(客户端业务)线程吗？如何实现的？ 在上篇文章 dubbo坑- No provider available for the service xxx 中，如果dub" />
+	
+    <meta name="author" content="ClashNodesFree免费订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashnodesfree.github.io/news/article-85860.htm" />
+    <meta property="og:site_name" content="ClashNodesFree免费订阅站" />
+    <meta property="og:title" content="dubbo发送过程编码失败，会唤醒发送线程吗？_在线工具" />
+    <meta property="og:image" content="https://clashnodesfree.github.io/uploads/20240323/1efe5cff0e659c7211e5b8f615d11cd4.webp" />
+        <meta property="og:release_date" content="2025-04-01T09:46:43" />
+    <meta property="og:updated_time" content="2025-04-01T09:46:43" />
+        <meta property="og:description" content="dubbo发送过程编码失败，会唤醒发送(客户端业务)线程吗？如何实现的？ 在上篇文章 dubbo坑- No provider available for the service xxx 中，如果dub" />
+        
+	<!-- bootstrap css -->
+	<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/bootstrap.min.css">
+	<!-- style css -->
+	<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/style.css">
+	<!-- Responsive-->
+	<link rel="stylesheet" href="/assets/website/css/clashnodesfree/responsive.css">
+	<!-- favicon -->
+	<link rel="icon" href="/assets/website/img/clashnodesfree/favicon.ico" type="image/x-icon"/>
+	<!-- Scrollbar Custom CSS -->
+	<link rel="stylesheet" href="/assets/website/css/clashnodesfree/jquery.mCustomScrollbar.min.css">
+	<!-- Tweaks for older IEs-->
+	<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+	<!-- fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="dubbo发送过程编码失败，会唤醒发送线程吗？_在线工具">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z348FF31FW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z348FF31FW');
+</script>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!-- header section start -->
+    <div class="header_section header_bg">
+        <div class="container-fluid">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Clash Nodes Free</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="breadcrumb">
+              <a href="/">首页</a> / 
+              <a href="/news/">新闻资讯</a> / 
+              <span>正文</span>
+            </div>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <h1 class="services_taital mb-5">dubbo发送过程编码失败，会唤醒发送线程吗？_在线工具</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<p>dubbo发送过程编码失败，会唤醒发送(客户端业务)线程吗？如何实现的？</p> <p>在上篇文章 dubbo坑- No provider available for the service xxx 中，如果dubbo请求阶段，编码异常，而业务线程依然在等待响应，dubbo如何处理的？总不能等待超时，响应个超时异常吧，这不合理，接下来看dubbo编码异常，如何处理的</p> <p>回顾下之前自己分析的<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/zhangyjblogs/p/15828403.html"  target="_blank"  rel="nofollow">dubbo transport层记录</a>，详细记录了dubbo调用链路(包括netty channelhandler chain，dubbo channelhandler chain)的执行，在简单回顾下：</p> <p>客户端发送：此时是在业务线程执行，客户端业务线程依次执行 InvokerInvocationHandler入口 -&gt; RegistryDirectory获取服务集合 -&gt; tagRouter过滤 -&gt; 负载均衡选取一个Invoker -&gt; dubbo consumer filter chain -&gt; DubboInvoker执行调用invoke -&gt; Exchange层封装请求模型Request且创建DefaultFuture并阻塞等待 -&gt; 网络客户端NettyClient发送消息 -&gt; dubbo Channel即NettyChannel发送  -&gt; 调用netty channle发送 io.netty.channel.Channel.writeAndFlush(message)，接着触发执行netty pipeline的outbound事件，执行顺序TailContext-&gt;NettyClientHandler-&gt;InternalEncoder-&gt;InternalDecoder-&gt;HeadContext，其中在TailContext内由业务线程切换到reactor IO线程，接着InternalEncoder进行编码，最终由HeadContext把数据发送给服务方；</p> <p>客户端接收服务端响应：reactor IO线程监听到selector有read事件，执行processSelectedKeys()，触发执行netty pipeline的inbound事件，执行顺序【HeadContext-&gt;InternalDecoder-&gt;InternalEncoder-&gt;NettyClientHandler-&gt;TailContext】，由InternalDecoder解码，接着在NettyClientHandler#channelRead执行，NettyClientHandler持有dubbo channelhandler chain，因此链式执行dubbo channelhandler chain，即NettyClient-&gt;MultiMessageHandler-&gt;HeartbeatHandler-&gt;AllChannelHandler-&gt;DecodeHandler-&gt;HeaderExchangeHandler-&gt;DubboProtocol$1，这里重要的是在AllChannelHandler内由IO线程切换到业务线程（封装响应Response为ChannelEventRunnable，提交到dubbo业务线程池），接着在业务线程上HeaderExchangeHandler判断mesage是Response，处理响应，唤醒DefaultFuture的阻塞等待。</p> <p>接着客户端业务线程被唤醒，根据Response内容处理，获取返回的数据结果/异常。</p> <p>以上就是dubbo整个发送-响应的整个流程，重点是netty pipeline和dubbo channelhandler chain，都是责任链模式增加功能。</p> <p>接着分析我们这个问题，从上面回顾的流程可知，未实现序列化，那么异常肯定发生在dubbo编码阶段，即InternalEncoder抛出异常，异常是java.lang.RuntimeException，异常信息<code>Serialized class com.zzz.ioc.codec.util.KeyValuePair must implement java.io.Serializable Java field: private com.zzz.ioc.codec.util.KeyValuePair com.zzz.ioc.protocol.t808.T0900.message</code>，异常封装在netty DefaultChannelPromise，因此在NettyClientHandler获取InternalEncoder.write结果(此过程在IO线程执行)，判断是否有无异常，代码如下</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220505/57449c5a9c648553b69f31a7846e3b26.jpg" alt="dubbo发送过程编码失败，会唤醒发送线程吗？_在线工具"></p> <p>消息发送有异常，则mock response返回，接着执行NettyClientHandler持有的dubbo channelhandler chain[NettyClient-&gt;MultiMessageHandler-&gt;HeartbeatHandler-&gt;AllChannelHandler-&gt;DecodeHandler-&gt;HeaderExchangeHandler-&gt;DubboProtocol$1]，AllChannelHandler执行，IO线程切换到业务线程(dubbo客户端线程池，线程名称DubboClientHandler-开头)，接着业务线程上执行HeaderExchangeHandler，处理response，唤醒发送等待线程。此过程为了避免write操作失败，mock Request，然后和正常接收响应基本一样的处理方式(不同之处是不经过selector的processSelectedKeys())唤醒发送线程。通信框架出现这个问题也不容易，但是dubbo设计的非常巧妙。</p> <p>小结：</p> <p>回答前面提问</p> <p>1.dubbo发送过程编码失败，会唤醒发送线程吗？</p> <p>会唤醒发送线程，否则发送线程就是timeout异常，实际并没有。</p> <p>如何实现的？</p> <p>发送异常，比如编码异常，NettyClientHandler 进行mock response，接着和正常处理响应基本相同方式，触发NettyClientHandler 持有的dubbo channelhandler chain，由AllChannelHandler封装响应Response为ChannelEventRunnable，提交到dubbo业务线程池(cache线程池，线程名<code>DubboClientHandler-</code>开头)，线程由IO线程切换到dubbo业务线程执行Exchange，即HeaderExchangeHandler处理response，继而唤醒发送线程，最后发送(客户端业务)线程处理响应业务逻辑。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-85859.htm">关于信号量Semaphore的acquire与release的说明</a></p>
+                                        <p>下一个：<a href="/news/article-86584.htm">让猫挠了几天之内打针有事吗（让猫挠了用不用打狂犬疫苗多久）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-78833.htm" title="动物疫苗公司产量排名（动物疫苗公司产量排名）">动物疫苗公司产量排名（动物疫苗公司产量排名）</a></li>
+                        <li class="py-2"><a href="/news/article-85859.htm" title="关于信号量Semaphore的acquire与release的说明">关于信号量Semaphore的acquire与release的说明</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-9-free-high-speed-nodes.htm" title="3月9日|V2ray/SSR/Shadowrocket/Clash每天更新20.7M/S免费节点订阅链接地址">3月9日|V2ray/SSR/Shadowrocket/Clash每天更新20.7M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-65632.htm" title="北京观赏动物医院电话地址查询号码（北京观赏动物医院电话地址查询号码）">北京观赏动物医院电话地址查询号码（北京观赏动物医院电话地址查询号码）</a></li>
+                        <li class="py-2"><a href="/news/article-66278.htm" title="天津猫狗救助站（天津猫狗救助站在哪里）">天津猫狗救助站（天津猫狗救助站在哪里）</a></li>
+                        <li class="py-2"><a href="/news/article-72746.htm" title="属相养猫有禁忌吗（生肖不适合养猫）">属相养猫有禁忌吗（生肖不适合养猫）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-11-shadowrocket-node.htm" title="3月11日|Clash/V2ray/SSR/Shadowrocket每天更新18.2M/S免费节点订阅链接地址">3月11日|Clash/V2ray/SSR/Shadowrocket每天更新18.2M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-80197.htm" title="宠物疫苗是去宠物医院还是宠物店（疫苗去宠物医院打还是防疫站）">宠物疫苗是去宠物医院还是宠物店（疫苗去宠物医院打还是防疫站）</a></li>
+                        <li class="py-2"><a href="/news/article-70118.htm" title="SpringBoot自定义控制层参数解析_在线工具">SpringBoot自定义控制层参数解析_在线工具</a></li>
+                        <li class="py-2"><a href="/news/article-78147.htm" title="Spring Boot 整合 Apache Dubbo">Spring Boot 整合 Apache Dubbo</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">88</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <p class="copyright_text">
+                            ClashNodesFree免费订阅站 版权所有
+                            <br />
+                            Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery-3.0.0.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/plugin.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
