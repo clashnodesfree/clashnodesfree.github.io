@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+    	<link rel="canonical" href="https://clashnodesfree.github.io/news/article-88024.htm" />
+	<!-- basic -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<!-- mobile metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<!-- site metas -->
+	<title>pgpool-II 4.3中文手册入门教程</title>
+		<meta name="description" content="本章解释了如何开始使用Pgpool-II。 安装 在本节中，我们假设您已经安装了Pgpool-II 与PostgreSQL 集群。 你的第一个复制(Replication) 在本节中，我们将解释如何使" />
+	
+    <meta name="author" content="ClashNodesFree免费订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashnodesfree.github.io/news/article-88024.htm" />
+    <meta property="og:site_name" content="ClashNodesFree免费订阅站" />
+    <meta property="og:title" content="pgpool-II 4.3中文手册入门教程" />
+    <meta property="og:image" content="https://clashnodesfree.github.io/uploads/20240323/1efe5cff0e659c7211e5b8f615d11cd4.webp" />
+        <meta property="og:release_date" content="2025-04-04T09:05:44" />
+    <meta property="og:updated_time" content="2025-04-04T09:05:44" />
+        <meta property="og:description" content="本章解释了如何开始使用Pgpool-II。 安装 在本节中，我们假设您已经安装了Pgpool-II 与PostgreSQL 集群。 你的第一个复制(Replication) 在本节中，我们将解释如何使" />
+        
+	<!-- bootstrap css -->
+	<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/bootstrap.min.css">
+	<!-- style css -->
+	<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/style.css">
+	<!-- Responsive-->
+	<link rel="stylesheet" href="/assets/website/css/clashnodesfree/responsive.css">
+	<!-- favicon -->
+	<link rel="icon" href="/assets/website/img/clashnodesfree/favicon.ico" type="image/x-icon"/>
+	<!-- Scrollbar Custom CSS -->
+	<link rel="stylesheet" href="/assets/website/css/clashnodesfree/jquery.mCustomScrollbar.min.css">
+	<!-- Tweaks for older IEs-->
+	<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+	<!-- fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="pgpool-II 4.3中文手册入门教程">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z348FF31FW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z348FF31FW');
+</script>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!-- header section start -->
+    <div class="header_section header_bg">
+        <div class="container-fluid">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Clash Nodes Free</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="breadcrumb">
+              <a href="/">首页</a> / 
+              <a href="/news/">新闻资讯</a> / 
+              <span>正文</span>
+            </div>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <h1 class="services_taital mb-5">pgpool-II 4.3中文手册入门教程</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/18f539e7ceac90404f36148b29bde718.jpg" alt="pgpool-II 4.3中文手册入门教程"></p> <p>本章解释了如何开始使用<code>Pgpool-II</code>。</p> <h2 id="安装">安装</h2> <p>在本节中，我们假设您已经安装了<code>Pgpool-II</code> 与<code>PostgreSQL</code> 集群。</p> <h2 id="你的第一个复制replication">你的第一个复制(Replication)</h2> <p>在本节中，我们将解释如何使用<code>Pgpool-II</code> 管理具有流复制的<code>PostgreSQL</code> 集群，这是最常见的设置之一。</p> <p>在继续之前，您应该正确设置<code>pgpool.conf</code> 与流复制模式。<code>Pgpool-II</code> 提供了示例配置，配置文件位于<code>/usr/local/etc</code>，默认从源代码安装。您可以将<code>pgpool.conf.sample</code> 复制为<code>pgpool.conf</code>。</p> <pre><code class="language-sh">cp /usr/local/etc/pgpool.conf.sample pgpool.conf</code></pre> <p>如果你打算使用<code>pgpool_setup</code>，输入：</p> <pre><code class="language-sh">pgpool_setup</code></pre> <p>这将创建一个具有流复制模式安装、主<code>PostgreSQL</code> 安装和异步备用<code>PostgreSQL</code> 安装的<code>Pgpool-II</code>。</p> <p>从现在开始，我们假设您使用<code>pgpool_setup</code> 在当前目录下创建安装。请注意，在执行<code>pgpool_setup</code> 之前，当前目录必须是空的。</p> <p>要启动整个系统，请输入：</p> <pre><code class="language-sh">./startall</code></pre> <p>系统启动后，您可以通过向任何数据库发出名为<code>show pool_nodes</code> 的伪<code>SQL</code> 命令来检查集群状态。<code>pgpool_setup</code> 自动创建<code>test</code> 数据库。我们使用数据库。注意端口号是<code>11000</code>，这是<code>pgpool_setup</code> 分配给<code>Pgpool-II</code> 的默认端口号。</p> <pre><code class="language-sh">$ psql -p 11000 -c "show pool_nodes" test node_id | hostname | port  | status | lb_weight |  role   | select_cnt | load_balance_node | replication_delay | last_status_change ---------+----------+-------+--------+-----------+---------+------------+-------------------+-------------------+--------------------- 0       | /tmp     | 11002 | up     | 0.500000  | primary | 0          | false             | 0                 | 2019-01-31 10:23:09 1       | /tmp     | 11003 | up     | 0.500000  | standby | 0          | true              | 0                 | 2019-01-31 10:23:09 (2 rows)</code></pre> <p>结果显示<code>status</code> 列为<code>up</code>，表示<code>PostgreSQL</code> 已启动并正在运行，这很好。</p> <h2 id="测试复制">测试复制</h2> <p>让我们使用标准<code>PostgreSQL</code> 安装附带的基准工具<code>pgbench</code> 来测试复制功能。键入以下内容以创建基准表</p> <pre><code class="language-sh">$ pgbench -i -p 11000 test</code></pre> <p>要查看<code>replication</code> 是否正常工作，请直接连接到主服务器和备用服务器，看看它们是否返回相同的结果。</p> <pre><code class="language-sh">$ psql -p 11002 test \dt List of relations Schema |       Name       | Type  |  Owner   --------+------------------+-------+--------- public | pgbench_accounts | table | t-ishii public | pgbench_branches | table | t-ishii public | pgbench_history  | table | t-ishii public | pgbench_tellers  | table | t-ishii (4 rows) \q $ psql -p 11003 test \dt List of relations Schema |       Name       | Type  |  Owner   --------+------------------+-------+--------- public | pgbench_accounts | table | t-ishii public | pgbench_branches | table | t-ishii public | pgbench_history  | table | t-ishii public | pgbench_tellers  | table | t-ishii (4 rows)</code></pre> <p>主服务器（端口<code>11002</code>）和备用服务器（端口<code>11003</code>）返回相同的结果。接下来，让我们运行<code>pgbench</code> 一段时间并检查结果。</p> <pre><code class="language-sh">$ pgbench -p 11000 -T 10 test starting vacuum...end. transaction type: &lt;builtin: TPC-B (sort of)&gt; scaling factor: 1 query mode: simple number of clients: 1 number of threads: 1 duration: 10 s number of transactions actually processed: 4276 latency average = 2.339 ms tps = 427.492167 (including connections establishing) tps = 427.739078 (excluding connections establishing)  $ psql -p 11002 -c "SELECT sum(abalance) FROM pgbench_accounts" test sum -------- 216117 (1 row)  $ psql -p 11003 -c "SELECT sum(abalance) FROM pgbench_accounts" test sum -------- 216117 (1 row)</code></pre> <p>同样，结果是相同的。</p> <h2 id="测试负载均衡load-balance">测试负载均衡(Load Balance)</h2> <p><code>Pgpool-II</code> 允许读取查询负载均衡。默认情况下启用。要查看效果，让我们使用<code>pgbench -S</code> 命令。</p> <pre><code class="language-sh">$ ./shutdownall $ ./startall $ pgbench -p 11000 -c 10 -j 10 -S -T 60 test starting vacuum...end. transaction type: &lt;builtin: select only&gt; scaling factor: 1 query mode: simple number of clients: 10 number of threads: 10 duration: 60 s number of transactions actually processed: 1086766 latency average = 0.552 ms tps = 18112.487043 (including connections establishing) tps = 18125.572952 (excluding connections establishing)  $ psql -p 11000 -c "show pool_nodes" test node_id | hostname | port  | status | lb_weight |  role   | select_cnt | load_balance_node | replication_delay | last_status_change ---------+----------+-------+--------+-----------+---------+------------+-------------------+-------------------+--------------------- 0       | /tmp     | 11002 | up     | 0.500000  | primary | 537644     | false             | 0                 | 2019-01-31 11:51:58 1       | /tmp     | 11003 | up     | 0.500000  | standby | 548582     | true              | 0                 | 2019-01-31 11:51:58 (2 rows)</code></pre> <p><code>select_cnt</code> 列显示有多少<code>SELECT</code> 被分派到每个节点。由于使用默认配置，<code>Pgpool-II</code> 尝试调度相同数量的<code>SELECT</code>，因此该列显示几乎相同的数字。</p> <h2 id="测试故障转移fail-over">测试故障转移(Fail Over)</h2> <p>当<code>PostgreSQL</code> 服务器宕机时，<code>Pgpool-II</code> 允许自动故障转移。在这种情况下，<code>Pgpool-II</code> 将服务器的状态设置为<code>down</code> 并使用剩余的服务器继续数据库操作。</p> <pre><code class="language-sh">$ pg_ctl -D data1 stop waiting for server to shut down.... done server stopped $ psql -p 11000 -c "show pool_nodes" test node_id | hostname | port  | status | lb_weight |  role   | select_cnt | load_balance_node | replication_delay | last_status_change ---------+----------+-------+--------+-----------+---------+------------+-------------------+-------------------+--------------------- 0       | /tmp     | 11002 | up     | 0.500000  | primary | 4276       | true              | 0                 | 2019-01-31 12:00:09 1       | /tmp     | 11003 | down   | 0.500000  | standby | 1          | false             | 0                 | 2019-01-31 12:03:07 (2 rows)</code></pre> <p>备用节点被<code>pg_ctl</code> 命令关闭。<code>Pgpool-II</code> 检测到它并分离备用节点。<code>show pool_nodes</code> 命令显示备用节点处于关闭状态。您可以在没有备用节点的情况下继续使用集群：</p> <pre><code class="language-sh">$ psql -p 11000 -c "SELECT sum(abalance) FROM pgbench_accounts" test sum    -------- 216117 (1 row)</code></pre> <p>如果主服务器宕机了怎么办？在这种情况下，剩余的备用服务器之一被提升为新的主服务器。 对于这个测试，我们从两个节点都启动的状态开始。</p> <pre><code class="language-sh">$ psql -p 11000 -c "show pool_nodes" test node_id | hostname | port  | status | lb_weight |  role   | select_cnt | load_balance_node | replication_delay | last_status_change ---------+----------+-------+--------+-----------+---------+------------+-------------------+-------------------+--------------------- 0       | /tmp     | 11002 | up     | 0.500000  | primary | 0          | false             | 0                 | 2019-01-31 12:04:58 1       | /tmp     | 11003 | up     | 0.500000  | standby | 0          | true              | 0                 | 2019-01-31 12:04:58 (2 rows)  $ pg_ctl -D data0 stop waiting for server to shut down.... done server stopped $ psql -p 11000 -c "show pool_nodes" test node_id | hostname | port  | status | lb_weight |  role   | select_cnt | load_balance_node | replication_delay | last_status_change ---------+----------+-------+--------+-----------+---------+------------+-------------------+-------------------+--------------------- 0       | /tmp     | 11002 | down   | 0.500000  | standby | 0          | false             | 0                 | 2019-01-31 12:05:20 1       | /tmp     | 11003 | up     | 0.500000  | primary | 0          | true              | 0                 | 2019-01-31 12:05:20 (2 rows)</code></pre> <p>现在主节点从<code>0</code> 变成了<code>1</code>。里面发生了什么？当节点<code>0</code> 宕机时，<code>Pgpool-II</code> 检测到它并执行<code>pgpool.conf</code> 中定义的<code>failover_command</code>。这是文件的内容。</p> <pre><code class="language-sh">#! /bin/sh # Execute command by failover. # special values:  %d = node id #                  %h = host name #                  %p = port number #                  %D = database cluster path #                  %m = new main node id #                  %M = old main node id #                  %H = new main node host name #                  %P = old primary node id #                  %R = new main database cluster path #                  %r = new main port number #                  %% = '%' character failed_node_id=$1 failed_host_name=$2 failed_port=$3 failed_db_cluster=$4 new_main_id=$5 old_main_id=$6 new_main_host_name=$7 old_primary_node_id=$8 new_main_port_number=$9 new_main_db_cluster=${10} mydir=/home/t-ishii/tmp/Tutorial log=$mydir/log/failover.log pg_ctl=/usr/local/pgsql/bin/pg_ctl cluster0=$mydir/data0 cluster1=$mydir/data1  date &gt;&gt; $log echo "failed_node_id $failed_node_id failed_host_name $failed_host_name failed_port $failed_port failed_db_cluster $failed_db_cluster new_main_id $new_main_id old_main_id $old_main_id new_main_host_name $new_main_host_name old_primary_node_id $old_primary_node_id new_main_port_number $new_main_port_number new_main_db_cluster $new_main_db_cluster" &gt;&gt; $log  if [ a"$failed_node_id" = a"$old_primary_node_id" ];then	# main failed ! 	new_primary_db_cluster=${mydir}/data"$new_main_id" echo $pg_ctl -D $new_primary_db_cluster promote &gt;&gt;$log	# let standby take over $pg_ctl -D $new_primary_db_cluster promote &gt;&gt;$log	# let standby take over sleep 2 fi</code></pre> <p>该脚本从<code>Pgpool-II</code> 接收必要的信息作为参数。如果主服务器宕机，它会执行<code>pg_ctl -D data1 promote</code> ，这应该将备用服务器提升为新的主服务器。</p> <h2 id="测试在线恢复online-recovery">测试在线恢复(Online Recovery)</h2> <p><code>Pgpool-II</code> 允许通过称为<code>Online Recovery</code> 的技术来恢复宕机的节点。 这会将数据从主节点复制到备用节点，以便与主节点同步。 这可能需要很长时间，并且在此过程中可能会更新数据库。这没问题，因为在流式配置中，备用服务器将接收<code>WAL</code> 日志并将其应用于赶上主服务器。为了测试在线恢复，让我们从之前的集群开始，其中节点<code>0</code> 处于关闭状态。</p> <pre><code class="language-sh">$ pcp_recovery_node -p 11001 -n 0 Password:  pcp_recovery_node -- Command Successful  $ psql -p 11000 -c "show pool_nodes" test node_id | hostname | port  | status | lb_weight |  role   | select_cnt | load_balance_node | replication_delay | last_status_change ---------+----------+-------+--------+-----------+---------+------------+-------------------+-------------------+--------------------- 0       | /tmp     | 11002 | up     | 0.500000  | standby | 0          | false             | 0                 | 2019-01-31 12:06:48 1       | /tmp     | 11003 | up     | 0.500000  | primary | 0          | true              | 0                 | 2019-01-31 12:05:20 (2 rows)</code></pre> <p><code>pcp_recovery_node</code> 是<code>Pgpool-II</code> 安装附带的控制命令之一。参数<code>-p</code> 是指定分配给命令的端口号，它是<code>pgpool_setup</code> 设置的<code>11001</code>。参数<code>-n</code> 是指定要恢复的节点<code>id</code>。执行命令后，节点<code>0</code> 恢复到<code>up</code> 状态。</p> <p><code>pcp_recovery_node</code> 执行的脚本在<code>pgpool.conf</code> 中被指定为<code>recovery_1st_stage_command</code>。这是<code>pgpool_setup</code> 安装的文件。</p> <pre><code class="language-sh">#! /bin/sh psql=/usr/local/pgsql/bin/psql DATADIR_BASE=/home/t-ishii/tmp/Tutorial PGSUPERUSER=t-ishii  main_db_cluster=$1 recovery_node_host_name=$2 DEST_CLUSTER=$3 PORT=$4 recovery_node=$5  pg_rewind_failed="true"  log=$DATADIR_BASE/log/recovery.log echo &gt;&gt; $log date &gt;&gt; $log if [ $pg_rewind_failed = "true" ];then  $psql -p $PORT -c "SELECT pg_start_backup('Streaming Replication', true)" postgres  echo "source: $main_db_cluster dest: $DEST_CLUSTER" &gt;&gt; $log  rsync -C -a -c --delete --exclude postgresql.conf --exclude postmaster.pid \ --exclude postmaster.opts --exclude pg_log \ --exclude recovery.conf --exclude recovery.done \ --exclude pg_xlog \ $main_db_cluster/ $DEST_CLUSTER/  rm -fr $DEST_CLUSTER/pg_xlog  mkdir $DEST_CLUSTER/pg_xlog chmod 700 $DEST_CLUSTER/pg_xlog rm $DEST_CLUSTER/recovery.done fi cat &gt; $DEST_CLUSTER/recovery.conf $lt;$lt;REOF standby_mode          = 'on' primary_conninfo      = 'port=$PORT user=$PGSUPERUSER' recovery_target_timeline='latest' restore_command = 'cp $DATADIR_BASE/archivedir/%f "%p" 2&gt; /dev/null' REOF  if [ $pg_rewind_failed = "true" ];then $psql -p $PORT -c "SELECT pg_stop_backup()" postgres fi  if [ $pg_rewind_failed = "false" ];then cp /tmp/postgresql.conf $DEST_CLUSTER/ fi</code></pre> <h2 id="架构基础">架构基础</h2> <p><code>Pgpool-II</code> 是位于客户端和<code>PostgreSQL</code> 之间的代理服务器。<code>Pgpool-II</code> 理解<code>PostgreSQL</code> 使用的称为<code>前端和后端协议(frontend and backend protocol)</code> 的<code>线路(wire)级</code>协议。 有关该协议的更多详细信息，请参阅<code>PostgreSQL</code> 手册。使用<code>Pgpool-II</code> 不需要修改<code>PostgreSQL</code>（更准确地说，您需要一些扩展才能使用<code>Pgpool-II</code> 的全部功能）。因此<code>Pgpool-II</code> 可以应对各种<code>PostgreSQL</code> 版本。理论上，即使是最早的<code>PostgreSQL</code> 版本也可以与<code>Pgpool-II</code> 一起使用。对客户端也可以这样说。只要它遵循协议，<code>Pgpool-II</code> 就会愉快地接受来自它的连接，无论它使用什么样的语言或驱动程序。</p> <p><code>Pgpool-II</code> 由多个进程组成。有一个主进程，它是所有其他进程的父进程。 它负责分叉子进程，每个子进程都接受来自客户端的连接。 还有一些从主进程派生的工作进程，负责检测流复制延迟。还有一个特殊的进程叫做<code>pcp 进程</code>，专门用于管理<code>Pgpool-II</code> 本身。<code>Pgpool-II</code> 有一个内置的高可用性功能，称为<code>watchdog</code>。<code>Watchdog</code> 由一些进程组成。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/273f7ad39450a104eac6dfa4382f7872.jpg" alt="pgpool-II 4.3中文手册入门教程"></p> <h2 id="更多">更多</h2> <ul> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://mp.weixin.qq.com/s/Hbs5YQ2oKcnMKHzVWrp4Tw"  target="_blank" rel="nofollow">Pgpool-II 4.3 中文手册-前言</a></li> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://mp.weixin.qq.com/s/1X65AAs8O1qcddf5wqpRRQ"  target="_blank" rel="nofollow">「在 Kubernetes 上运行 Pgpool-Il」实现 PostgreSQL 查询(读)负载均衡和连接池</a></li> </ul> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-88023.htm">建立对分布式锁的系统认知 &#8211; 从 Redlock 开始</a></p>
+                                        <p>下一个：<a href="/news/article-88741.htm">JavaScript找到两个数组之间的差异方法详解</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-74080.htm" title="卖宠物粮食的公司叫什么名字来着（卖宠物粮食的公司叫什么名字来着呢）">卖宠物粮食的公司叫什么名字来着（卖宠物粮食的公司叫什么名字来着呢）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-22-node-share.htm" title="3月22日|Shadowrocket/V2ray/SSR/Clash每天更新19M/S免费节点订阅链接地址">3月22日|Shadowrocket/V2ray/SSR/Clash每天更新19M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-66278.htm" title="天津猫狗救助站（天津猫狗救助站在哪里）">天津猫狗救助站（天津猫狗救助站在哪里）</a></li>
+                        <li class="py-2"><a href="/news/article-86584.htm" title="让猫挠了几天之内打针有事吗（让猫挠了用不用打狂犬疫苗多久）">让猫挠了几天之内打针有事吗（让猫挠了用不用打狂犬疫苗多久）</a></li>
+                        <li class="py-2"><a href="/news/article-88023.htm" title="建立对分布式锁的系统认知 &#8211; 从 Redlock 开始">建立对分布式锁的系统认知 &#8211; 从 Redlock 开始</a></li>
+                        <li class="py-2"><a href="/news/article-71423.htm" title="宠物***可以自己打吗多少钱啊（宠物***可以自己打吗多少钱啊图片）">宠物***可以自己打吗多少钱啊（宠物***可以自己打吗多少钱啊图片）</a></li>
+                        <li class="py-2"><a href="/news/article-82297.htm" title="天津宠物救助站领养宠物多少钱一个（天津宠物帮领养中心官网）">天津宠物救助站领养宠物多少钱一个（天津宠物帮领养中心官网）</a></li>
+                        <li class="py-2"><a href="/news/article-83007.htm" title="windows查看已经连过wifi的密码">windows查看已经连过wifi的密码</a></li>
+                        <li class="py-2"><a href="/news/article-80197.htm" title="宠物疫苗是去宠物医院还是宠物店（疫苗去宠物医院打还是防疫站）">宠物疫苗是去宠物医院还是宠物店（疫苗去宠物医院打还是防疫站）</a></li>
+                        <li class="py-2"><a href="/news/article-87305.htm" title="宠物领养协议书范本简单版图片大全大图（宠物领养协议书范本简单版图片大全大图高清）">宠物领养协议书范本简单版图片大全大图（宠物领养协议书范本简单版图片大全大图高清）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">88</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p class="copyright_text">
+                            ClashNodesFree免费订阅站 版权所有
+                            <br />
+                            Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery-3.0.0.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/plugin.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

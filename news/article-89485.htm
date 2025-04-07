@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+    	<link rel="canonical" href="https://clashnodesfree.github.io/news/article-89485.htm" />
+	<!-- basic -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<!-- mobile metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<!-- site metas -->
+	<title>Maven安装与配置，Idea配置Maven</title>
+		<meta name="description" content="文章目录  一、安装本地Maven 二、安装 三、配置环境变量 四、配置settings文件 五、idea配置    选择你需要的maven版本下载：官网下载传送门 我使用的是3.6.1版本：mave" />
+	
+    <meta name="author" content="ClashNodesFree免费订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashnodesfree.github.io/news/article-89485.htm" />
+    <meta property="og:site_name" content="ClashNodesFree免费订阅站" />
+    <meta property="og:title" content="Maven安装与配置，Idea配置Maven" />
+    <meta property="og:image" content="https://clashnodesfree.github.io/uploads/20240323/09004ed4b09aa34decc7c94ceeb17eb2.webp" />
+        <meta property="og:release_date" content="2025-04-06T10:06:00" />
+    <meta property="og:updated_time" content="2025-04-06T10:06:00" />
+        <meta property="og:description" content="文章目录  一、安装本地Maven 二、安装 三、配置环境变量 四、配置settings文件 五、idea配置    选择你需要的maven版本下载：官网下载传送门 我使用的是3.6.1版本：mave" />
+        
+	<!-- bootstrap css -->
+	<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/bootstrap.min.css">
+	<!-- style css -->
+	<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/style.css">
+	<!-- Responsive-->
+	<link rel="stylesheet" href="/assets/website/css/clashnodesfree/responsive.css">
+	<!-- favicon -->
+	<link rel="icon" href="/assets/website/img/clashnodesfree/favicon.ico" type="image/x-icon"/>
+	<!-- Scrollbar Custom CSS -->
+	<link rel="stylesheet" href="/assets/website/css/clashnodesfree/jquery.mCustomScrollbar.min.css">
+	<!-- Tweaks for older IEs-->
+	<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+	<!-- fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Maven安装与配置，Idea配置Maven">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z348FF31FW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z348FF31FW');
+</script>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!-- header section start -->
+    <div class="header_section header_bg">
+        <div class="container-fluid">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Clash Nodes Free</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="breadcrumb">
+              <a href="/">首页</a> / 
+              <a href="/news/">新闻资讯</a> / 
+              <span>正文</span>
+            </div>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <h1 class="services_taital mb-5">Maven安装与配置，Idea配置Maven</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>文章目录</h3> <ul> <li><a href="#Maven_1" rel="nofollow">一、安装本地Maven</a></li> <li><a href="#_8" rel="nofollow">二、安装</a></li> <li><a href="#_12" rel="nofollow">三、配置环境变量</a></li> <li><a href="#settings_28" rel="nofollow">四、配置settings文件</a></li> <li><a href="#idea_92" rel="nofollow">五、idea配置</a></li> </ul> </div> </h1> <p>选择你需要的maven版本下载：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://maven.apache.org/download.cgi"  rel="nofollow">官网下载传送门</a></p> <p>我使用的是3.6.1版本：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://archive.apache.org/dist/maven/maven-3/3.6.1/binaries/"  rel="nofollow">maven-3.6.1-bin.zip</a><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/e198cc59d63103fd06bc63ba94817c55.jpg" alt="Maven安装与配置，Idea配置Maven"></p> </h1> <p>把下载好的maven压缩包解压到一个没有中文，空格或其他特殊字符的文件夹，如：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/e1d0f637036aeca82a997546ee1855bf.jpg" alt="Maven安装与配置，Idea配置Maven"></p> </h1> <p>1.右键此电脑-&gt;属性-&gt;高级系统设置-&gt;环境变量</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/7c48673f7bfaafbce0f8480f80d9628d.jpg" alt="Maven安装与配置，Idea配置Maven"><br /> 2.新建系统变量MAVEN_HOME<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/09ba7d0e5bbb6231240f413efe13e3f6.jpg" alt="Maven安装与配置，Idea配置Maven"><br /> 3.编辑系统变量Path，添加变量值%MAVEN_HOME%\bin</p> <pre><code>%MAVEN_HOME%\bin</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/18377bcaaa2ce58d18c3d7cbe3fa5778.jpg" alt="Maven安装与配置，Idea配置Maven"><br /> 4.验证安装是否成功，win+R运行cmd，输入mvn -v，如图所示则配置成功<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/dbde212012e257d61c4b7f0db4c073bc.jpg" alt="Maven安装与配置，Idea配置Maven"></p> </h1> <p>1.在Maven安装目录conf目录下找到settings.xml配置文件<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/e4397f8ded61bf3de00ec72d695c25eb.jpg" alt="Maven安装与配置，Idea配置Maven"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/0fd7eda48e12b13420db053515c8a4c0.jpg" alt="Maven安装与配置，Idea配置Maven"></p> <p>2.修改本地仓库地址<br /> （1）在maven安装目录下新建本地仓库文件夹maven_repository<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/dd5b25548847c2c7c0d6739be746de96.jpg" alt="Maven安装与配置，Idea配置Maven"><br /> （2）修改默认本地仓库地址<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/dd7d23cd1feaf9c7b6b3d13a28cf5907.jpg" alt="Maven安装与配置，Idea配置Maven"><br /> 3.配置私服，因为中央仓库在国外导致下载jar包很慢或者失败，所以我们改为国内的服务器，下面三个选择一个就可以了。<br /> （一般会用阿里云的镜像库，但不知道是我电脑还是网络的原因，下载jar包总会出错，换了很多阿里云镜像都不管用，最后换了腾讯云的就好了，所有这里给出了三个镜像）<br /> 【阿里云】</p> <pre><code>&lt;mirror&gt;   &lt;id&gt;aliyunmaven&lt;/id&gt;   &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;   &lt;name&gt;阿里云公共仓库&lt;/name&gt;   &lt;url&gt;https://maven.aliyun.com/repository/public&lt;/url&gt; &lt;/mirror&gt;</code></pre> <p>【网易】</p> <pre><code>&lt;mirror&gt;     &lt;id&gt;nexus-163&lt;/id&gt;     &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     &lt;name&gt;Nexus 163&lt;/name&gt;     &lt;url&gt;http://mirrors.163.com/maven/repository/maven-public/&lt;/url&gt; &lt;/mirror&gt;</code></pre> <p>【腾讯云】</p> <pre><code>&lt;mirror&gt;     &lt;id&gt;nexus-tencentyun&lt;/id&gt;     &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     &lt;name&gt;Nexus tencentyun&lt;/name&gt;     &lt;url&gt;http://mirrors.cloud.tencent.com/nexus/repository/maven-public/&lt;/url&gt; &lt;/mirror&gt;</code></pre> <p>将镜像复制到两个mirrors标签之间<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/e33a5aa36b4fc3ce477b17401a8421d9.jpg" alt="Maven安装与配置，Idea配置Maven"><br /> 4.配置jdk，也要夹在两个profiles标签之间</p> <pre><code>&lt;!-- java1.8版本 --&gt;  &lt;profile&gt;       &lt;id&gt;jdk-1.8&lt;/id&gt;       &lt;activation&gt; 	    &lt;activeByDefault&gt;true&lt;/activeByDefault&gt;         &lt;jdk&gt;1.8&lt;/jdk&gt;       &lt;/activation&gt;        &lt;properties&gt;         &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt; 		&lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt; 		&lt;maven.compiler.compilerVersion&gt;1.8&lt;/maven.compiler.compilerVersion&gt;       &lt;/properties&gt; &lt;/profile&gt;</code></pre> </h1> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/2a4dc1725b618fb732464be03df0fc1f.jpg" alt="Maven安装与配置，Idea配置Maven"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/60f3e75b353f1d0c2fe3d8d57672f854.jpg" alt="Maven安装与配置，Idea配置Maven"></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-89484.htm">react事件类型</a></p>
+                                        <p>下一个：<a href="/news/article-90201.htm">iOS全埋点解决方案-界面预览事件</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-77458.htm" title="合肥宠物领养中心电话号码（合肥市宠物领养中心）">合肥宠物领养中心电话号码（合肥市宠物领养中心）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-25-clash-node.htm" title="3月25日|Shadowrocket/SSR/Clash/V2ray每天更新22.5M/S免费节点订阅链接地址">3月25日|Shadowrocket/SSR/Clash/V2ray每天更新22.5M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-75436.htm" title="宠物粮怎样跑销售 宠物粮销售渠道">宠物粮怎样跑销售 宠物粮销售渠道</a></li>
+                        <li class="py-2"><a href="/news/article-74755.htm" title="在CentOS安装CMake">在CentOS安装CMake</a></li>
+                        <li class="py-2"><a href="/news/article-85860.htm" title="dubbo发送过程编码失败，会唤醒发送线程吗？_在线工具">dubbo发送过程编码失败，会唤醒发送线程吗？_在线工具</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-3-free-v2ray-subscribe.htm" title="4月3日|Shadowrocket/V2ray/Clash/SSR每天更新18.2M/S免费节点订阅链接地址">4月3日|Shadowrocket/V2ray/Clash/SSR每天更新18.2M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-72088.htm" title="济南宠物狗免费赠送 济南宠物狗免费赠送政策">济南宠物狗免费赠送 济南宠物狗免费赠送政策</a></li>
+                        <li class="py-2"><a href="/news/article-79523.htm" title="【QT实现UDP收发数据】">【QT实现UDP收发数据】</a></li>
+                        <li class="py-2"><a href="/news/article-76108.htm" title="上海宠物救助领养中心官网地址查询（上海有什么宠物救助机构）">上海宠物救助领养中心官网地址查询（上海有什么宠物救助机构）</a></li>
+                        <li class="py-2"><a href="/news/article-65632.htm" title="北京观赏动物医院电话地址查询号码（北京观赏动物医院电话地址查询号码）">北京观赏动物医院电话地址查询号码（北京观赏动物医院电话地址查询号码）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">88</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p class="copyright_text">
+                            ClashNodesFree免费订阅站 版权所有
+                            <br />
+                            Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery-3.0.0.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/plugin.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

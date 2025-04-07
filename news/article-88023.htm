@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+    	<link rel="canonical" href="https://clashnodesfree.github.io/news/article-88023.htm" />
+	<!-- basic -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<!-- mobile metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<!-- site metas -->
+	<title>建立对分布式锁的系统认知 &#8211; 从 Redlock 开始</title>
+		<meta name="description" content="&nbsp; 01 前言 这是一篇解析底层原理的文章，从 Redis 官方推荐的 Redlock 算法入手，帮助你建立对分布式锁的认知，并具备判断分布式锁方案优劣的理论基础。通过对本文的学习，你将收获" />
+	
+    <meta name="author" content="ClashNodesFree免费订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashnodesfree.github.io/news/article-88023.htm" />
+    <meta property="og:site_name" content="ClashNodesFree免费订阅站" />
+    <meta property="og:title" content="建立对分布式锁的系统认知 &#8211; 从 Redlock 开始" />
+    <meta property="og:image" content="https://clashnodesfree.github.io/uploads/20240323/d3933e448d10217e26c64fd907d4d3a2.webp" />
+        <meta property="og:release_date" content="2025-04-04T09:05:44" />
+    <meta property="og:updated_time" content="2025-04-04T09:05:44" />
+        <meta property="og:description" content="&nbsp; 01 前言 这是一篇解析底层原理的文章，从 Redis 官方推荐的 Redlock 算法入手，帮助你建立对分布式锁的认知，并具备判断分布式锁方案优劣的理论基础。通过对本文的学习，你将收获" />
+        
+	<!-- bootstrap css -->
+	<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/bootstrap.min.css">
+	<!-- style css -->
+	<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/style.css">
+	<!-- Responsive-->
+	<link rel="stylesheet" href="/assets/website/css/clashnodesfree/responsive.css">
+	<!-- favicon -->
+	<link rel="icon" href="/assets/website/img/clashnodesfree/favicon.ico" type="image/x-icon"/>
+	<!-- Scrollbar Custom CSS -->
+	<link rel="stylesheet" href="/assets/website/css/clashnodesfree/jquery.mCustomScrollbar.min.css">
+	<!-- Tweaks for older IEs-->
+	<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+	<!-- fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="建立对分布式锁的系统认知 &#8211; 从 Redlock 开始">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z348FF31FW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z348FF31FW');
+</script>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!-- header section start -->
+    <div class="header_section header_bg">
+        <div class="container-fluid">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Clash Nodes Free</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="breadcrumb">
+              <a href="/">首页</a> / 
+              <a href="/news/">新闻资讯</a> / 
+              <span>正文</span>
+            </div>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <h1 class="services_taital mb-5">建立对分布式锁的系统认知 &#8211; 从 Redlock 开始</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p style="text-align:center;"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20230109/f8291a14c5dd5fb9a589e459c412d20c.jpg"></p> <p>&nbsp;</p> <h2>01 前言</h2> <p>这是一篇解析底层原理的文章，从 Redis 官方推荐的 Redlock 算法入手，帮助你建立对分布式锁的认知，并具备判断分布式锁方案优劣的理论基础。通过对本文的学习，你将收获以下知识：</p> <ol> <li> <p>分布式锁的基本要求</p> </li> <li> <p>评估简化版方案的现状</p> </li> <li> <p>单实例 Redis 的锁方案</p> </li> <li> <p>Redlock 算法核心思想</p> </li> <li> <p>科学的失败重试机制</p> </li> <li> <p>性能、故障恢复和持久化</p> </li> <li> <p>让算法更可靠：续期机制</p> </li> </ol> <p>什么是分布式锁？当不同的进程必须以互斥地方式访问同一个共享资源时，就要用到分布式锁。当然，我更建议在工程实践时合理设计方案，避免用到锁，除非无法避免。网上也有一些比较简单的设计方案，其可靠性往往得不到很好的保证。</p> <p><strong>有些小伙伴不知道本文内容和更多相关学习资料的请点赞收藏+评论转发+关注我，后面会有很多干货。我有一些面试题、架构、设计类资料可以说是程序员面试必备！所有资料都整理到网盘了，需要的话欢迎下载！私信我回复【000】即可免费获取</strong></p> <p style="text-align:center;"><strong><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20230109/9242073aeaef55338ff8334e5b0a6edb.jpg"></strong></p> <p>&nbsp;</p> <p>很多语言都有 Redlock 分布式锁的实现，我们列举几个主流语言的实现：</p> <ol> <li> <p>Ruby：Redlock-rb</p> </li> <li> <p>Python：Redlock-py、Pottery、Aioredlock</p> </li> <li> <p>PHP：Redlock-php、PHPRedisMutex、cheprasov/php-redis-lock、rtckit/react-redlock</p> </li> <li> <p>Go：RedSync</p> </li> <li> <p>Java：Redisson</p> </li> <li> <p>NodeJS：node-redlock</p> </li> <li> <p>C++：Redlock-cpp</p> </li> </ol> <h2>02 分布式锁的基本要求</h2> <p>一个最小化、可有效使用的分布式锁至少需满足以下三个属性：</p> <ol> <li> <p>安全性：互斥。对于同一资源，在任何时刻，只有一个客户端可以持有锁。</p> </li> <li> <p>活跃性 A：死锁释放。当持有锁的客户端发生崩溃等异常而不能释放锁时，锁最终也能被其它客户端获取到。</p> </li> <li> <p>活跃性 B：容错。只要大多数（半数以上）Redis 节点处于启动状态，客户端就可以获取和释放锁。</p> </li> </ol> <p>不能满足以上三个属性，则不是一个合格的分布式锁方案，其可靠性不足以在生产环境使用。在选择分布式锁方案时要牢记这三点。</p> <h2>03 评估简化版方案的现状</h2> <p>比较简单的实现方式是在一个 Redis 实例中创建一个带有过期时间的 key，所以这个锁最终会被释放（满足活跃性 A 的要求）。当客户端需要释放锁时，主动删掉这个 key 就可以了。</p> <p>表面上看起来还不错，但存在一个问题：单点失败。大多数公司在使用 Redis 时会采用主从模式（主要指一主一从），因为 master 到 slave 节点的数据复制是异步的，当 master 挂掉之后，互斥的安全性要求是无法得到满足。</p> <p>具体分析如下：</p> <ol> <li> <p>客户端 A 在 master 节点中获取了锁。</p> </li> <li> <p>对应的 key 在被复制到 slave 节点之前，master 节点挂了。</p> </li> <li> <p>slave 节点被提升为 master。</p> </li> <li> <p>客户端 B 在新的 master 中获取到了 A 已经持有的相同资源的锁。违反了互斥的安全性要求！</p> </li> </ol> <p>所以，不要在主从模式的 Redis 环境中实现分布式锁，即便是后文中的 Redlock 方案也是一样，NO REPLICATION！在选择一些开源类库时也需要考察其是否对有副本的情况进行了合理地处理。事实上很难处理，可以认为这是基于 Redis 方案的缺陷。</p> <h2>04 单实例 Redis 的锁方案</h2> <p>核心要点：</p> <ol> <li> <p>key 不存在时设置 key，value 为全局唯一签名，一定时间后自动失效。</p> </li> <li> <p>删除 key 时必须匹配签名。</p> </li> </ol> <p>既然主从的 Redis 环境不适合做分布式锁，那我们来看看只有一个实例的 Redis 环境怎么实现分布式锁。</p> <p>设置一个当前不存在的 key，并使用随机值签名，配置过期时间。</p> <pre><code>SET resource_name my_random_value NX PX 30000</code></pre> <p>复制代码</p> <p>只有当 resource_name 这个 key 不存在时，才设置 key。对应的值是一个全局唯一的随机数值，作为 key 的签名，并且这个 key 将会在 30000 毫秒后过期。</p> <p>验证签名匹配后方可删除。</p> <p>对应的 Lua 脚本如下：</p> <pre><code>if redis.call("get",KEYS[1]) == ARGV[1] then</code><code>	return redis.call("del",KEYS[1])</code><code>else</code><code>	return 0</code><code>end</code></pre> <p>复制代码</p> <p>只有签名值对应上时才允许删除，以此实现安全地释放锁，避免删掉其它客户端创建的锁。在一些更加简陋的方案中是没有锁签名的，它们的可靠性就要更差一些了。</p> <p>误删其它客户端的锁是不安全的，例如：</p> <ol> <li> <p>客户端 A 获取到一个锁。</p> </li> <li> <p>客户端 A 长时间阻塞在某些操作上，阻塞的时间超过了锁的有效时间（通过 PX 参数设置的时间）。</p> </li> <li> <p>操作完成后执行锁的 DEL，但这个锁已经过期并且被客户端 B 获取到。DEL 操作导致客户端 B 的锁被误删，客户端 C 此时可以获取 B 锁持有的锁。违反互斥的安全性要求！</p> </li> </ol> <p>我们使用全局唯一的随机值给锁进行签名，然后通过以上的脚本进行删除，就可以保证锁只能被创建者删除。通常可以使用当前毫秒时间，拼接上客户端 id 作为锁的签名值。</p> <p>给 key 指定的生存时间被称为“锁有效时间”，它既是锁自动释放的时间，也是客户端执行操作必需的时间，需要比最大执行时间更大一些，此时并不违反互斥的安全性要求。但事实上我们无法保证每一次客户端操作的时间一定小于自动释放时间，就可能会出现操作还没有完成，锁已经自动过期，从而被其它客户端获取到。这里需要配合锁的续期才能确保安全性，文章的最后一部分会讲解续期机制。</p> <p>方案优点：相对简单易实现。</p> <p>方案缺点：可用性不高，一旦唯一的 Redis 节点挂掉，系统将完全不可用。</p> <p>不建议在可用性要求较高的场景中使用该方案！</p> <h2>05 Redlock 算法核心思想</h2> <p>核心要点：</p> <ol> <li> <p>N 个独立节点，无副本，互不依赖（非集群），N 是奇数且 N≥3。</p> </li> <li> <p>在有限的时间内，客户端在半数以上节点成功设置 key，则可以获取锁。</p> </li> <li> <p>客户端需提前几毫秒完成工作，作为对时钟漂移的补偿。</p> </li> </ol> <p>单实例方案在面对单点故障时整个系统不可用，因此需要使用多实例来确保可用性，而单实例的方案无法直接套用在多实例环境，需要做一些改进。</p> <p>假设有一个 N 个 Redis master 节点。这些节点是独立的、互不依赖的，没有使用主从复制或者其它的协调机制。当 N=5 时，我们需要在不同的主机或者虚拟机上运行 5 个 Redis master 节点，以确保节点失效时独立失效，互不影响。</p> <p>为了获取锁，客户端会执行以下操作：</p> <ol> <li> <p>获取当前毫秒时间。</p> </li> <li> <p>尝试顺序地从所有实例中获取锁，在每个实例中都设置同样的 key 名称和随机值。在每个实例中设置锁时，客户端会有一个超时时间，这个时间比锁的有效时间更小。比如，自动释放时间是 10 秒，则超时时间可以是 5~50 毫秒。这可以防止客户端尝试从已经失效的 Redis 节点获取锁而长时间被阻塞。当一个 Redis 实例不可用时，要尽可能快地转移到下一个节点进行设置。</p> </li> <li> <p>客户端会计算获取锁的过程消耗了多少时间。当且仅当客户端在半数以上的 Redis 实例中设置成功，且总耗时远小于锁的有效时间时，才会让锁最终成功被获取。</p> </li> <li> <p>如果在某个 Redis 实例上设置成功，则会使用在步骤 1 中获取的时间，再加上已消耗的时间，作为过期时间。</p> </li> <li> <p>如果设置锁失败了（未能成功锁定半数以上 Redis 实例或者有效时间是负的），将会尝试在所有 Redis 实例上解锁，删除对应的 key。</p> </li> </ol> <p>该算法依赖于一种假设：尽管进程之间没有同步时钟，但每个进程中的本地时间仍然以大致相同的速度流动，其误差与锁的自动释放时间相比是很小的。这个假设是非常接近事实的：每台计算机都有一个本地时钟，通常这些计算机的时钟漂移是很小的，只有几毫秒。</p> <p>基于这一点，只有当持有锁的客户端在锁有效时间达到之前完成工作，互斥性才会得到保证。提前的几毫秒用于补偿进程之间的时钟漂移。这就跟木桶原理一样，较短的一块板子决定了最大蓄水量，最早的过期时间决定了锁的实际最大生存时长。</p> <h2>06 科学的失败重试机制</h2> <p>核心要点：</p> <ol> <li> <p>先延迟一个随机时间。</p> </li> <li> <p>再使用指数退避法执行重试。</p> </li> </ol> <p>优秀的方案设计一定要充分考虑失败场景，即面向失败设计的思想！</p> <p>当客户端不能成功获取到锁时，应该延迟一个随机时间后再重试。使用随机时间可以避免多个客户端同时争夺同一个资源的锁。大量客户端同时发起重试请求的情况称为惊群效应（thundering herd），会过多消耗你的服务器资源。如果要对一个分布式锁方案进行压力测试，我必须关注的一个指标就是：重试次数/成功次数，这个指标越低越好。</p> <h3>如何减少重试几率和时间？</h3> <p>客户端尝试在半数以上 Redis 实例上加锁的速度越快，竞争的时间窗口就会越小，因此最理想的情况是客户端采用多路复用的方式，同时向 N 个实例发送 SET 命令。对于无法成功获取半数以上锁的客户端，要尽快释放已获取到的锁，不需要等待 key 自动过期，以确保锁可以尽快被再次请求。</p> <p>当重试发生时的最佳策略：使用随机延迟+指数退避可有效地分散重试请求，削弱惊群效应的影响。</p> <h3>指数退避法（Exponential Backoff）</h3> <pre><code>//retry=1代表当前第1次重试，最大重试次数是3。</code><code>//随着重试次数的增加，延迟时间越来越大。第1次重试的延迟时间是20ms，第3次重试的延迟时间是80ms。</code><code>long timemillsec = (long) (Math.pow(2, Math.min(retry, 3)) * 10);</code></pre> <p>复制代码</p> <p>可以使用递归调用+定时器进行重试操作，每一次重试后都计算出下一次重试的延迟时间，达到最大重试次数而依然没有成功则放弃重试，业务客户端要有对应的失败处理。</p> <h2>07 性能、故障恢复与持久化</h2> <p>核心要点：</p> <ol> <li> <p>多路复用，更快完成加锁/解锁，提高性能。</p> </li> <li> <p>实时 AOF 或者无持久化、延迟重启，确保互斥。</p> </li> </ol> <p>多路复用，为了更快</p> <p>之所以选择 Redis 做分布式锁服务，是因为想获得较高的性能，每秒能够执行大量的加锁和解锁操作。为了满足这个诉求，可以采用多路复用的方式，同时将所有命令发送到 N 个 Redis 节点上，并同时读取命令结果（假设所有 Redis 节点的响应时间是一致的）。</p> <p>有持久化，实时 AOF-重启后数据不丢失，确保互斥。</p> <p>如果我们想要系统具备故障恢复能力，就需要考虑 Redis 的持久化策略。</p> <p>假设我们配置了 5 个没有任何持久化策略的 Redis 实例，来看看会有什么问题。一个客户端在 3 个实例上成功设置了锁，其中一个实例被重启导致数据丢失，实际锁成功的节点只剩下 2 个（半数以下），此时其它客户端就能够获取到同一个资源的锁。违反了互斥的安全性要求！</p> <p>当开启 AOF 持久化后，情况会有很大改善。例如：向 Redis Server 发送 SHUTDOWN 命令并重启，Redis 会先进行持久化然后再重启，重启后从 AOF 文件中恢复数据。在 Server 关闭期间，锁的生存时间仍然在正常流逝，对锁的过期没有影响。这种情况下，没有任何问题。</p> <p>但如果是突然断电呢？假设 Redis 按照默认配置，每秒进行一次 AOF 文件的写盘，则有可能因为来不及写盘而丢失数据。如果想在这种异常重启的情况下保证锁的安全性，就需要在持久化配置中把 fsync 设置为 always，实时写盘。按照分布式系统的 CAP 理论，这是通过牺牲一定的可用性，保证了一致性和分区容错性。</p> <p>无持久化，延迟重启-节点对应的锁全部过期自动失效，确保互斥。</p> <p>如果一个 Redis 实例在崩溃后重启，而且该实例中所有的锁都不属于当前正在使用的锁（当前活动锁），则算法的安全性也是可以保证的。我们只需要在 Redis 实例崩溃后，延迟一段时间再启动就可以。延迟的时间要比最大的锁生存时间大一些，这样该实例中的锁在重启后已经全部失效并且会被自动释放。</p> <p>当 Redis 实例没有配置任何持久化时，使用延迟重启可以在任何一种重启的情况下确保锁的安全。这也是一种牺牲可用性的方式，例如：当半数以上的 Redis 实例崩溃后，系统会变得完全不可用，持续的时间是最大锁生存时间，在这段时间里没有任何资源可以被锁定。</p> <h2>08 让算法更可靠：续期机制</h2> <p>核心要点：</p> <ol> <li> <p>进行基准测试，尽可能准确地预估客户端操作耗时，作为锁有效期的参考。</p> </li> <li> <p>增加锁的续期机制，应对意外情况。</p> </li> </ol> <p>如果客户端操作的步骤很少，耗时很短，就可以使用更小的锁有效时间。但无论预估地多么准确，都无法避免意外，建议使用锁的续期机制对算法进行扩展，以应对不确定性。如果客户端正在执行操作，而锁的剩余生存时间已经很小，则可以通过 Lua 脚本对已存在的锁进行有效期延长。</p> <h2>09 总结</h2> <p>没有最完美的方案，只有最适合的。基于 Redis 也不是分布式锁方案的唯一选项，还有基于 Zookeeper 的方案也可以考虑，最佳的方案是不需要分布式锁。</p> <p>在实践中要考虑基础设施情况和业务要求，仔细权衡。期望你可以通过这篇文章建立对分布式锁方案的评判标准，在实际的技术选型中能够对多种方案进行客观评价。<span style="font-size: 16px;">&nbsp;</span></p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-87305.htm">宠物领养协议书范本简单版图片大全大图（宠物领养协议书范本简单版图片大全大图高清）</a></p>
+                                        <p>下一个：<a href="/news/article-88024.htm">pgpool-II 4.3中文手册入门教程</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-78831.htm" title="河南省动物疫苗招标公告公示名单（河南省动物疫苗招标公告公示名单最新）">河南省动物疫苗招标公告公示名单（河南省动物疫苗招标公告公示名单最新）</a></li>
+                        <li class="py-2"><a href="/news/article-72087.htm" title="mongodb开发&#8212;GridFS文件存储">mongodb开发&#8212;GridFS文件存储</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-2-node-share-links.htm" title="3月2日|V2ray/Shadowrocket/Clash/SSR每天更新19.9M/S免费节点订阅链接地址">3月2日|V2ray/Shadowrocket/Clash/SSR每天更新19.9M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-79523.htm" title="【QT实现UDP收发数据】">【QT实现UDP收发数据】</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-26-free-v2ray-subscribe.htm" title="3月26日|Clash/SSR/V2ray/Shadowrocket每天更新19.8M/S免费节点订阅链接地址">3月26日|Clash/SSR/V2ray/Shadowrocket每天更新19.8M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-88024.htm" title="pgpool-II 4.3中文手册入门教程">pgpool-II 4.3中文手册入门教程</a></li>
+                        <li class="py-2"><a href="/news/article-81566.htm" title="深圳开宠物店需要什么手续和证件呢要多少钱（深圳开宠物医院要求）">深圳开宠物店需要什么手续和证件呢要多少钱（深圳开宠物医院要求）</a></li>
+                        <li class="py-2"><a href="/news/article-68164.htm" title="广州宠物领养中心在哪里啊最近（广州宠物领养中心官网）">广州宠物领养中心在哪里啊最近（广州宠物领养中心官网）</a></li>
+                        <li class="py-2"><a href="/news/article-74756.htm" title="认证与授权流程与spring boot整合 spring security">认证与授权流程与spring boot整合 spring security</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-25-clash-node.htm" title="3月25日|Shadowrocket/SSR/Clash/V2ray每天更新22.5M/S免费节点订阅链接地址">3月25日|Shadowrocket/SSR/Clash/V2ray每天更新22.5M/S免费节点订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">88</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p class="copyright_text">
+                            ClashNodesFree免费订阅站 版权所有
+                            <br />
+                            Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery-3.0.0.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/plugin.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

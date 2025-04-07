@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+    	<link rel="canonical" href="https://clashnodesfree.github.io/news/article-90201.htm" />
+	<!-- basic -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<!-- mobile metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<!-- site metas -->
+	<title>iOS全埋点解决方案-界面预览事件</title>
+		<meta name="description" content="前言 	我们先了解 UIViewController 生命周期相关的内容和 iOS 的“黑魔法” Method Swizzling。然后再了解页面浏览事件（$AppViewScreen）全埋点的实现原" />
+	
+    <meta name="author" content="ClashNodesFree免费订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashnodesfree.github.io/news/article-90201.htm" />
+    <meta property="og:site_name" content="ClashNodesFree免费订阅站" />
+    <meta property="og:title" content="iOS全埋点解决方案-界面预览事件" />
+    <meta property="og:image" content="https://clashnodesfree.github.io/uploads/20240323/35cd59f6c9e33127c228b8be79274267.webp" />
+        <meta property="og:release_date" content="2025-04-07T09:01:35" />
+    <meta property="og:updated_time" content="2025-04-07T09:01:35" />
+        <meta property="og:description" content="前言 	我们先了解 UIViewController 生命周期相关的内容和 iOS 的“黑魔法” Method Swizzling。然后再了解页面浏览事件（$AppViewScreen）全埋点的实现原" />
+        
+	<!-- bootstrap css -->
+	<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/bootstrap.min.css">
+	<!-- style css -->
+	<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/style.css">
+	<!-- Responsive-->
+	<link rel="stylesheet" href="/assets/website/css/clashnodesfree/responsive.css">
+	<!-- favicon -->
+	<link rel="icon" href="/assets/website/img/clashnodesfree/favicon.ico" type="image/x-icon"/>
+	<!-- Scrollbar Custom CSS -->
+	<link rel="stylesheet" href="/assets/website/css/clashnodesfree/jquery.mCustomScrollbar.min.css">
+	<!-- Tweaks for older IEs-->
+	<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+	<!-- fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="iOS全埋点解决方案-界面预览事件">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z348FF31FW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z348FF31FW');
+</script>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!-- header section start -->
+    <div class="header_section header_bg">
+        <div class="container-fluid">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Clash Nodes Free</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="breadcrumb">
+              <a href="/">首页</a> / 
+              <a href="/news/">新闻资讯</a> / 
+              <span>正文</span>
+            </div>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <h1 class="services_taital mb-5">iOS全埋点解决方案-界面预览事件</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<h3 id="前言">前言</h3> <p>	我们先了解 UIViewController 生命周期相关的内容和 iOS 的“黑魔法” Method Swizzling。然后再了解页面浏览事件（$AppViewScreen）全埋点的实现原理</p> <h3 id="一uiviewcontroller-生命周期">一、UIViewController 生命周期</h3> <p>	众所周知，每一个 UIViewController 都管理着一个由多个视图组成的树形结构，其中根视图保存在 UIViewController 的 view 属性中。UIViewController 会懒加载它所管理的视图集，直到第一次访问 view 属性时，才会去加载或者创建 UIViewController 的视图集。</p> <p>有以下几种常用的方式加载或者创建 UIViewController 的视图集：</p> <ul> <li>使用 Storyboard</li> <li>使用 Nib 文件</li> <li>使用代码，即重写 - loadView</li> </ul> <p>    以上这些方法，最终都会创建出合适的根视图并保存在 UIViewController 的 view 属性中，这是 UIViewController 生命周期的第一步。当 UIViewController 的根视图需要展示在页面上时，会调用 - viewDidLoad 方法。在这个方法中，我们可以做一些对象初始化相关的工作。</p> <p>	需要注意的是：此时，视图的 bounds 还没有确定。对于使用代码创建视图，- viewDidLoad 方法会在 -loadView 方法调用结束之后运行；如果使用的是 Stroyboard 或者 Nib 文件创建视图，- viewDidLoad 方法则会在 - awakeFromNib 方法之后调用。</p> <p>	当 UIViewController 的视图在屏幕上的显示状态发生变化时，UIViewController 会自动回调一些方法，确保子类能够响应到这些变化。如下图所示，它展示了 UIViewController 在不同的显示状态时会回调不同的方法。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/5ae67dcd5e2798a5aef511c874afbff8.jpg" alt="iOS全埋点解决方案-界面预览事件"></p> <p>	在 UIViewController 被销毁之前，还会回调 - dealloc 方法，我们一般通过重写这个方法来主动释放不能被 ARC 自动释放的资源。</p> <p>	我们现在对 UIViewController 的整个生命周期有了一些基本了解。那么，我们如何去实现页面浏览事件（ $AppViewScreen 事件）的全埋点呢？</p> <p>	通过 UIViewController 的生命周期可知，当执行到 - viewDidAppear: 方法时，表示视图已经在屏幕上渲染完成，也即页面已经显示出来了，正等待用户进行下一步操作。因此，- viewDidAppear: 方法就是我们触发页面浏览事件的最佳时机。如果想要实现页面浏览事件的全埋点，需要使用 iOS 的“黑魔法” Method Swizzling 相关的技术。</p> <h3 id="二method-swizzling-黑魔法">二、Method Swizzling 黑魔法</h3> <p>	Method Swizzling，顾名思义，就是交换两个方法的实现。简单的来说，就是利用 Objective-C runtime 的动态绑定特性，把一个方法的实现与另一个方法的实现进行交换。</p> <h4 id="21-method-swizzling-基础">2.1 Method Swizzling 基础</h4> <p>	在 Objective-C 的 runtime 中，一个类是用一个名为 objc_class 的结构体表示的，它的定义如下：</p> <pre><code class="language-c++">struct objc_class { Class _Nonnull isa OBJC_ISA_AVAILABILITY;  #if !__OBJC2__ Class _Nullable super_class OBJC2_UNAVAILABLE; const char * _Nonnull name OBJC2_UNAVAILABLE; long version OBJC2_UNAVAILABLE; long info OBJC2_UNAVAILABLE; long instance_size OBJC2_UNAVAILABLE; struct objc_ivar_list * _Nullable ivars OBJC2_UNAVAILABLE; struct objc_method_list * _Nullable * _Nullable methodLists OBJC2_UNAVAILABLE; struct objc_cache * _Nonnull cache OBJC2_UNAVAILABLE; struct objc_protocol_list * _Nullable protocols OBJC2_UNAVAILABLE; #endif  } OBJC2_UNAVAILABLE;</code></pre> <p>	在上面的结构体中，虽然有很多字段在 OBJC2 中已经废弃了（OBJC2_UNAVAILABLE），但是了解这个结构体还是有助于我们理解 Method Swizzling 的底层原理。我们从上述结构体中可以发现，有一个 objc_method_list 指针，它保存着当前类的所有方法列表。同时，objc_method_list 也是一个结构体，它的定义如下：</p> <pre><code class="language-c++">struct objc_method_list { struct objc_method_list * _Nullable obsolete OBJC2_UNAVAILABLE;  int method_count OBJC2_UNAVAILABLE; #ifdef __LP64__ int space OBJC2_UNAVAILABLE; #endif /* variable length structure */ struct objc_method method_list[1] OBJC2_UNAVAILABLE; }</code></pre> <p>	在上面的结构体中，有一个 objc_method 字段，我们再来看看 objc_method 这个结构体：</p> <pre><code class="language-c++">struct objc_method { SEL _Nonnull method_name OBJC2_UNAVAILABLE; char * _Nullable method_types OBJC2_UNAVAILABLE; IMP _Nonnull method_imp OBJC2_UNAVAILABLE; }</code></pre> <p>	从上面的结构体中可以看出，一个方法由下面三个部分组成：</p> <ul> <li>method_name：方法名</li> <li>method_types：方法类型</li> <li>method_imp：方法实现</li> </ul> <p>使用 Method Swizzling 交换方法，其实就是修改了 objc_method 结构体中的 method_imp，也即改变了 method_name 和 method_imp 的映射关系，如下图所示。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/6a11dd058fe015c3147e1821df235162.jpg" alt="iOS全埋点解决方案-界面预览事件"></p> <p>那我们如何改变 method_name 和 method_imp 的映射关系呢？在 Objective-C 的 runtime 中，提供了很多非常方便使用的函数，让我们可以很简单的就能实现 Method Swizzling，即改变 method_name 和 method_imp 的映射关系，从而达到交换方法的效果。</p> <h4 id="22-实现-method-swizzling-的相关函数">2.2 实现 Method Swizzling 的相关函数</h4> <ol> <li> <p>Method class_getInstanceMethod</p> <pre><code>// 返回目标类 aClass、方法名为 aSelector 的实例方法 // aClass :目标类 // aSelector: 方法名 OBJC_EXPORT Method _Nullable class_getInstanceMethod(Class _Nullable cls, SEL _Nonnull name)     OBJC_AVAILABLE(10.0, 2.0, 9.0, 1.0, 2.0);</code></pre> </li> <li> <p>BOOL class_addMethod</p> <pre><code>// 给目标类 aClass 添加一个新的方法，同时包括方法的实现 // aClass: 目标类 // aSelector: 要添加方法的方法名 // imp: 要添加方法的方法实现 // types: 方法实现的编码类型 OBJC_EXPORT BOOL class_addMethod(Class _Nullable cls, SEL _Nonnull name, IMP _Nonnull imp,                  const char * _Nullable types)      OBJC_AVAILABLE(10.5, 2.0, 9.0, 1.0, 2.0);</code></pre> </li> <li> <p>IMP method_getImplementation</p> <pre><code>// 返回方法实现的指针 // 目标方法 OBJC_EXPORT IMP _Nonnull method_getImplementation(Method _Nonnull m)      OBJC_AVAILABLE(10.5, 2.0, 9.0, 1.0, 2.0);</code></pre> </li> <li> <p>IMP class_replaceMethod</p> <pre><code>// 替换目标类 aClass 的 aSelector 方法指针 // aClass: 目标类 // aSelector: 目前方法的方法名 // imp：新方法的方法实现 // types: 方法实现的编码类型 OBJC_EXPORT IMP _Nullable class_replaceMethod(Class _Nullable cls, SEL _Nonnull name, IMP _Nonnull imp,                      const char * _Nullable types)      OBJC_AVAILABLE(10.5, 2.0, 9.0, 1.0, 2.0);</code></pre> </li> <li> <p>void method_exchangeImplementations</p> <pre><code>// 交换2个方法的实现指针 // m1: 交换方法1 // m2: 交换方法2 OBJC_EXPORT void method_exchangeImplementations(Method _Nonnull m1, Method _Nonnull m2)      OBJC_AVAILABLE(10.5, 2.0, 9.0, 1.0, 2.0);</code></pre> </li> </ol> <h4 id="23-实现-method-swizzling">2.3 实现 Method Swizzling</h4> <p>第一步 创建 NSObject 的分类 NSObject+SASwizzler</p> <p>第二步 在 NSObject+SASwizzler.h 声明方法交换方法</p> <pre><code>/// 交换方法名为 originalSEL 和方法名为 alternateSEL 两个方法实现 /// @param originalSEL 原始的方法名称 /// @param alternateSEL 要交换的方法名称 + (BOOL)sensorsdata_swizzleMethod:(SEL)originalSEL withMethod:(SEL)alternateSEL;</code></pre> <p>第三步 在 NSObject+SASwizzler.m 实现方法的交换</p> <pre><code>+ (BOOL)sensorsdata_swizzleMethod:(SEL)originalSEL withMethod:(SEL)alternateSEL {         // 获取原始方法     Method originalMethod = class_getInstanceMethod(self, originalSEL);     // 当原始的方法不存在时，返回NO，表示 Swizzler 失败     if (!originalMethod) {         return NO;     }          // 获取要交换的方法     Method alternateMethod = class_getInstanceMethod(self, alternateSEL);     // 当交换的方法不存在时，返回NO，表示 Swizzler 失败     if (!alternateMethod) {         return NO;     }          // 交换两个方法的实现     method_exchangeImplementations(originalMethod, alternateMethod);     return YES; }</code></pre> <h3 id="三实现界面预览事件全埋点">三、实现界面预览事件全埋点</h3> <p>	利用方法交换，来交换 UIViewController 的 -viewDidAppear: 方法，然后在方法交换中触发 $AppViewScreen 事件，来实现界面预览的全埋点。</p> <h4 id="31-实现步骤">3.1 实现步骤</h4> <p>第一步：在 SensorsSDK 项目中，新增一个 UIViewController 类别 UIViewController+SensorsData</p> <p>第二步：在 UIViewController+SensorsData.m 类别新增交换方法 - sensorsdata_viewDidAppear：，然后再交换方法中调用原始方法，并触发 $AppViewScreen 事件</p> <pre><code>- (void)sensorsdata_viewDidAppear:(BOOL)animated {     // 调用原始方法, 即 - viewDidAppear     [self sensorsdata_viewDidAppear:animated];          // 触发 $AppViewScreen 事件     NSMutableDictionary *properties = [NSMutableDictionary dictionary];     [properties setValue:NSStringFromClass([self class]) forKey:@"$screen_name"];     [properties setValue:self.navigationItem.title forKey:@"$title"];     [[SensorsAnalyticsSDK sharedInstance] track:@"$AppViewScreen" properties:properties]; }</code></pre> <p>第三步: 在 UIViewController+SensorsData.m 中重写 + load 类方法，并在 + load 类方法中调用 NSObject+SASwizzler 的类方法交换</p> <pre><code>+ (void)load {     [UIViewController sensorsdata_swizzleMethod:@selector(viewDidAppear:) withMethod:@selector(sensorsdata_viewDidAppear:)]; }</code></pre> <p>第四步 : 测试验证</p> <pre><code>{   "event" : "$AppViewScreen",   "time" : 1648626597682,   "propeerties" : {     "$model" : "x86_64",     "$manufacturer" : "Apple",     "$lib_version" : "1.0.0",     "$os" : "iOS",     "$app_version" : "1.0",     "$screen_name" : "ViewController",     "$os_version" : "15.2",     "$lib" : "iOS"   } }</code></pre> <h4 id="32-优化">3.2 优化</h4> <p>问题：在应用程序启动过程中，会触发多余的 $AppViewScreen ，我们可以引入黑名单的机制，即在黑名单里配置那些 UIViewController 及子类不触发 $AppViewScreen 事件。</p> <p>第一步  创建一个 sensorsdata_black_list.plist 文件，并把 root 类型改成 Array，该文件就是黑名单文件，然后在黑名单文件中添加控制器，如图所示：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/52784be099028506c1049191e73a153d.jpg" alt="iOS全埋点解决方案-界面预览事件"></p> <p>第二步 在 UIViewController+SensorsData.m 文件中新增 - shouldTrackAppViewScreen 方法，用来判断当前控制器是否在黑名单中。</p> <pre><code>static NSString * const kSensorsDataBlackListFileName = @"sensorsdata_black_list";  // 黑名单 - (BOOL)shouldTrackAppViewScreen {     static NSSet *blackList = nil;     static dispatch_once_t onceToken;     dispatch_once(&amp;onceToken, ^{         NSString *path = [[NSBundle bundleForClass:SensorsAnalyticsSDK.class] pathForResource:kSensorsDataBlackListFileName ofType:@"plist"];         NSArray *classNames = [NSArray arrayWithContentsOfFile:path];         NSMutableSet *set = [NSMutableSet setWithCapacity:classNames.count];         for (NSString *className in classNames) {             [set addObject:NSClassFromString(className)];         }         blackList = [set copy];     });     for (Class cla in blackList) {         if ([self isKindOfClass:cla]) {             return  NO;         }     }     return YES; }</code></pre> <p>第三步 在触发 $AppViewScreen 事件之前，判断是否在黑名单中</p> <pre><code>- (void)sensorsdata_viewDidAppear:(BOOL)animated {     // 调用原始方法, 即 - viewDidAppear     [self sensorsdata_viewDidAppear:animated];          // 触发 $AppViewScreen 事件     if ([self shouldTrackAppViewScreen]) {         NSMutableDictionary *properties = [NSMutableDictionary dictionary];         [properties setValue:NSStringFromClass([self class]) forKey:@"$screen_name"];         [properties setValue:self.navigationItem.title forKey:@"$title"];         [[SensorsAnalyticsSDK sharedInstance] track:@"$AppViewScreen" properties:properties];     } }</code></pre> <p>第四步 测试验证</p> <p>	运行Demo，所添加到黑名单中的 controller 不会发送 $AppViewScreen 事件。</p> <h4 id="34-遗留问题">3.4 遗留问题</h4> <p>	按照目前的方案实现 $AppViewScreen 事件的全埋点，会有2个问题：</p> <p>应用程序热启动是（从后台恢复），第一个界面没有触发 $AppViewScreen 事件。原因是这个界面没有再次执行 - viewDidAppear: 方法</p> <p>要求 UIViewController 的子类不重写 -viewDidAppear：方法，一旦重写，必须调用[super viewDidAppear:animated], 否则不会触发  $AppViewScreen 事件。原因是直接交换了 UIViewController 的 - viewDidAppear: 方法。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-89485.htm">Maven安装与配置，Idea配置Maven</a></p>
+                                        <p>下一个：<a href="/news/article-90203.htm">动物疫苗监管部门电话是多少（动物疫苗由哪里监管）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-11-shadowrocket-node.htm" title="3月11日|Clash/V2ray/SSR/Shadowrocket每天更新18.2M/S免费节点订阅链接地址">3月11日|Clash/V2ray/SSR/Shadowrocket每天更新18.2M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-72746.htm" title="属相养猫有禁忌吗（生肖不适合养猫）">属相养猫有禁忌吗（生肖不适合养猫）</a></li>
+                        <li class="py-2"><a href="/news/article-68820.htm" title="宠物食品工厂（玛氏天津宠物食品工厂）">宠物食品工厂（玛氏天津宠物食品工厂）</a></li>
+                        <li class="py-2"><a href="/news/article-83007.htm" title="windows查看已经连过wifi的密码">windows查看已经连过wifi的密码</a></li>
+                        <li class="py-2"><a href="/news/article-78833.htm" title="动物疫苗公司产量排名（动物疫苗公司产量排名）">动物疫苗公司产量排名（动物疫苗公司产量排名）</a></li>
+                        <li class="py-2"><a href="/news/article-69465.htm" title="新手开宠物店需要了解哪些知识呢（零基础开宠物店）">新手开宠物店需要了解哪些知识呢（零基础开宠物店）</a></li>
+                        <li class="py-2"><a href="/news/article-88741.htm" title="JavaScript找到两个数组之间的差异方法详解">JavaScript找到两个数组之间的差异方法详解</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-29-clash-node.htm" title="3月29日|Clash/SSR/V2ray/Shadowrocket每天更新20.8M/S免费节点订阅链接地址">3月29日|Clash/SSR/V2ray/Shadowrocket每天更新20.8M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-84431.htm" title="央视十大放心奶粉(蒙古前三名的奶粉品牌)">央视十大放心奶粉(蒙古前三名的奶粉品牌)</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-4-free-v2ray.htm" title="4月4日|Shadowrocket/Clash/SSR/V2ray每天更新21.7M/S免费节点订阅链接地址">4月4日|Shadowrocket/Clash/SSR/V2ray每天更新21.7M/S免费节点订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">88</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p class="copyright_text">
+                            ClashNodesFree免费订阅站 版权所有
+                            <br />
+                            Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery-3.0.0.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/plugin.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

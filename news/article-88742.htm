@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+    	<link rel="canonical" href="https://clashnodesfree.github.io/news/article-88742.htm" />
+	<!-- basic -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<!-- mobile metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<!-- site metas -->
+	<title>Springboot：拦截器和过滤器</title>
+		<meta name="description" content="在项目的开发中，在某些情况下，我们需要对客户端发出的请求进行拦截，常用的API拦截方式有Fliter，Interceptor，ControllerAdvice以及Aspect。 请求从Filter--" />
+	
+    <meta name="author" content="ClashNodesFree免费订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashnodesfree.github.io/news/article-88742.htm" />
+    <meta property="og:site_name" content="ClashNodesFree免费订阅站" />
+    <meta property="og:title" content="Springboot：拦截器和过滤器" />
+    <meta property="og:image" content="https://clashnodesfree.github.io/uploads/20240323/818f2f93dcbeed0252bc858caff32aed.webp" />
+        <meta property="og:release_date" content="2025-04-05T08:16:48" />
+    <meta property="og:updated_time" content="2025-04-05T08:16:48" />
+        <meta property="og:description" content="在项目的开发中，在某些情况下，我们需要对客户端发出的请求进行拦截，常用的API拦截方式有Fliter，Interceptor，ControllerAdvice以及Aspect。 请求从Filter--" />
+        
+	<!-- bootstrap css -->
+	<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/bootstrap.min.css">
+	<!-- style css -->
+	<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/style.css">
+	<!-- Responsive-->
+	<link rel="stylesheet" href="/assets/website/css/clashnodesfree/responsive.css">
+	<!-- favicon -->
+	<link rel="icon" href="/assets/website/img/clashnodesfree/favicon.ico" type="image/x-icon"/>
+	<!-- Scrollbar Custom CSS -->
+	<link rel="stylesheet" href="/assets/website/css/clashnodesfree/jquery.mCustomScrollbar.min.css">
+	<!-- Tweaks for older IEs-->
+	<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+	<!-- fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Springboot：拦截器和过滤器">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z348FF31FW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z348FF31FW');
+</script>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!-- header section start -->
+    <div class="header_section header_bg">
+        <div class="container-fluid">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Clash Nodes Free</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="breadcrumb">
+              <a href="/">首页</a> / 
+              <a href="/news/">新闻资讯</a> / 
+              <span>正文</span>
+            </div>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <h1 class="services_taital mb-5">Springboot：拦截器和过滤器</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>在项目的开发中，在某些情况下，我们需要对客户端发出的请求进行拦截，常用的API拦截方式有Fliter，Interceptor，ControllerAdvice以及Aspect。</p> <p>请求从Filter--&gt;&gt;Controller的过程中，只要在指定的环节出现异常，可以通过对应的机制进行处理。反之在任何一个环节如果异常未处理则不会进入下一个环节，会直接往外抛，例如在ControllerAdvice验证发生异常则会抛给Filter，如果Filter未处理，则最终会由Tomcat容器抛出。</p> <h3>过滤器：Filter</h3> <p>可以获得Http原始的请求和响应信息，但是拿不到响应方法的信息。<br /> 注册Filter，在springboot当中提供了FilterRegistrationBean类来注册Filter</p> <h3>示例</h3> <pre><code class="language-java">/**  * 检查用户是否已经完成登录  */ @WebFilter(filterName = "loginCheckFilter",urlPatterns = "/*") @Slf4j public class LoginCheckFilter implements Filter{     //路径匹配器，支持通配符     public static final AntPathMatcher PATH_MATCHER = new AntPathMatcher();      @Override     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {         HttpServletRequest request = (HttpServletRequest) servletRequest;         HttpServletResponse response = (HttpServletResponse) servletResponse;          //1、获取本次请求的URI         String requestURI = request.getRequestURI();// /backend/index.html          log.info("拦截到请求：{}",requestURI);          //定义不需要处理的请求路径         String[] urls = new String[]{                 "/employee/login",                 "/employee/logout",                 "/backend/**",                 "/front/**"         };           //2、判断本次请求是否需要处理         boolean check = check(urls, requestURI);          //3、如果不需要处理，则直接放行         if(check){             log.info("本次请求{}不需要处理",requestURI);             filterChain.doFilter(request,response);             return;         }          //4、判断登录状态，如果已登录，则直接放行         if(request.getSession().getAttribute("employee") != null){             log.info("用户已登录，用户id为：{}",request.getSession().getAttribute("employee"));             filterChain.doFilter(request,response);             return;         }          log.info("用户未登录");         //5、如果未登录则返回未登录结果，通过输出流方式向客户端页面响应数据         response.getWriter().write(JSON.toJSONString(R.error("NOTLOGIN")));         return;      }      /**      * 路径匹配，检查本次请求是否需要放行      * @param urls      * @param requestURI      * @return      */     public boolean check(String[] urls,String requestURI){         for (String url : urls) {             boolean match = PATH_MATCHER.match(url, requestURI);             if(match){                 return true;             }         }         return false;     } }</code></pre> <p>最后在Springboot主启动类中添加@ServletComponentScan</p> <pre><code class="language-java">@Slf4j @SpringBootApplication @ServletComponentScan //使用过滤器需加此注解 public class ReggieApplication {     public static void main(String[] args) {         SpringApplication.run(ReggieApplication.class,args);         log.info("项目启动成功...");     } }</code></pre> <h2>拦截器：Interceptor</h2> <p>可以获得Http原始的请求和响应信息，也拿得到响应方法的信息，但是拿不到方法响应中的参数的值。<br /> 在web开发中，拦截器是经常用到的功能。它可以帮我们验证是否登陆、预先设置数据以及统计方法的执行效率等。在spring中拦截器有两种，第一种是HandlerInterceptor，第二种是MethodInterceptor。HandlerInterceptor是SpringMVC中的拦截器，它拦截的是Http请求的信息，优先于MethodInterceptor。而MethodInterceptor是springAOP的。前者拦截的是请求的地址，而后者是拦截controller中的方法</p> <h3>拦截器特点</h3> <p>1.请求到达经过拦截器，响应回来也经过拦截器<br /> 2.只能拦截控制器相关请求不能拦截JSP请求<br /> 3.拦截器可以中断用户请求轨迹</p> <h3>拦截器作用</h3> <p>将多个控制器中共有代码放入拦截器可以减少控制器代码冗余</p> <h3>springmvc中开发拦截器步骤</h3> <p>1.实现HandlerInterceptor接口(或继承其实现类)或者实现实现WebRequestInterceptor(或继承其实现类)。<br /> 2.XML文件中配置拦截器</p> <h3>创建一个<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://so.csdn.net/so/search?q=%E6%8B%A6%E6%88%AA%E5%99%A8&amp;spm=1001.2101.3001.7020"  title="拦截器" rel="nofollow">拦截器</a>实现HandlerInterceptor接口</h3> <pre><code class="language-java">package wmq.fly.mybatis.interceptor;  import javax.servlet.http.HttpServletRequest; import javax.servlet.http.HttpServletResponse;  import org.springframework.stereotype.Component; import org.springframework.web.servlet.HandlerInterceptor; import org.springframework.web.servlet.ModelAndView;  @Component public class LoginInterceptor implements HandlerInterceptor {     /**      * 预处理回调方法，实现处理器的预处理      * 返回值：true表示继续流程；false表示流程中断，不会继续调用其他的拦截器或处理器    */     @Override     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)             throws Exception {         System.out.println("开始拦截.........");         //业务代码         return false;     }       /**      * 后处理回调方法，实现处理器（controller）的后处理，但在渲染视图之前      * 此时我们可以通过modelAndView对模型数据进行处理或对视图进行处理      */     @Override     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,             ModelAndView modelAndView) throws Exception {         // TODO Auto-generated method stub      }     /**      * 整个请求处理完毕回调方法，即在视图渲染完毕时回调，      * 如性能监控中我们可以在此记录结束时间并输出消耗时间，      * 还可以进行一些资源清理，类似于try-catch-finally中的finally，      * 但仅调用处理器执行链中      */     @Override     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)             throws Exception {         // TODO Auto-generated method stub      }  }</code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-88741.htm">JavaScript找到两个数组之间的差异方法详解</a></p>
+                                        <p>下一个：<a href="/news/article-89484.htm">react事件类型</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-83706.htm" title="吉泰酒店电话（吉泰精品酒店电话）">吉泰酒店电话（吉泰精品酒店电话）</a></li>
+                        <li class="py-2"><a href="/news/article-80197.htm" title="宠物疫苗是去宠物医院还是宠物店（疫苗去宠物医院打还是防疫站）">宠物疫苗是去宠物医院还是宠物店（疫苗去宠物医院打还是防疫站）</a></li>
+                        <li class="py-2"><a href="/news/article-68818.htm" title="MM32F0140 UART1硬件自动波特率校准功能的使用">MM32F0140 UART1硬件自动波特率校准功能的使用</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-17-free-ssr-node.htm" title="3月17日|Shadowrocket/V2ray/SSR/Clash每天更新19.1M/S免费节点订阅链接地址">3月17日|Shadowrocket/V2ray/SSR/Clash每天更新19.1M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-66899.htm" title="宠物医院美团评价 宠物医院美团评价好评文案">宠物医院美团评价 宠物医院美团评价好评文案</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-20-free-ssr-node.htm" title="3月20日|SSR/Clash/V2ray/Shadowrocket每天更新19.2M/S免费节点订阅链接地址">3月20日|SSR/Clash/V2ray/Shadowrocket每天更新19.2M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-66900.htm" title="广州宠物猫领养中心电话多少啊（广州猫咪领养中心在哪）">广州宠物猫领养中心电话多少啊（广州猫咪领养中心在哪）</a></li>
+                        <li class="py-2"><a href="/news/article-90203.htm" title="动物疫苗监管部门电话是多少（动物疫苗由哪里监管）">动物疫苗监管部门电话是多少（动物疫苗由哪里监管）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-28-free-clash.htm" title="3月28日|SSR/V2ray/Shadowrocket/Clash每天更新18M/S免费节点订阅链接地址">3月28日|SSR/V2ray/Shadowrocket/Clash每天更新18M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-83008.htm" title="动物医院收费标准最新表格（动物医院收费标准最新表格图）">动物医院收费标准最新表格（动物医院收费标准最新表格图）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">88</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p class="copyright_text">
+                            ClashNodesFree免费订阅站 版权所有
+                            <br />
+                            Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery-3.0.0.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/plugin.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
