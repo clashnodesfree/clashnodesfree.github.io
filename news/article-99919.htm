@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+    	<link rel="canonical" href="https://clashnodesfree.github.io/news/article-99919.htm" />
+	<!-- basic -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<!-- mobile metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<!-- site metas -->
+	<title>python数据可视化-matplotlib入门利用随机函数生成变化图形2</title>
+		<meta name="description" content="&nbsp;鉴于上一篇中最后三个问题： 1、上述程序是否能进行优化（比如功能相同的） 2、创建三个3个实例，用了3个语句，能否建一个函数，只输入一个数n，就自动创建n个实例？同时，每个实例的num_t" />
+	
+    <meta name="author" content="ClashNodesFree免费订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashnodesfree.github.io/news/article-99919.htm" />
+    <meta property="og:site_name" content="ClashNodesFree免费订阅站" />
+    <meta property="og:title" content="python数据可视化-matplotlib入门利用随机函数生成变化图形2" />
+    <meta property="og:image" content="https://clashnodesfree.github.io/uploads/20240323/818f2f93dcbeed0252bc858caff32aed.webp" />
+        <meta property="og:release_date" content="2025-04-20T09:02:07" />
+    <meta property="og:updated_time" content="2025-04-20T09:02:07" />
+        <meta property="og:description" content="&nbsp;鉴于上一篇中最后三个问题： 1、上述程序是否能进行优化（比如功能相同的） 2、创建三个3个实例，用了3个语句，能否建一个函数，只输入一个数n，就自动创建n个实例？同时，每个实例的num_t" />
+        
+	<!-- bootstrap css -->
+	<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/bootstrap.min.css">
+	<!-- style css -->
+	<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/style.css">
+	<!-- Responsive-->
+	<link rel="stylesheet" href="/assets/website/css/clashnodesfree/responsive.css">
+	<!-- favicon -->
+	<link rel="icon" href="/assets/website/img/clashnodesfree/favicon.ico" type="image/x-icon"/>
+	<!-- Scrollbar Custom CSS -->
+	<link rel="stylesheet" href="/assets/website/css/clashnodesfree/jquery.mCustomScrollbar.min.css">
+	<!-- Tweaks for older IEs-->
+	<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+	<!-- fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="python数据可视化-matplotlib入门利用随机函数生成变化图形2">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z348FF31FW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z348FF31FW');
+</script>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!-- header section start -->
+    <div class="header_section header_bg">
+        <div class="container-fluid">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Clash Nodes Free</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="breadcrumb">
+              <a href="/">首页</a> / 
+              <a href="/news/">新闻资讯</a> / 
+              <span>正文</span>
+            </div>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <h1 class="services_taital mb-5">python数据可视化-matplotlib入门利用随机函数生成变化图形2</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<p>&nbsp;鉴于上一篇中最后三个问题：</p> <p>1、上述程序是否能进行优化（比如功能相同的）</p> <p>2、创建三个3个实例，用了3个语句，能否建一个函数，只输入一个数n，就自动创建n个实例？同时，每个实例的num_times随机，(n比较大时，num_times应该比较小)</p> <p>3、当实现上述功能后，程序运行，只输入一个参数（创建实例的个数），就会自动生成对应的num_times，并分别调用相关函数生成对应图表。</p> <p>可以，在类Rand_moving()中计算每一步的方向和移动位置时，都用到了一个乘法公式，</p> <div class="cnblogs_code"> <pre>            x_direction = choice([1,-1])<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">x的移动方向，1向上，0不变，-1向下</span>             x_distance = choice([0,1,2,3,4,5])<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">x的每次移动的像素，</span>             x_step = x_direction*x_distance<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">移动方向乘以移动距离，以确定沿x移动的距离</span><span style="color: rgba(0, 0, 0, 1)">                         y_direction</span>=  choice([1,-1])<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">y的移动方向，1向上，0不变，-1向下</span>             y_distance = choice([0,1,2,3,4,5])<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">y的每次移动的像素，</span>             y_step = y_direction*y_distance<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">移动方向乘以移动距离，以确定沿y移动的距离</span></pre> </div> <p>因此可以整理出一个计算方法，可以直接调用，至于2，3很明显，也是可以完成的。</p> <p>第一步，将乘法公式提出来单独形成一个作用于自身的方法，代码如下：</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">def</span><span style="color: rgba(0, 0, 0, 1)"> get_step(self,direction,distance):</span><span style="color: rgba(0, 0, 255, 1)">return</span> distance*<span style="color: rgba(0, 0, 0, 1)">direction</span><span style="color: rgba(0, 0, 255, 1)">def</span><span style="color: rgba(0, 0, 0, 1)"> fill_moving(self):</span><span style="color: rgba(0, 0, 255, 1)">while</span> len(self.x_values)&lt;self.num_times:<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">循环不断运行，直到漫步包含所需数量的点num_times</span>             x_step = self.get_step(choice([1,-1]),choice([0,1,2,3,4,5]))<span style="color: rgba(0, 128, 0, 1)">#直接调用get_step方法，使代码更加简洁</span>             y_step = self.get_step(choice([1,-1]),choice([0,1,2,3,4,5]))</pre> </div> <p>完成第1问，代码变得更加简洁明了。</p> <p>第2、3个问题：</p> <p>1）要能生成实例个数n，且还有对应的移动次数num_times，可考虑用字典，即实例个数为key，对应移动次数num_times为键值,当输入2时，如&nbsp; caselist={’1‘:'150000'，’2‘:'250000'}</p> <p>2）读取字典每个项目，将对应的key和value传递给由Rand_moving类创建的实例，key的个数即为需要创建实例的个数，对应的value值为移动次数。</p> <p>3）输入数字，即为字典key的个数，存入字典，同时利用随机函数生成一个num_times保存到对应的value中。</p> <p>&nbsp;完成思路：</p> <p>1，重新定义一个类 New_case() 作用：接收一个数据，并根据这个数据自动生成一个字典，</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> New_case():</span><span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">定义New_case类</span><span style="color: rgba(0, 0, 255, 1)">def</span><span style="color: rgba(128, 0, 128, 1)">__init__</span>(self,numbers):<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">定义要创建的实例个数</span>         self.numbers=<span style="color: rgba(0, 0, 0, 1)">numbers              self.caselist</span>={}<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">定义一个空的caselist字典</span>         self.case =<span style="color: rgba(0, 0, 0, 1)"> 0</span><span style="color: rgba(0, 0, 255, 1)">while</span> self.case &lt;<span style="color: rgba(0, 0, 0, 1)"> self.numbers:<span style="color: rgba(0, 128, 0, 1)">#当变量case小于给定值时</span>，             self.case</span>+= 1<span style="color: rgba(0, 0, 0, 1)">             times</span>= choice([100000,150000,200000,250000<span style="color: rgba(0, 0, 0, 1)">])<span style="color: rgba(0, 128, 0, 1)">#随机选择一个移动次数</span>             self.caselist[self.case]</span>= times<span style="color: rgba(0, 128, 0, 1)">#将value与key对应</span></pre> </div> <p>2、需要循环读取字典的key和value,并将value传递给类Rand_moving，随后再运行fill_moving()生成数据并保存到列表，随即用plt.scatter()进行绘图</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">for</span> key,value<span style="color: rgba(0, 0, 255, 1)">in</span> self.caselist.items():<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">字典不为空</span>             colorkey=str(key)<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">  将字典关键字转为字符串存到变量colorkey中</span>             examplecase = Rand_moving(int(value))<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">创建实例，将对应的value值传递类Rand_moving</span>             examplecase.fill_moving()<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">调用类Rand_moving中的方法fill_moving()计算移动相关数据并保存到列表中</span>             plt.figure(dpi=128,figsize=(12, 10))<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">创建画面屏幕</span><span style="color: rgba(0, 0, 0, 1)">                       plt.scatter(examplecase.x_values,examplecase.y_values,c</span>=self.colors[colorkey],s=15<span style="color: rgba(0, 0, 0, 1)">)         plt.show()</span></pre> </div> <pre><span><br/>上篇中的代码  c=y_values, cmap=plt.cm.Reds为什么这里不再用，是因为这里循环的时候一直出现红色R</span>eds，为了对比，创建了一新字典colors{}，将生成的个数与颜色相对应。所以上述代码中修改为 c=self.colors[colorkey]<br/><br/>类New_case()&nbsp;全部代码如下：<br/><br/></pre> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">import</span><span style="color: rgba(0, 0, 0, 1)"> matplotlib.pyplot as plt</span><span style="color: rgba(0, 0, 255, 1)">from</span> rand_moving<span style="color: rgba(0, 0, 255, 1)">import</span> *<span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> New_case():</span><span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">定义New_case类</span><span style="color: rgba(0, 0, 255, 1)">def</span><span style="color: rgba(128, 0, 128, 1)">__init__</span>(self,numbers):<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">定义要创建的实例个数</span>         self.numbers=<span style="color: rgba(0, 0, 0, 1)">numbers              self.caselist</span>={}<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">定义一个空的cases列表</span>         self.case = 0<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">定义一个case变量</span>         self.colors={<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">1</span><span style="color: rgba(128, 0, 0, 1)">'</span>:<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">red</span><span style="color: rgba(128, 0, 0, 1)">'</span>,<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">2</span><span style="color: rgba(128, 0, 0, 1)">'</span>:<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">orange</span><span style="color: rgba(128, 0, 0, 1)">'</span>,<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">3</span><span style="color: rgba(128, 0, 0, 1)">'</span>:<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">yellow</span><span style="color: rgba(128, 0, 0, 1)">'</span>,<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">4</span><span style="color: rgba(128, 0, 0, 1)">'</span>:<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">green</span><span style="color: rgba(128, 0, 0, 1)">'</span>,<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">5</span><span style="color: rgba(128, 0, 0, 1)">'</span>:<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">blue</span><span style="color: rgba(128, 0, 0, 1)">'</span>,<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">6</span><span style="color: rgba(128, 0, 0, 1)">'</span>:<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">puple</span><span style="color: rgba(128, 0, 0, 1)">'</span>}<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">创建了一新字典colors{}，将生成的个数与颜色相对应</span><span style="color: rgba(0, 0, 255, 1)">while</span> self.case &lt; self.numbers:<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">小于给定实例个数时</span>             self.case += 1<span style="color: rgba(0, 0, 0, 1)">             times</span>= choice([100000,150000,200000,250000])<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">随机生成一个移动次数</span>             self.caselist[self.case] = times<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">将变量case作为key, times作为value保存到字典中</span><span style="color: rgba(0, 0, 255, 1)">def</span> case_moving(self):<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">重新定义一个方法，即访问字典所有项</span><span style="color: rgba(0, 0, 255, 1)">for</span> key,value<span style="color: rgba(0, 0, 255, 1)">in</span> self.caselist.items():<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">字典不为空</span>             colorkey=str(key)<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">  将字典关键字转为字符串存到变量colorkey中</span>             examplecase = Rand_moving(int(value))<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">创建实例，将对应的value值传递类Rand_moving</span>             examplecase.fill_moving()<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">调用类Rand_moving中的方法fill_moving()计算移动相关数据并保存到列表中</span>             plt.figure(dpi=128,figsize=(12, 10))<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">创建画面屏幕</span>             plt.scatter(examplecase.x_values,examplecase.y_values,c=self.colors[colorkey],s=15)<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">注意调用了上述新字典的颜色</span>         plt.show()</pre> </div> <p>3、主程序</p> <p>主程序中有一个交互，需要输入一个数据，然后调用相关相关类创建实例（<span style="color: rgba(255, 0, 0, 1)">慢慢成调包侠了！^v^</span>）</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">import</span><span style="color: rgba(0, 0, 0, 1)"> matplotlib.pyplot as plt</span><span style="color: rgba(0, 0, 255, 1)">from</span> rand_moving<span style="color: rgba(0, 0, 255, 1)">import</span> *<span style="color: rgba(0, 0, 255, 1)">from</span> new_case<span style="color: rgba(0, 0, 255, 1)">import</span> *<span style="color: rgba(0, 0, 255, 1)">print</span>(<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Please enter the number：</span><span style="color: rgba(128, 0, 0, 1)">"</span>)<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">交互，请输入一个数，模拟运行，不需要太大的数据。</span> n = input()<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">将输入的数据保存到变量n中，注意所有输入均为字符串，</span><span style="color: rgba(0, 0, 0, 1)"> testcase</span>= New_case(int(n))<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">将n转为整型数据，创建实例个数</span> testcase.case_moving()</pre> </div> <p>实际运行效果，输入4，生成4个数据图形（为展示较全，原图已缩小）：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/6fcf53caf5d11797712f31895d54022a.jpg" alt="python数据可视化-matplotlib入门利用随机函数生成变化图形2"></p> <p>self.colors={'1':'red','2':'orange','3':'yellow','4':'green','5':'blue','6':'puple'}<span style="color: rgba(255, 0, 0, 1)">注意：图的颜色分别与colors字典中对应。</span></p> <p>当然如果觉得数轴很碍眼，那就在类类New_case()&nbsp;中的plt.figure()之后加上</p> <p>plt.axes().get_xaxis().set_visible(False)<br />plt.axes().get_yaxis().set_visible(False)<span></span></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-99133.htm">关于Hadoop在java客户端进行下载时的异常java.io.FileNotFoundException: Hadoop home directory is no existed的解决办法</a></p>
+                                        <p>下一个：<a href="/news/article-99920.htm">宠物医院治仓鼠吗安全吗（一般的宠物医院治仓鼠吗）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-26-free-v2ray-subscribe.htm" title="3月26日|Clash/SSR/V2ray/Shadowrocket每天更新19.8M/S免费节点订阅链接地址">3月26日|Clash/SSR/V2ray/Shadowrocket每天更新19.8M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-20-clash-v2ray-ss-ssr.htm" title="4月20日|Shadowrocket/SSR/Clash/V2ray每天更新21.3M/S免费节点订阅链接地址">4月20日|Shadowrocket/SSR/Clash/V2ray每天更新21.3M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-85860.htm" title="dubbo发送过程编码失败，会唤醒发送线程吗？_在线工具">dubbo发送过程编码失败，会唤醒发送线程吗？_在线工具</a></li>
+                        <li class="py-2"><a href="/news/article-96932.htm" title="Git基础Git创建本地版本库详解">Git基础Git创建本地版本库详解</a></li>
+                        <li class="py-2"><a href="/news/article-91700.htm" title="长春宠物医院电话号码是多少?（长春宠物医院电话号码是多少啊）">长春宠物医院电话号码是多少?（长春宠物医院电话号码是多少啊）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-6-free-subscribe-node.htm" title="3月6日|SSR/Shadowrocket/V2ray/Clash每天更新20M/S免费节点订阅链接地址">3月6日|SSR/Shadowrocket/V2ray/Clash每天更新20M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-14-free-node-subscribe.htm" title="3月14日|Shadowrocket/V2ray/SSR/Clash每天更新21.7M/S免费节点订阅链接地址">3月14日|Shadowrocket/V2ray/SSR/Clash每天更新21.7M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-3-free-v2ray-subscribe.htm" title="4月3日|Shadowrocket/V2ray/Clash/SSR每天更新18.2M/S免费节点订阅链接地址">4月3日|Shadowrocket/V2ray/Clash/SSR每天更新18.2M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-83007.htm" title="windows查看已经连过wifi的密码">windows查看已经连过wifi的密码</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-13-free-clash-subscribe.htm" title="3月13日|Clash/Shadowrocket/V2ray/SSR每天更新20.8M/S免费节点订阅链接地址">3月13日|Clash/Shadowrocket/V2ray/SSR每天更新20.8M/S免费节点订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">88</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p class="copyright_text">
+                            ClashNodesFree免费订阅站 版权所有
+                            <br />
+                            Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery-3.0.0.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/plugin.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
