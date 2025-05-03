@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+    	<link rel="canonical" href="https://clashnodesfree.github.io/news/article-109476.htm" />
+	<!-- basic -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<!-- mobile metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<!-- site metas -->
+	<title>正则表达式 \b \B，单词边界的匹配</title>
+		<meta name="description" content="文章目录  1 \b \B 代表的含义 2 用法示例   2.1 简单示例   2.1.1 示例1 2.1.2 示例2 2.1.3 示例3 2.1.4 示例4   2.2 复杂示例   2.2.1 示" />
+	
+    <meta name="author" content="ClashNodesFree免费订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashnodesfree.github.io/news/article-109476.htm" />
+    <meta property="og:site_name" content="ClashNodesFree免费订阅站" />
+    <meta property="og:title" content="正则表达式 \b \B，单词边界的匹配" />
+    <meta property="og:image" content="https://clashnodesfree.github.io/uploads/20240323/ed216feb620e857e62e319edb7810fbd.webp" />
+        <meta property="og:release_date" content="2025-05-02T09:22:23" />
+    <meta property="og:updated_time" content="2025-05-02T09:22:23" />
+        <meta property="og:description" content="文章目录  1 \b \B 代表的含义 2 用法示例   2.1 简单示例   2.1.1 示例1 2.1.2 示例2 2.1.3 示例3 2.1.4 示例4   2.2 复杂示例   2.2.1 示" />
+        
+	<!-- bootstrap css -->
+	<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/bootstrap.min.css">
+	<!-- style css -->
+	<link rel="stylesheet" type="text/css" href="/assets/website/css/clashnodesfree/style.css">
+	<!-- Responsive-->
+	<link rel="stylesheet" href="/assets/website/css/clashnodesfree/responsive.css">
+	<!-- favicon -->
+	<link rel="icon" href="/assets/website/img/clashnodesfree/favicon.ico" type="image/x-icon"/>
+	<!-- Scrollbar Custom CSS -->
+	<link rel="stylesheet" href="/assets/website/css/clashnodesfree/jquery.mCustomScrollbar.min.css">
+	<!-- Tweaks for older IEs-->
+	<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+	<link rel="stylesheet" href="/assets/website/css/G.css" />
+	<!-- fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="正则表达式 \b \B，单词边界的匹配">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z348FF31FW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z348FF31FW');
+</script>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!-- header section start -->
+    <div class="header_section header_bg">
+        <div class="container-fluid">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo">
+                                        <a href="/">Clash Nodes Free</a>
+                                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="breadcrumb">
+              <a href="/">首页</a> / 
+              <a href="/news/">新闻资讯</a> / 
+              <span>正文</span>
+            </div>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <h1 class="services_taital mb-5">正则表达式 \b \B，单词边界的匹配</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>文章目录</h3> <ul> <li>1 \b \B 代表的含义</li> <li>2 用法示例</li> <li> <ul> <li>2.1 简单示例</li> <li> <ul> <li>2.1.1 示例1</li> <li>2.1.2 示例2</li> <li>2.1.3 示例3</li> <li>2.1.4 示例4</li> </ul> </li> <li>2.2 复杂示例</li> <li> <ul> <li>2.2.1 示例5</li> <li>2.2.2 示例6</li> </ul> </li> </ul> </li> </ul> </div> <blockquote> <p>在使用正则表达式的时候，会遇到需要精准匹配某些字符的情况，这时候 \b \B 就派上用场了。若是不理解这两个正则表达式元字符，用起来便不会得心应手。本文介绍如何使用它们。</p> </blockquote> </h1> <table> <thead> <tr> <th align="left">元字符</th> <th align="left">含义</th> </tr> </thead> <tbody> <tr> <td align="left">\b</td> <td align="left">匹配一个单词边界</td> </tr> <tr> <td align="left">\B</td> <td align="left">匹配一个非单词边界</td> </tr> <tr> <td align="left">\w</td> <td align="left">匹配一个字母、数字或下划线。等价于 [A-Za-z0-9_]</td> </tr> </tbody> </table> <p>这两个元字符的含义看起来非常官方，但却又非常准确。理解之后就会发现它们概括的言简意赅，一点废话都没有，但却需要细细品味。</p> <p>要想理解这两个元字符，需要明确两个概念：</p> <ol> <li>单词：说到单词，又涉及到一个元字符<code>\w</code>，如上表所述，<code>\w表示一个字母数字或下划线</code>。<strong>而单词，正是由若干\w组成的，也就是任意字母数字的组合。</strong> </li> <li>边界：在正则表达式里面，边界不是特定的字符，而是一个不存在的东西，一个概念。可以说是\b \B代表的东西，<strong>边界是任何两个字符之间的那个东西</strong>。</li> </ol> <p>明确这两个概念之后，下面就可以说明 \b \B 代表的含义了。</p> <ul> <li>\b 单词边界：匹配一个边界，<strong>一边字符是\w，一边字符不是\w</strong> </li> <li>\B 非单词边界：匹配除 \b 之外的边界。<strong>两边字符都是\w，或两边字符都不是\w</strong> </li> </ul> <p>这里先下一个定义，用正则表达式的语言表达：</p> <ul> <li>字符是\w：<code>\w</code> </li> <li>字符不是\w：<code>[^\w]</code> </li> </ul> <p>如下图所示，图中所有虚竖线都是边界。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230207/154b8ee3af515ae33ca552ea2e7896ad.jpg" alt="正则表达式 \b \B，单词边界的匹配"><br /> 上图中，每个边界都满足：一边是<code>\w</code>，一边是<code>[^\w]</code>。即：</p> <ul> <li>左边是<code>\w</code>，右边是<code>[^\w]</code> </li> <li>左边是<code>[^\w]</code>，右边是<code>\w</code> </li> </ul> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230207/8b5f995208dd9441c8495f73cd662837.jpg" alt="正则表达式 \b \B，单词边界的匹配"><br /> \B 就是除 \b 之外的所有边界。\b表示一边是<code>\w</code>，一边是<code>[^\w]</code>的边界，那么取反，即：</p> <ul> <li>两边都是<code>\w</code> </li> <li>两边都是<code>[^\w]</code> </li> </ul> <p>简言之：</p> <table> <thead> <tr> <th>边界类型</th> <th>左侧字符</th> <th align="left">右侧字符</th> </tr> </thead> <tbody> <tr> <td>\b</td> <td><code>\w</code></td> <td align="left"><code>[^\w]</code></td> </tr> <tr> <td>\b</td> <td><code>[^\w]</code></td> <td align="left"><code>\w</code></td> </tr> <tr> <td>\B</td> <td><code>\w</code></td> <td align="left"><code>\w</code></td> </tr> <tr> <td>\B</td> <td><code>[^\w]</code></td> <td align="left"><code>[^\w]</code></td> </tr> </tbody> </table> <p>用字符是 <code>\w</code> 代表 1，字符是<code>[^\w]</code>代表 0，那么用计算机的逻辑思维理解就是：</p> <table> <thead> <tr> <th>边界类型</th> <th>左侧字符</th> <th align="left">右侧字符</th> </tr> </thead> <tbody> <tr> <td>\b</td> <td><code>1</code></td> <td align="left"><code>0</code></td> </tr> <tr> <td>\b</td> <td><code>0</code></td> <td align="left"><code>1</code></td> </tr> <tr> <td>\B</td> <td><code>1</code></td> <td align="left"><code>1</code></td> </tr> <tr> <td>\B</td> <td><code>0</code></td> <td align="left"><code>0</code></td> </tr> </tbody> </table> <p>两个二进制数的表示也就这四种情况。因此，可得到如下结论：</p> <ul> <li>\b 代表的边界，左右字符类型不相同</li> <li>\B 代表的边界，左右字符类型相同</li> </ul> <p>注意：这里指的字符类型只包括两种（是<code>\w</code> 、不是<code>\w</code>）。<mark>其它都可以忘掉，只要记住这两个结论就可以了</mark>。</p> <p>看到这，应该能从上面的图表中理解什么是单词边界<code>\b</code>，什么是非单词边界<code>\B</code>了。</p> </h1> <p>这里根据第1节得出的结论：</p> <ul> <li>\b 代表的边界，左右字符类型不相同</li> <li>\B 代表的边界，左右字符类型相同</li> </ul> <p>结合几个示例进行分析。</p> <h2> 2.1 简单示例</h2> <h3> 2.1.1 示例1</h3> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230207/cbe74d8c92716e62e131fa6ee4e4d2d0.jpg" alt="正则表达式 \b \B，单词边界的匹配"><br /> 对于模式<code>\bat\b</code>中的第一个\b，由于其右侧是<code>\w</code>，那么其左侧必须是<code>[^\w]</code>；<br /> 对于模式<code>\bat\b</code>中的第二个\b，由于其左侧是<code>\w</code>，那么其右侧必须是<code>[^\w]</code>；<br /> 因此匹配结果如图所示。</p> <h3> 2.1.2 示例2</h3> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230207/d416735198dc37153739662cf6bb5d86.jpg" alt="正则表达式 \b \B，单词边界的匹配"><br /> 对于模式<code>\Bat\b</code>中的\B，由于其右侧是<code>\w</code>，那么其左侧也必须是<code>\w</code>；<br /> 对于模式<code>\Bat\b</code>中的\b，由于其左侧是<code>\w</code>，那么其右侧必须是<code>[^\w]</code>；<br /> 因此匹配结果如图所示。</p> <h3> 2.1.3 示例3</h3> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230207/4262396382feb62f72a9eb5df6c7ac6a.jpg" alt="正则表达式 \b \B，单词边界的匹配"><br /> 对于模式<code>\Bat\B</code>中的第一个\B，由于其右侧是<code>\w</code>，那么其左侧也必须是<code>\w</code>；<br /> 对于模式<code>\Bat\B</code>中的第二个\B，由于其左侧是<code>\w</code>，那么其右侧也必须是<code>\w</code>；<br /> 因此匹配结果如图所示。</p> <h3> 2.1.4 示例4</h3> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230207/a4ec71d6d0ecfe102cd531a3657c1a82.jpg" alt="正则表达式 \b \B，单词边界的匹配"><br /> 对于模式<code>\bat\B</code>中的\b，由于其右侧是<code>\w</code>，那么其左侧必须是<code>[^\w]</code>；<br /> 对于模式<code>\bat\B</code>中的\B，由于其左侧是<code>\w</code>，那么其右侧也必须是<code>\w</code>；<br /> 因此匹配结果如图所示。</p> <h2> 2.2 复杂示例</h2> <p>能看懂上面的简单示例的话，理解下面的就不难了。</p> <h3> 2.2.1 示例5</h3> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230207/cb30d01670e0c62ed08c2a7c20cc2ef8.jpg" alt="正则表达式 \b \B，单词边界的匹配"><br /> 由于<code>%</code>是<code>[^\w]</code>，因此匹配结果两侧的字符也应该是<code>[^\w]</code></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230207/96c499201a9cdf3faa3aabb249747000.jpg" alt="正则表达式 \b \B，单词边界的匹配"><br /> 这个不用说应该就能懂了。</p> <h3> 2.2.2 示例6</h3> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230207/31571fee397c1ec7ab6382e0487b6a70.jpg" alt="正则表达式 \b \B，单词边界的匹配"><br /> 根据两个\B，目标的 thank 左右两侧应该都是<code>\w</code></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230207/1a20ffe030d810559983ad038ff54d4b.jpg" alt="正则表达式 \b \B，单词边界的匹配"><br /> 根据\b，<code>r</code>左侧应该是<code>[^\w]</code>；根据\B，<code>=</code>右侧应该是<code>[^\w]</code></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230207/ec4cf583ab6612716a6aa6f9b8301170.jpg" alt="正则表达式 \b \B，单词边界的匹配"><br /> 由于<code>r</code>是<code>\w</code>，根据\b，<code>r</code>左侧应该是<code>[^\w]</code>；<br /> 由于<code>=</code>是<code>[^\w]</code>，根据\b，<code>=</code>右侧应该是<code>\w</code>；<br /> 字符串中两个<code>regex==</code>均不满足左侧是<code>[^\w]</code>，右侧是<code>\w</code>，因此匹配失败。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230207/e364d2211c18ed696119095533148191.jpg" alt="正则表达式 \b \B，单词边界的匹配"><br /> 字符串中第二个<code>regex==</code>满足左侧是<code>\w</code>，右侧是<code>\w</code>，因此匹配成功。</p> </p></div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-108638.htm">兽医专业自考需要什么条件（兽医自考需要什么条件2020）</a></p>
+                                        <p>下一个：<a href="/news/article-109477.htm">猫三联三针有什么区别图片（猫三联每针的作用）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-107769.htm" title="动物疫苗销售需要什么手续（动物疫苗销售需要什么手续和条件）">动物疫苗销售需要什么手续（动物疫苗销售需要什么手续和条件）</a></li>
+                        <li class="py-2"><a href="/news/article-91701.htm" title="宠物粮调研 宠物粮调研报告模版">宠物粮调研 宠物粮调研报告模版</a></li>
+                        <li class="py-2"><a href="/news/article-88023.htm" title="建立对分布式锁的系统认知 &#8211; 从 Redlock 开始">建立对分布式锁的系统认知 &#8211; 从 Redlock 开始</a></li>
+                        <li class="py-2"><a href="/news/article-106819.htm" title="中国兽药厂家排名前100强企业 中国兽药厂家排名前100强企业有哪些">中国兽药厂家排名前100强企业 中国兽药厂家排名前100强企业有哪些</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-2-clash-node-daily-updates.htm" title="4月2日|SSR/Clash/V2ray/Shadowrocket每天更新20.3M/S免费节点订阅链接地址">4月2日|SSR/Clash/V2ray/Shadowrocket每天更新20.3M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-107765.htm" title="IDEA配置Maven详细版教程">IDEA配置Maven详细版教程</a></li>
+                        <li class="py-2"><a href="/news/article-88741.htm" title="JavaScript找到两个数组之间的差异方法详解">JavaScript找到两个数组之间的差异方法详解</a></li>
+                        <li class="py-2"><a href="/news/article-97678.htm" title="动物疫苗板块有哪些（利好消息频传,这些动物疫苗股值得关注）">动物疫苗板块有哪些（利好消息频传,这些动物疫苗股值得关注）</a></li>
+                        <li class="py-2"><a href="/news/article-98400.htm" title="宠物粮食品牌名字4个字大全及图片高清 宠物粮食品牌名字4个字大全及图片高清版">宠物粮食品牌名字4个字大全及图片高清 宠物粮食品牌名字4个字大全及图片高清版</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-27-clash-v2ray-ss-ssr.htm" title="4月27日|Clash/Shadowrocket/SSR/V2ray每天更新22.6M/S免费节点订阅链接地址">4月27日|Clash/Shadowrocket/SSR/V2ray每天更新22.6M/S免费节点订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-05/" title="2025-05 归档">2025-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+        <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p class="copyright_text">
+                            ClashNodesFree免费订阅站 版权所有
+                            <br />
+                            Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/jquery-3.0.0.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnodesfree/plugin.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
