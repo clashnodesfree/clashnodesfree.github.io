@@ -145,29 +145,9 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS + XTLS 的传输效率比 Trojan 高吗？</h5></div>
+    <div class="panel-heading"><h5>Sing-box 的策略组支持按延迟选择节点吗？</h5></div>
     <div class="panel-body">
-        在高延迟环境下，VLESS + XTLS 的性能通常比 Trojan 高。XTLS 去掉了冗余加密开销，降低 CPU 占用，提高多连接场景下的吞吐率，尤其在服务器高负载情况下表现更佳。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>V2RayN 的作用是什么？</h5></div>
-    <div class="panel-body">
-        V2RayN 是 V2Ray 的 Windows 图形客户端，提供节点管理、订阅导入、日志查看等功能。它支持多协议配置，并可与系统代理集成，是 Windows 用户最常用的代理管理工具之一。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>V2RayN 与 WinXray 哪个更易用？</h5></div>
-    <div class="panel-body">
-        V2RayN 界面更简洁，功能更稳定，而 WinXray 提供了更现代的界面和自动测速功能。对于初学者来说，V2RayN 上手更快；而追求高级功能的用户可能更喜欢 WinXray。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VMess AEAD 加密在高封锁环境的优势？</h5></div>
-    <div class="panel-body">
-        AEAD 加密可防止数据篡改和流量特征泄露，降低被检测风险。在高封锁网络中，保证节点可用性和连接稳定性，同时提升数据传输安全性，确保长期安全访问。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekoray 的订阅更新机制如何运作？</h5></div>
-    <div class="panel-body">
-        Nekoray 可以通过远程订阅 URL 自动下载最新节点和规则文件。用户可以设置更新频率，程序会定时检测并替换旧节点，保持配置最新状态。<hr />    </div>
+        支持。Sing-box 会根据节点延迟自动选择最优节点，结合策略组和路由规则，实现智能分流。延迟最低的节点优先被使用，提高网络访问速度和稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Clash 的规则模式有哪些？</h5></div>
@@ -175,14 +155,14 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         Clash 提供三种主要模式：Global（全局代理）、Rule（规则代理）和Direct（直连）。全局模式会让所有流量通过代理；规则模式根据规则文件自动分流；直连模式则完全不经过代理。用户可根据需求灵活切换。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Trojan 的连接失败常见原因有哪些？</h5></div>
+    <div class="panel-heading"><h5>VMess AEAD 加密在高封锁环境的优势？</h5></div>
     <div class="panel-body">
-        Trojan 连接失败可能由于伪装域名错误、TLS 证书过期、防火墙阻挡端口或服务器不可达。通过查看客户端日志可以定位具体原因，并对症下药解决问题。<hr />    </div>
+        AEAD 加密可防止数据篡改和流量特征泄露，降低被检测风险。在高封锁网络中，保证节点可用性和连接稳定性，同时提升数据传输安全性，确保长期安全访问。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 的策略组支持按延迟选择节点吗？</h5></div>
+    <div class="panel-heading"><h5>PassWall2 的节点测速结果如何影响分流？</h5></div>
     <div class="panel-body">
-        支持。Sing-box 会根据节点延迟自动选择最优节点，结合策略组和路由规则，实现智能分流。延迟最低的节点优先被使用，提高网络访问速度和稳定性。<hr />    </div>
+        PassWall2 会根据节点延迟和成功率自动调整策略组选择最优节点。测速结果直接影响程序选择出口，从而提高连接速度和稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Trojan TLS 如何避免被 DPI 检测？</h5></div>
@@ -190,9 +170,29 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         通过选择真实可访问域名并使用有效证书，Trojan 流量可完全模拟 HTTPS 请求。隐藏真实流量特征，降低被封锁和 DPI 检测风险，保证节点长期可用。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 的节点测速结果如何影响分流？</h5></div>
+    <div class="panel-heading"><h5>VLESS + XTLS 的传输效率比 Trojan 高吗？</h5></div>
     <div class="panel-body">
-        PassWall2 会根据节点延迟和成功率自动调整策略组选择最优节点。测速结果直接影响程序选择出口，从而提高连接速度和稳定性。    </div>
+        在高延迟环境下，VLESS + XTLS 的性能通常比 Trojan 高。XTLS 去掉了冗余加密开销，降低 CPU 占用，提高多连接场景下的吞吐率，尤其在服务器高负载情况下表现更佳。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Trojan 的连接失败常见原因有哪些？</h5></div>
+    <div class="panel-body">
+        Trojan 连接失败可能由于伪装域名错误、TLS 证书过期、防火墙阻挡端口或服务器不可达。通过查看客户端日志可以定位具体原因，并对症下药解决问题。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>V2RayN 与 WinXray 哪个更易用？</h5></div>
+    <div class="panel-body">
+        V2RayN 界面更简洁，功能更稳定，而 WinXray 提供了更现代的界面和自动测速功能。对于初学者来说，V2RayN 上手更快；而追求高级功能的用户可能更喜欢 WinXray。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Nekoray 的订阅更新机制如何运作？</h5></div>
+    <div class="panel-body">
+        Nekoray 可以通过远程订阅 URL 自动下载最新节点和规则文件。用户可以设置更新频率，程序会定时检测并替换旧节点，保持配置最新状态。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>V2RayN 的作用是什么？</h5></div>
+    <div class="panel-body">
+        V2RayN 是 V2Ray 的 Windows 图形客户端，提供节点管理、订阅导入、日志查看等功能。它支持多协议配置，并可与系统代理集成，是 Windows 用户最常用的代理管理工具之一。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -221,16 +221,16 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2025-10-8-node-share.htm" title="10月8日|SSR节点/V2ray节点/Shadowrocket节点/Clash节点/Singbox节点每天更新20M/S免费节点订阅链接地址">10月8日|SSR节点/V2ray节点/Shadowrocket节点/Clash节点/Singbox节点每天更新20M/S免费节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-21-node-share.htm" title="10月21日|Shadowrocket节点/Clash节点/SSR节点/V2ray节点/Singbox节点每天更新21.7M/S免费节点订阅链接地址">10月21日|Shadowrocket节点/Clash节点/SSR节点/V2ray节点/Singbox节点每天更新21.7M/S免费节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-3-free-clash-subscribe.htm" title="10月3日|SSR节点/Shadowrocket节点/V2ray节点/Singbox节点/Clash节点每天更新20.7M/S免费节点订阅链接地址">10月3日|SSR节点/Shadowrocket节点/V2ray节点/Singbox节点/Clash节点每天更新20.7M/S免费节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-26-free-node-subscribe.htm" title="10月26日|Clash节点/Singbox节点/SSR节点/V2ray节点/Shadowrocket节点每天更新22.9M/S免费节点订阅链接地址">10月26日|Clash节点/Singbox节点/SSR节点/V2ray节点/Shadowrocket节点每天更新22.9M/S免费节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-12-free-shadowrocket-node.htm" title="10月12日|Clash节点/Shadowrocket节点/V2ray节点/Singbox节点/SSR节点每天更新19.6M/S免费节点订阅链接地址">10月12日|Clash节点/Shadowrocket节点/V2ray节点/Singbox节点/SSR节点每天更新19.6M/S免费节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-27-free-high-speed-nodes.htm" title="10月27日|Shadowrocket节点/SSR节点/Singbox节点/V2ray节点/Clash节点每天更新20.4M/S免费节点订阅链接地址">10月27日|Shadowrocket节点/SSR节点/Singbox节点/V2ray节点/Clash节点每天更新20.4M/S免费节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-25-free-clash-subscribe.htm" title="10月25日|Clash节点/SSR节点/Shadowrocket节点/Singbox节点/V2ray节点每天更新22.3M/S免费节点订阅链接地址">10月25日|Clash节点/SSR节点/Shadowrocket节点/Singbox节点/V2ray节点每天更新22.3M/S免费节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-24-free-subscribe-node.htm" title="10月24日|Singbox节点/V2ray节点/Clash节点/SSR节点/Shadowrocket节点每天更新20.3M/S免费节点订阅链接地址">10月24日|Singbox节点/V2ray节点/Clash节点/SSR节点/Shadowrocket节点每天更新20.3M/S免费节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-22-free-clash-subscribe.htm" title="10月22日|Clash节点/SSR节点/V2ray节点/Singbox节点/Shadowrocket节点每天更新19.8M/S免费节点订阅链接地址">10月22日|Clash节点/SSR节点/V2ray节点/Singbox节点/Shadowrocket节点每天更新19.8M/S免费节点订阅链接地址</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-10-4-clash-v2ray-ss-ssr.htm" title="10月4日|V2ray节点/Shadowrocket节点/SSR节点/Clash节点/Singbox节点每天更新19M/S免费节点订阅链接地址">10月4日|V2ray节点/Shadowrocket节点/SSR节点/Clash节点/Singbox节点每天更新19M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-27-free-high-speed-nodes.htm" title="10月27日|Shadowrocket节点/SSR节点/Singbox节点/V2ray节点/Clash节点每天更新20.4M/S免费节点订阅链接地址">10月27日|Shadowrocket节点/SSR节点/Singbox节点/V2ray节点/Clash节点每天更新20.4M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-6-free-clash.htm" title="10月6日|Shadowrocket节点/V2ray节点/SSR节点/Singbox节点/Clash节点每天更新20.8M/S免费节点订阅链接地址">10月6日|Shadowrocket节点/V2ray节点/SSR节点/Singbox节点/Clash节点每天更新20.8M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-19-free-v2ray.htm" title="10月19日|SSR节点/Singbox节点/Shadowrocket节点/Clash节点/V2ray节点每天更新18.9M/S免费节点订阅链接地址">10月19日|SSR节点/Singbox节点/Shadowrocket节点/Clash节点/V2ray节点每天更新18.9M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-7-free-node-subscribe-links.htm" title="10月7日|Clash节点/Singbox节点/SSR节点/V2ray节点/Shadowrocket节点每天更新20.5M/S免费节点订阅链接地址">10月7日|Clash节点/Singbox节点/SSR节点/V2ray节点/Shadowrocket节点每天更新20.5M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-26-free-node-subscribe.htm" title="10月26日|Clash节点/Singbox节点/SSR节点/V2ray节点/Shadowrocket节点每天更新22.9M/S免费节点订阅链接地址">10月26日|Clash节点/Singbox节点/SSR节点/V2ray节点/Shadowrocket节点每天更新22.9M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-3-free-clash-subscribe.htm" title="10月3日|SSR节点/Shadowrocket节点/V2ray节点/Singbox节点/Clash节点每天更新20.7M/S免费节点订阅链接地址">10月3日|SSR节点/Shadowrocket节点/V2ray节点/Singbox节点/Clash节点每天更新20.7M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-13-clash-windows.htm" title="10月13日|SSR节点/Clash节点/Singbox节点/Shadowrocket节点/V2ray节点每天更新22.2M/S免费节点订阅链接地址">10月13日|SSR节点/Clash节点/Singbox节点/Shadowrocket节点/V2ray节点每天更新22.2M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-17-free-clash-subscribe.htm" title="10月17日|SSR节点/Shadowrocket节点/Singbox节点/Clash节点/V2ray节点每天更新18.5M/S免费节点订阅链接地址">10月17日|SSR节点/Shadowrocket节点/Singbox节点/Clash节点/V2ray节点每天更新18.5M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-21-node-share.htm" title="10月21日|Shadowrocket节点/Clash节点/SSR节点/V2ray节点/Singbox节点每天更新21.7M/S免费节点订阅链接地址">10月21日|Shadowrocket节点/Clash节点/SSR节点/V2ray节点/Singbox节点每天更新21.7M/S免费节点订阅链接地址</a></li>
                     </ul>
     </div>
 </div>
@@ -242,7 +242,7 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">26</span> <a href="/date/2025-10/" title="2025-10 归档">2025-10</a></h4>
